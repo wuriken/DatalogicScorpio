@@ -1,0 +1,15 @@
+C:\Users\Alex\Desktop\РРО\DatalogicScorpio\DatalogicScorpio\bin\Debug\DatalogicScorpio.exe
+C:\Users\Alex\Desktop\РРО\DatalogicScorpio\DatalogicScorpio\bin\Debug\DatalogicScorpio.pdb
+C:\Users\Alex\Desktop\РРО\DatalogicScorpio\DatalogicScorpio\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Alex\Desktop\РРО\DatalogicScorpio\DatalogicScorpio\obj\Debug\DatalogicScorpio.Properties.Resources.resources
+C:\Users\Alex\Desktop\РРО\DatalogicScorpio\DatalogicScorpio\obj\Debug\DatalogicScorpio.csproj.GenerateResource.Cache
+C:\Users\Alex\Desktop\РРО\DatalogicScorpio\DatalogicScorpio\obj\Debug\DatalogicScorpio.exe
+C:\Users\Alex\Desktop\РРО\DatalogicScorpio\DatalogicScorpio\obj\Debug\DatalogicScorpio.pdb
+C:\Users\Alex\Desktop\РРО\DatalogicScorpio\DatalogicScorpio\bin\Debug\datalogic.datacapture2008.DLL
+C:\Users\Alex\Desktop\РРО\DatalogicScorpio\DatalogicScorpio\bin\Debug\datalogic.pdc.dll
+C:\Users\Alex\Desktop\РРО\DatalogicScorpio\DatalogicScorpio\obj\Debug\DatalogicScorpio.NewInvoiceForm.resources
+C:\Users\Alex\Desktop\РРО\DatalogicScorpio\DatalogicScorpio\obj\Debug\DatalogicScorpio.QuntityForm.resources
+C:\Users\Alex\Desktop\РРО\DatalogicScorpio\DatalogicScorpio\obj\Debug\DatalogicScorpio.Form1.resources
+C:\Users\Alex\Desktop\РРО\DatalogicScorpio\DatalogicScorpio\obj\Debug\DatalogicScorpio.CurrentInvoices.CurrentInvoices.resources
+C:\Users\Alex\Desktop\РРО\DatalogicScorpio\DatalogicScorpio\obj\Debug\DatalogicScorpio.CurrentInvoices.Invoice.resources
+C:\Users\Alex\Desktop\РРО\DatalogicScorpio\DatalogicScorpio\bin\Debug\datalogic.device2008.dll
