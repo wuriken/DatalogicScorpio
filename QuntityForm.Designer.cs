@@ -41,10 +41,10 @@
             // 
             // TxtBxQuant
             // 
-            this.TxtBxQuant.Location = new System.Drawing.Point(167, 42);
+            this.TxtBxQuant.Location = new System.Drawing.Point(167, 41);
             this.TxtBxQuant.Name = "TxtBxQuant";
             this.TxtBxQuant.Size = new System.Drawing.Size(66, 21);
-            this.TxtBxQuant.TabIndex = 0;
+            this.TxtBxQuant.TabIndex = 1;
             this.TxtBxQuant.TextChanged += new System.EventHandler(this.TxtBxQuant_TextChanged);
             this.TxtBxQuant.GotFocus += new System.EventHandler(this.TxtBxQuant_GotFocus);
             this.TxtBxQuant.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtBxQuant_KeyPress);
@@ -77,7 +77,7 @@
             this.TxtBxGoodName.Location = new System.Drawing.Point(4, 41);
             this.TxtBxGoodName.Name = "TxtBxGoodName";
             this.TxtBxGoodName.Size = new System.Drawing.Size(151, 21);
-            this.TxtBxGoodName.TabIndex = 2;
+            this.TxtBxGoodName.TabIndex = 0;
             this.TxtBxGoodName.GotFocus += new System.EventHandler(this.TxtBxGoodName_GotFocus);
             this.TxtBxGoodName.LostFocus += new System.EventHandler(this.TxtBxGoodName_LostFocus);
             // 

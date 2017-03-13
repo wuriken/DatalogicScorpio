@@ -12,25 +12,38 @@ namespace DatalogicScorpio.CurrentInvoices
 {
     public partial class Invoice : Form
     {
-        private string PathFile;
+        private string PathToFile;
+        private List<Product> ProductList {get; set;}
+
         public Invoice(string path)
         {
             InitializeComponent();
             TrVwInvoice.Nodes.Clear();
             TreeViewLoad(path);
-            PathFile = path;
+            PathToFile = path;
         }
 
         private void TreeViewLoad(string path)
         {
             string result = string.Empty;
-            StreamReader stream = new StreamReader(path, Encoding.UTF8);
-            while ((result = stream.ReadLine()) != null)
+            ProductList = new List<Product>();
+            try
             {
-                TrVwInvoice.Nodes.Add(result);
+                StreamReader stream = new StreamReader(path, Encoding.UTF8);
+                string[] tempArr = new string[0];
+                while ((result = stream.ReadLine()) != null)
+                {
+                    tempArr = result.Split(';');
+                    ProductList.Add(new Product(tempArr[0], tempArr[1], tempArr[2]));
+                    TreeViewAdd(tempArr[0], tempArr[1], tempArr[2]);
+                }
+                stream.Close();
+                stream.Dispose();
             }
-            stream.Close();
-            stream.Dispose();
+            catch (Exception)
+            {
+                MessageBox.Show("Ошибка. Документ не загружен.");
+            }
             FileInfo info = new FileInfo(path);
             TxtBxName.Text = info.Name;
             TxtBoxDate.Text = info.CreationTime.ToString("dd-MM-yyyy HH:ss");
@@ -58,11 +71,15 @@ namespace DatalogicScorpio.CurrentInvoices
             TxtBxBarCode.Text = Form1.Scanner.BarcodeDataAsText;
             if (Form1.Scanner.BarcodeDataAsText.Length > 6)
             {
-                QuntityForm addForm = new QuntityForm(Form1.Scanner.BarcodeDataAsText, TxtBxGoodName.Text);
+                Product curProd = Helper.GetProductByBarCode(Form1.ProductsList, Form1.Scanner.BarcodeDataAsText);
+                QuntityForm addForm = new QuntityForm(curProd);
                 addForm.ShowDialog();
-                TreeViewAdd(Form1.Scanner.BarcodeDataAsText, TxtBxGoodName.Text, addForm.Quantity);
-                TxtBxQuant.Text = addForm.Quantity;
-                TxtBxGoodName.Text = addForm.Name;
+                TreeViewAdd(Form1.Scanner.BarcodeDataAsText, addForm.CurrentProduct.ProductName, addForm.CurrentProduct.ProductQuantity);
+                curProd.ProductName = addForm.CurrentProduct.ProductName;
+                curProd.ProductQuantity = addForm.CurrentProduct.ProductQuantity;
+                ProductList.Add(curProd);
+                TxtBxQuant.Text = addForm.CurrentProduct.ProductQuantity;
+                TxtBxGoodName.Text = addForm.CurrentProduct.ProductName;
             }
         }
 
@@ -73,11 +90,21 @@ namespace DatalogicScorpio.CurrentInvoices
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            FileInfo inf = new FileInfo(PathFile);
-            File.Delete(PathFile);
-            foreach (TreeNode item in TrVwInvoice.Nodes)
+            FileInfo infFile = new FileInfo(PathToFile);
+            try
             {
-                Helper.WriteLineToFile(item.Text, inf.Name);
+                if(File.Exists(PathToFile))
+                {
+                    File.Delete(PathToFile);
+                }
+            }
+            catch (Exception)
+            {
+            }
+            
+            foreach (Product item in ProductList)
+            {
+                Helper.WriteLineToFile(item.ToString(), infFile.Name);
             }
             Form1.Scanner.GoodReadEvent -= Scanner_GoodReadEvent;
             this.Close();
@@ -87,11 +114,20 @@ namespace DatalogicScorpio.CurrentInvoices
         {
             if (e.KeyChar == (int)Keys.Enter && TrVwInvoice.SelectedNode != null)
             {
-                QuntityForm addForm = new QuntityForm(TxtBxBarCode.Text, TxtBxGoodName.Text);
+                Product curProd = Helper.GetProductByBarCode(ProductList, TxtBxBarCode.Text);
+                QuntityForm addForm = new QuntityForm(curProd);
                 addForm.ShowDialog();
-                TrVwInvoice.SelectedNode.Text = TxtBxBarCode.Text + " - " + addForm.GoodName + " - " + addForm.Quantity; 
-                TxtBxQuant.Text = addForm.Quantity;
-                TxtBxGoodName.Text = addForm.GoodName;
+                TrVwInvoice.SelectedNode.Text = TxtBxBarCode.Text + " - " + addForm.CurrentProduct.ProductName+ " - " + addForm.CurrentProduct.ProductQuantity;
+                for (int i = 0; i < ProductList.Count; i++)
+                {
+                    if (curProd.ProductBarCode == ProductList[i].ProductBarCode)
+                    {
+                        ProductList[i].ProductName = addForm.CurrentProduct.ProductName;
+                        ProductList[i].ProductQuantity = addForm.CurrentProduct.ProductQuantity;
+                    }
+                }
+                TxtBxQuant.Text = addForm.CurrentProduct.ProductQuantity;
+                TxtBxGoodName.Text = addForm.CurrentProduct.ProductName;
             }
         }
 

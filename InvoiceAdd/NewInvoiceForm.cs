@@ -13,6 +13,8 @@ namespace DatalogicScorpio
     public partial class NewInvoiceForm : Form
     {
         private datalogic.datacapture.Laser Scanner;
+        private List<Product> ProdList { get; set; }
+
         public NewInvoiceForm(datalogic.datacapture.Laser scanner)
         {
             Scanner = scanner;
@@ -22,6 +24,7 @@ namespace DatalogicScorpio
         private void NewInvoiceForm_Load(object sender, EventArgs e)
         {
             TrwViewInvoice.Nodes.Clear();
+            ProdList = new List<Product>();
             TxtBxDocName.Text = DateTime.Now.ToString("HH_mm");
             Scanner.GoodReadEvent += new datalogic.datacapture.ScannerEngine.LaserEventHandler(Scanner_GoodReadEvent);
         }
@@ -32,12 +35,15 @@ namespace DatalogicScorpio
             TxtBxBarCode.Text = Scanner.BarcodeDataAsText;
             if (Scanner.BarcodeDataAsText.Length > 6)
             {
-                QuntityForm addForm = new QuntityForm(Scanner.BarcodeDataAsText, TxtBxGoodName.Text);
+                Product curProd = Helper.GetProductByBarCode(Form1.ProductsList, Scanner.BarcodeDataAsText);
+                QuntityForm addForm = new QuntityForm(curProd);
                 addForm.ShowDialog();
-                TreeViewAdd(Scanner.BarcodeDataAsText, addForm.GoodName, addForm.Quantity);
-                TxtBxQuant.Text = addForm.Quantity;
-                TxtBxGoodName.Text = addForm.GoodName;
-
+                TreeViewAdd(Scanner.BarcodeDataAsText, addForm.CurrentProduct.ProductName, addForm.CurrentProduct.ProductQuantity);
+                curProd.ProductName = addForm.CurrentProduct.ProductName;
+                curProd.ProductQuantity = addForm.CurrentProduct.ProductQuantity;
+                ProdList.Add(curProd);
+                TxtBxQuant.Text = addForm.CurrentProduct.ProductQuantity;
+                TxtBxGoodName.Text = addForm.CurrentProduct.ProductName;
             }
         }
 
@@ -64,9 +70,9 @@ namespace DatalogicScorpio
 
         private void BtnInvoiceSave_Click(object sender, EventArgs e)
         {
-            foreach (TreeNode item in TrwViewInvoice.Nodes)
+            foreach (Product item in ProdList)
             {
-                Helper.WriteLineToFile(item.Text, TxtBxDocName.Text + ".txt");
+                Helper.WriteLineToFile(item.ToString(), TxtBxDocName.Text + ".csv");
             }
             Scanner.GoodReadEvent -= Scanner_GoodReadEvent;
             this.Close();

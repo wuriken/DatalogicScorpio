@@ -21,9 +21,7 @@ namespace DatalogicScorpio.CurrentInvoices
 
         private void CurrentIncoicesLoad()
         {
-            List<string> listDir = new List<string>(Directory.GetDirectories(@"\Program Files\DatalogicScorpio\Invoices"));
-            DirectoryInfo dir = new DirectoryInfo(@"\Program Files\DatalogicScorpio\Invoices");
-            DirectoryInfo[] dirs = dir.GetDirectories();
+            DirectoryInfo[] dirs = Helper.GetWorkDirectories();
             for (int i = 0; i < dirs.Length; i++)
 			{
                 TrVwCurrentInvoices.Nodes.Add(dirs[i].Name);
@@ -42,7 +40,7 @@ namespace DatalogicScorpio.CurrentInvoices
             {
                 if (TrVwCurrentInvoices.SelectedNode.Parent != null)
                 {
-                    invoiceShow = new DatalogicScorpio.CurrentInvoices.Invoice(@"\Program Files\DatalogicScorpio\Invoices\" + TrVwCurrentInvoices.SelectedNode.Parent.Text + @"\"
+                    invoiceShow = new DatalogicScorpio.CurrentInvoices.Invoice(Helper.PathToRootDirectory + TrVwCurrentInvoices.SelectedNode.Parent.Text + @"\"
                         + TrVwCurrentInvoices.SelectedNode.Text);
                     invoiceShow.ShowDialog();
                 }

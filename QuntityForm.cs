@@ -12,14 +12,14 @@ namespace DatalogicScorpio
 {
     public partial class QuntityForm : Form
     {
-        public string Quantity { get; private set; }
-        public string GoodName { get; private set; }
+        public Product CurrentProduct { get; private set; }
 
-        public QuntityForm(string barCode, string name)
+        public QuntityForm(Product curProd)
         {
             InitializeComponent();
-            LblBarCode.Text = barCode;
-            TxtBxGoodName.Text = name;
+            CurrentProduct = curProd;
+            LblBarCode.Text = curProd.ProductBarCode;
+            TxtBxGoodName.Text = curProd.ProductName;
             InptPanelQuantityForm.Enabled = true;
         }
 
@@ -27,8 +27,8 @@ namespace DatalogicScorpio
         {
             if (TxtBxQuant.Text != string.Empty)
             {
-                GoodName = TxtBxGoodName.Text;
-                Quantity = TxtBxQuant.Text;
+                CurrentProduct.ProductName = TxtBxGoodName.Text;
+                CurrentProduct.ProductQuantity = TxtBxQuant.Text;
                 this.Close();
             }
         }

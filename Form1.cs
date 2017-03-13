@@ -16,14 +16,25 @@ namespace DatalogicScorpio
     {
         public static datalogic.datacapture.Laser Scanner;
         public datalogic.device.Cradle Cradle;
+        public static List<Product> ProductsList;
+
         private static NewInvoiceForm newInvForm;
         private static CurrentInvoices.CurrentInvoices curInvForm;
+
         public Form1()
         {
             InitializeComponent();
             Scanner = new Laser();
             Cradle = new datalogic.device.Cradle();
             Scanner.ScannerEnabled = true;
+            try
+            {
+                ProductsList = Helper.GetProductList();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ошибка. Список номенклатуры не загружен");
+            }
         }
 
         

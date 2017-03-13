@@ -3,19 +3,35 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
+using System.Windows.Forms;
 
 namespace DatalogicScorpio
 {
     public static class Helper
     {
-        public static void WriteLineToFile(string text, string fileName)
+        public static string PathToSyncDirectory = @"\My Documents\Invoices\";
+        public static string PathToRootDirectory = @"\Program Files\DatalogicScorpio\Invoices\";
+        public static string PathToProductList = @"\My Documents\Exchange\";
+
+        public static void WriteLineToFile(string barCode, string name, string quant, string fileName)
         {
             StreamWriter SW;
             FileStream FS;
-            FS = new FileStream(@"\Program Files\DatalogicScorpio\Invoices\" + CurrentDirectoryCheck() + @"\" + fileName, System.IO.FileMode.Append);
+            FS = new FileStream(PathToRootDirectory + CurrentDirectoryCheck() + @"\" + fileName, System.IO.FileMode.Append);
             SW = new StreamWriter(FS, Encoding.GetEncoding("utf-8"));
-            //SW.WriteLine(DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss") + " === " + text);
-            SW.WriteLine(text);
+            SW.WriteLine(barCode + ";" + name + ";" + fileName);
+            SW.Flush();
+            SW.Close();
+            FS.Close();
+        }
+
+        public static void WriteLineToFile(string product, string fileName)
+        {
+            StreamWriter SW;
+            FileStream FS;
+            FS = new FileStream(PathToRootDirectory + CurrentDirectoryCheck() + @"\" + fileName, System.IO.FileMode.Append);
+            SW = new StreamWriter(FS, Encoding.GetEncoding("utf-8"));
+            SW.WriteLine(product);
             SW.Flush();
             SW.Close();
             FS.Close();
@@ -23,49 +39,131 @@ namespace DatalogicScorpio
 
         public static string CurrentDirectoryCheck()
         {
-            List<string> listDir = new List<string>(Directory.GetDirectories(@"\Program Files\DatalogicScorpio\Invoices"));
-            if (listDir[listDir.Count - 1].Split('\\')[4] == DateTime.Now.ToString("dd-MM-yyyy"))
+            DirectoryInfo[] dirInfo = GetWorkDirectories();
+            foreach (DirectoryInfo item in dirInfo)
             {
-                return listDir[listDir.Count - 1].Split('\\')[4];
+                if (item.Name == DateTime.Now.ToString("dd-MM-yyyy"))
+                {
+                    return item.Name;
+                }
             }
-            Directory.CreateDirectory(@"\Program Files\DatalogicScorpio\Invoices\" + DateTime.Now.ToString("dd-MM-yyyy"));
-            return DateTime.Now.Year.ToString("dd-MM-yyyy");
+            return Directory.CreateDirectory(PathToRootDirectory + 
+                DateTime.Now.ToString("dd-MM-yyyy")).Name;
         }
 
         public static bool DirectoriesCopy()
         {
-            if (Directory.Exists(@"\My Documents\Invoices"))
+            if (Directory.Exists(PathToSyncDirectory))
             {
                 try
                 {
-                    //Directory.Move(@"\My Documents\Invoices", @"\My Documents\Invoices" + DateTime.Now.ToString("dd_MM_HH_mm"));
-                    Directory.Delete(@"\My Documents\Invoices\", true);
+                    Directory.Delete(PathToSyncDirectory, true);
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     return false;
                 }
-                
             }
             else
             {
-                Directory.CreateDirectory(@"\My Documents\Invoices");
-            }
-            DirectoryInfo dirInfo = new DirectoryInfo(@"\Program Files\DatalogicScorpio\Invoices");
-            DirectoryInfo[] dirs = dirInfo.GetDirectories();
-            foreach (DirectoryInfo item in dirs)
-            {
-                Directory.CreateDirectory(@"\My Documents\Invoices\" + item.Name);
-                FileInfo[] fileInf = item.GetFiles();
-                foreach (FileInfo file in fileInf)
+                try
                 {
-                    File.Copy(dirInfo.FullName + "\\" + item.Name + "\\" + file.Name, @"\My Documents\Invoices\" + item.Name + "\\" + file.Name, true);
+                    Directory.CreateDirectory(PathToSyncDirectory);
+                }
+                catch (Exception)
+                {
+                    return false;
                 }
             }
-            return true;
+            try
+            {
+                DirectoryInfo[] dirs = GetWorkDirectories();
+                foreach (DirectoryInfo item in dirs)
+                {
+                    Directory.CreateDirectory(PathToSyncDirectory + item.Name);
+                    FileInfo[] fileInf = item.GetFiles();
+                    foreach (FileInfo file in fileInf)
+                    {
+                        File.Copy(PathToRootDirectory + item.Name + "\\" + file.Name, PathToSyncDirectory + item.Name + "\\" + file.Name, true);
+                    }
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            
             
         }
 
+        public static DirectoryInfo[] GetWorkDirectories()
+        {
+            DirectoryInfo dirInfo = new DirectoryInfo(PathToRootDirectory);
+            return dirInfo.GetDirectories();
+        }
 
+        public static DirectoryInfo RootDirectoryInfo()
+        {
+            return new DirectoryInfo(PathToRootDirectory);
+        }
+
+        public static List<Product> GetProductList()
+        {
+            string result = string.Empty;
+            List<Product> resultList = new List<Product>();
+            try
+            {
+                StreamReader stream = new StreamReader(PathToProductList, Encoding.UTF8);
+                string[] tempArr = new string[0];
+                while ((result = stream.ReadLine()) != null)
+                {
+                    tempArr = result.Split(';');
+                    if (tempArr.Length == 3)
+                    {
+                        resultList.Add(new Product(tempArr[0], tempArr[1], tempArr[2]));
+                    }
+                    
+                }
+                stream.Close();
+                stream.Dispose();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ошибка. Список не загружен.");
+            }
+            return resultList;
+        }
+
+        public static Product GetProductByBarCode(List<Product> list, string barCode)
+        {
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list[i].ProductBarCode == barCode)
+                {
+                    return list[i];
+                }
+            }
+            return new Product(barCode, string.Empty, string.Empty);
+        }
+    }
+
+    public class Product
+    {
+        public string ProductBarCode { get; set; }
+        public string ProductName { get; set; }
+        public string ProductQuantity { get; set; }
+
+        public Product(string barCode, string name, string quantity)
+        {
+            ProductBarCode = barCode;
+            ProductName = name;
+            ProductQuantity = quantity;
+        }
+
+        public override string ToString()
+        {
+            return ProductBarCode + ";" + ProductName + ";" + ProductQuantity;
+        }
     }
 }
