@@ -11,18 +11,35 @@ namespace DatalogicScorpio
     {
         public static string PathToSyncDirectory = @"\My Documents\Invoices\";
         public static string PathToRootDirectory = @"\Program Files\DatalogicScorpio\Invoices\";
-        public static string PathToProductList = @"\My Documents\Exchange\";
+        public static string PathToProductList = @"\My Documents\Exchange\Products.csv";
 
         public static void WriteLineToFile(string barCode, string name, string quant, string fileName)
         {
             StreamWriter SW;
             FileStream FS;
             FS = new FileStream(PathToRootDirectory + CurrentDirectoryCheck() + @"\" + fileName, System.IO.FileMode.Append);
-            SW = new StreamWriter(FS, Encoding.GetEncoding("utf-8"));
+            SW = new StreamWriter(FS, Encoding.Default);
             SW.WriteLine(barCode + ";" + name + ";" + fileName);
             SW.Flush();
             SW.Close();
             FS.Close();
+        }
+
+        public static bool CheckRootDirectory()
+        {
+            try
+            {
+                if (Directory.Exists(PathToRootDirectory))
+                    return true;
+                Directory.CreateDirectory(PathToRootDirectory);
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+            
+            return true;    
         }
 
         public static void WriteLineToFile(string product, string fileName)
@@ -30,7 +47,7 @@ namespace DatalogicScorpio
             StreamWriter SW;
             FileStream FS;
             FS = new FileStream(PathToRootDirectory + CurrentDirectoryCheck() + @"\" + fileName, System.IO.FileMode.Append);
-            SW = new StreamWriter(FS, Encoding.GetEncoding("utf-8"));
+            SW = new StreamWriter(FS, Encoding.Default);
             SW.WriteLine(product);
             SW.Flush();
             SW.Close();
@@ -114,7 +131,7 @@ namespace DatalogicScorpio
             List<Product> resultList = new List<Product>();
             try
             {
-                StreamReader stream = new StreamReader(PathToProductList, Encoding.UTF8);
+                StreamReader stream = new StreamReader(PathToProductList, Encoding.Default);
                 string[] tempArr = new string[0];
                 while ((result = stream.ReadLine()) != null)
                 {
@@ -144,7 +161,7 @@ namespace DatalogicScorpio
                     return list[i];
                 }
             }
-            return new Product(barCode, string.Empty, string.Empty);
+            return new Product(barCode, string.Empty, "0");
         }
     }
 

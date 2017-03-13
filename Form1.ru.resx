@@ -117,145 +117,21 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="mainMenu1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="BtnNewInvoice.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 4</value>
-  </data>
-  <data name="BtnNewInvoice.Size" type="System.Drawing.Size, System.Drawing">
-    <value>233, 20</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="BtnNewInvoice.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="BtnNewInvoice.Text" xml:space="preserve">
-    <value>1) Новый документ</value>
-  </data>
-  <data name="&gt;&gt;BtnNewInvoice.Name" xml:space="preserve">
-    <value>BtnNewInvoice</value>
-  </data>
-  <data name="&gt;&gt;BtnNewInvoice.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;BtnNewInvoice.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;BtnNewInvoice.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>3, 22</value>
   </data>
   <data name="BtnOpenInvoice.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 31</value>
-  </data>
-  <data name="BtnOpenInvoice.Size" type="System.Drawing.Size, System.Drawing">
-    <value>233, 20</value>
-  </data>
-  <data name="BtnOpenInvoice.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="BtnOpenInvoice.Text" xml:space="preserve">
-    <value>2) Просмотр документов</value>
-  </data>
-  <data name="&gt;&gt;BtnOpenInvoice.Name" xml:space="preserve">
-    <value>BtnOpenInvoice</value>
-  </data>
-  <data name="&gt;&gt;BtnOpenInvoice.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;BtnOpenInvoice.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;BtnOpenInvoice.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4, 48</value>
   </data>
   <data name="BtnClose.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 245</value>
-  </data>
-  <data name="BtnClose.Size" type="System.Drawing.Size, System.Drawing">
-    <value>233, 20</value>
-  </data>
-  <data name="BtnClose.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="BtnClose.Text" xml:space="preserve">
-    <value>0) Закрыть</value>
-  </data>
-  <data name="&gt;&gt;BtnClose.Name" xml:space="preserve">
-    <value>BtnClose</value>
-  </data>
-  <data name="&gt;&gt;BtnClose.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;BtnClose.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;BtnClose.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4, 272</value>
   </data>
   <data name="BtnSinhrozization.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 219</value>
-  </data>
-  <data name="BtnSinhrozization.Size" type="System.Drawing.Size, System.Drawing">
-    <value>233, 20</value>
-  </data>
-  <data name="BtnSinhrozization.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="BtnSinhrozization.Text" xml:space="preserve">
-    <value>9) Синхронизация</value>
-  </data>
-  <data name="&gt;&gt;BtnSinhrozization.Name" xml:space="preserve">
-    <value>BtnSinhrozization</value>
-  </data>
-  <data name="&gt;&gt;BtnSinhrozization.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;BtnSinhrozization.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;BtnSinhrozization.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>4, 246</value>
   </data>
   <data name="BtnResidues.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 58</value>
-  </data>
-  <data name="BtnResidues.Size" type="System.Drawing.Size, System.Drawing">
-    <value>233, 20</value>
-  </data>
-  <data name="BtnResidues.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="BtnResidues.Text" xml:space="preserve">
-    <value>3) Остатки по товару</value>
-  </data>
-  <data name="&gt;&gt;BtnResidues.Name" xml:space="preserve">
-    <value>BtnResidues</value>
-  </data>
-  <data name="&gt;&gt;BtnResidues.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;BtnResidues.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;BtnResidues.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <metadata name="$this.FormFactorShadowProperty" xml:space="preserve">
-    <value>Pocket_PC_Phone</value>
-  </metadata>
-  <metadata name="$this.FormFactor" xml:space="preserve">
-    <value>Pocket_PC_Phone</value>
-  </metadata>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="$this.Skin" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="$this.AutoScroll" type="System.Boolean, mscorlib">
-    <value>True</value>
+    <value>4, 76</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>240, 294</value>
@@ -428,20 +304,5 @@
   </data>
   <data name="$this.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Application</value>
-  </data>
-  <data name="&gt;&gt;mainMenu1.Name" xml:space="preserve">
-    <value>mainMenu1</value>
-  </data>
-  <data name="&gt;&gt;mainMenu1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MainMenu, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>Form1</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

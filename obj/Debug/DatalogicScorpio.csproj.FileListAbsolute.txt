@@ -28,3 +28,8 @@ C:\Users\user\Desktop\Projects\DatalogicScorpio\bin\Debug\DatalogicScorpio.pdb
 C:\Users\user\Desktop\Projects\DatalogicScorpio\bin\Debug\datalogic.datacapture2008.DLL
 C:\Users\user\Desktop\Projects\DatalogicScorpio\bin\Debug\datalogic.device2008.dll
 C:\Users\user\Desktop\Projects\DatalogicScorpio\bin\Debug\datalogic.pdc.dll
+C:\Users\Alex\Desktop\РРО\DatalogicScorpio\DatalogicScorpio\obj\Debug\DatalogicScorpio.ProductsInfo.ProductsInfoForm.resources
+C:\Users\Alex\Desktop\РРО\DatalogicScorpio\DatalogicScorpio\bin\Debug\ru\DatalogicScorpio.resources.dll
+C:\Users\Alex\Desktop\РРО\DatalogicScorpio\DatalogicScorpio\obj\Debug\DatalogicScorpio.Form1.ru.resources
+C:\Users\Alex\Desktop\РРО\DatalogicScorpio\DatalogicScorpio\obj\Debug\ru\DatalogicScorpio.resources.dll
+C:\Users\Alex\Desktop\РРО\DatalogicScorpio\DatalogicScorpio\obj\Debug\DatalogicScorpio.QuntityForm.ru.resources

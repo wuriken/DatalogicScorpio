@@ -29,66 +29,65 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.mainMenu1 = new System.Windows.Forms.MainMenu();
             this.BtnNewInvoice = new System.Windows.Forms.Button();
             this.BtnOpenInvoice = new System.Windows.Forms.Button();
             this.BtnClose = new System.Windows.Forms.Button();
             this.BtnSinhrozization = new System.Windows.Forms.Button();
+            this.BtnResidues = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BtnNewInvoice
             // 
-            this.BtnNewInvoice.Location = new System.Drawing.Point(4, 4);
+            resources.ApplyResources(this.BtnNewInvoice, "BtnNewInvoice");
             this.BtnNewInvoice.Name = "BtnNewInvoice";
-            this.BtnNewInvoice.Size = new System.Drawing.Size(233, 20);
-            this.BtnNewInvoice.TabIndex = 3;
             this.BtnNewInvoice.TabStop = false;
-            this.BtnNewInvoice.Text = "1) Новый документ";
             this.BtnNewInvoice.Click += new System.EventHandler(this.BtnNewInvoice_Click);
             // 
             // BtnOpenInvoice
             // 
-            this.BtnOpenInvoice.Location = new System.Drawing.Point(4, 31);
+            resources.ApplyResources(this.BtnOpenInvoice, "BtnOpenInvoice");
             this.BtnOpenInvoice.Name = "BtnOpenInvoice";
-            this.BtnOpenInvoice.Size = new System.Drawing.Size(233, 20);
-            this.BtnOpenInvoice.TabIndex = 4;
             this.BtnOpenInvoice.TabStop = false;
-            this.BtnOpenInvoice.Text = "2) Просмотр документов";
             this.BtnOpenInvoice.Click += new System.EventHandler(this.BtnOpenInvoice_Click);
             // 
             // BtnClose
             // 
-            this.BtnClose.Location = new System.Drawing.Point(4, 245);
+            resources.ApplyResources(this.BtnClose, "BtnClose");
             this.BtnClose.Name = "BtnClose";
-            this.BtnClose.Size = new System.Drawing.Size(233, 20);
-            this.BtnClose.TabIndex = 5;
             this.BtnClose.TabStop = false;
-            this.BtnClose.Text = "0) Закрыть";
             this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
             // BtnSinhrozization
             // 
-            this.BtnSinhrozization.Location = new System.Drawing.Point(4, 219);
+            resources.ApplyResources(this.BtnSinhrozization, "BtnSinhrozization");
             this.BtnSinhrozization.Name = "BtnSinhrozization";
-            this.BtnSinhrozization.Size = new System.Drawing.Size(233, 20);
-            this.BtnSinhrozization.TabIndex = 6;
             this.BtnSinhrozization.TabStop = false;
-            this.BtnSinhrozization.Text = "9) Синхронизация";
             this.BtnSinhrozization.Click += new System.EventHandler(this.BtnSinhrozization_Click);
+            // 
+            // BtnResidues
+            // 
+            resources.ApplyResources(this.BtnResidues, "BtnResidues");
+            this.BtnResidues.Name = "BtnResidues";
+            this.BtnResidues.TabStop = false;
+            this.BtnResidues.Click += new System.EventHandler(this.BtnResidues_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(240, 268);
+            resources.ApplyResources(this, "$this");
+            this.BackColor = System.Drawing.Color.Gainsboro;
+            this.Controls.Add(this.BtnResidues);
             this.Controls.Add(this.BtnSinhrozization);
             this.Controls.Add(this.BtnClose);
             this.Controls.Add(this.BtnOpenInvoice);
             this.Controls.Add(this.BtnNewInvoice);
             this.Menu = this.mainMenu1;
+            this.MinimizeBox = false;
             this.Name = "Form1";
-            this.Text = "Application";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Closed += new System.EventHandler(this.Form1_Closed);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             this.ResumeLayout(false);
@@ -101,6 +100,7 @@
         private System.Windows.Forms.Button BtnOpenInvoice;
         private System.Windows.Forms.Button BtnClose;
         private System.Windows.Forms.Button BtnSinhrozization;
+        private System.Windows.Forms.Button BtnResidues;
 
     }
 }

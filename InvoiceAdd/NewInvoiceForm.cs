@@ -38,12 +38,15 @@ namespace DatalogicScorpio
                 Product curProd = Helper.GetProductByBarCode(Form1.ProductsList, Scanner.BarcodeDataAsText);
                 QuntityForm addForm = new QuntityForm(curProd);
                 addForm.ShowDialog();
-                TreeViewAdd(Scanner.BarcodeDataAsText, addForm.CurrentProduct.ProductName, addForm.CurrentProduct.ProductQuantity);
-                curProd.ProductName = addForm.CurrentProduct.ProductName;
-                curProd.ProductQuantity = addForm.CurrentProduct.ProductQuantity;
-                ProdList.Add(curProd);
-                TxtBxQuant.Text = addForm.CurrentProduct.ProductQuantity;
-                TxtBxGoodName.Text = addForm.CurrentProduct.ProductName;
+                if (addForm.DialogResult == DialogResult.OK)
+                {
+                    TreeViewAdd(Scanner.BarcodeDataAsText, addForm.CurrentProduct.ProductName, addForm.CurrentProduct.ProductQuantity);
+                    curProd.ProductName = addForm.CurrentProduct.ProductName;
+                    curProd.ProductQuantity = addForm.CurrentProduct.ProductQuantity;
+                    ProdList.Add(curProd);
+                    TxtBxQuant.Text = addForm.CurrentProduct.ProductQuantity;
+                    TxtBxGoodName.Text = addForm.CurrentProduct.ProductName;
+                }
             }
         }
 
@@ -74,7 +77,7 @@ namespace DatalogicScorpio
             {
                 Helper.WriteLineToFile(item.ToString(), TxtBxDocName.Text + ".csv");
             }
-            Scanner.GoodReadEvent -= Scanner_GoodReadEvent;
+            
             this.Close();
         }
 
@@ -104,6 +107,20 @@ namespace DatalogicScorpio
         private void TxtBxGoodName_LostFocus(object sender, EventArgs e)
         {
             InpPnNewInvForm.Enabled = false;
+        }
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void NewInvoiceForm_Closing(object sender, CancelEventArgs e)
+        {
+            Scanner.GoodReadEvent -= Scanner_GoodReadEvent;
+            TxtBxBarCode.Text = string.Empty;
+            TxtBxDocName.Text = string.Empty;
+            TxtBxGoodName.Text = string.Empty;
+            TxtBxQuant.Text = string.Empty;
         }
     }
 }

@@ -30,6 +30,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuntityForm));
             this.mainMenu1 = new System.Windows.Forms.MainMenu();
             this.TxtBxQuant = new System.Windows.Forms.TextBox();
             this.BtnOk = new System.Windows.Forms.Button();
@@ -37,14 +38,14 @@
             this.LblBarCode = new System.Windows.Forms.Label();
             this.InptPanelQuantityForm = new Microsoft.WindowsCE.Forms.InputPanel(this.components);
             this.TxtBxGoodName = new System.Windows.Forms.TextBox();
+            this.BtnCancel = new System.Windows.Forms.Button();
+            this.LblWindowName = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // TxtBxQuant
             // 
-            this.TxtBxQuant.Location = new System.Drawing.Point(167, 41);
+            resources.ApplyResources(this.TxtBxQuant, "TxtBxQuant");
             this.TxtBxQuant.Name = "TxtBxQuant";
-            this.TxtBxQuant.Size = new System.Drawing.Size(66, 21);
-            this.TxtBxQuant.TabIndex = 1;
             this.TxtBxQuant.TextChanged += new System.EventHandler(this.TxtBxQuant_TextChanged);
             this.TxtBxQuant.GotFocus += new System.EventHandler(this.TxtBxQuant_GotFocus);
             this.TxtBxQuant.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtBxQuant_KeyPress);
@@ -52,49 +53,55 @@
             // 
             // BtnOk
             // 
-            this.BtnOk.Location = new System.Drawing.Point(83, 77);
+            resources.ApplyResources(this.BtnOk, "BtnOk");
             this.BtnOk.Name = "BtnOk";
-            this.BtnOk.Size = new System.Drawing.Size(72, 20);
-            this.BtnOk.TabIndex = 1;
-            this.BtnOk.Text = "OK";
             this.BtnOk.Click += new System.EventHandler(this.BtnOk_Click);
             // 
             // LblGoodName
             // 
-            this.LblGoodName.Location = new System.Drawing.Point(3, 10);
+            resources.ApplyResources(this.LblGoodName, "LblGoodName");
             this.LblGoodName.Name = "LblGoodName";
-            this.LblGoodName.Size = new System.Drawing.Size(100, 20);
-            this.LblGoodName.Text = "Товар:";
             // 
             // LblBarCode
             // 
-            this.LblBarCode.Location = new System.Drawing.Point(110, 10);
+            resources.ApplyResources(this.LblBarCode, "LblBarCode");
             this.LblBarCode.Name = "LblBarCode";
-            this.LblBarCode.Size = new System.Drawing.Size(100, 20);
             // 
             // TxtBxGoodName
             // 
-            this.TxtBxGoodName.Location = new System.Drawing.Point(4, 41);
+            resources.ApplyResources(this.TxtBxGoodName, "TxtBxGoodName");
             this.TxtBxGoodName.Name = "TxtBxGoodName";
-            this.TxtBxGoodName.Size = new System.Drawing.Size(151, 21);
-            this.TxtBxGoodName.TabIndex = 0;
             this.TxtBxGoodName.GotFocus += new System.EventHandler(this.TxtBxGoodName_GotFocus);
             this.TxtBxGoodName.LostFocus += new System.EventHandler(this.TxtBxGoodName_LostFocus);
+            // 
+            // BtnCancel
+            // 
+            resources.ApplyResources(this.BtnCancel, "BtnCancel");
+            this.BtnCancel.Name = "BtnCancel";
+            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
+            // 
+            // LblWindowName
+            // 
+            resources.ApplyResources(this.LblWindowName, "LblWindowName");
+            this.LblWindowName.Name = "LblWindowName";
             // 
             // QuntityForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(236, 111);
+            resources.ApplyResources(this, "$this");
+            this.BackColor = System.Drawing.Color.Gainsboro;
+            this.Controls.Add(this.LblWindowName);
+            this.Controls.Add(this.BtnCancel);
             this.Controls.Add(this.TxtBxGoodName);
             this.Controls.Add(this.LblBarCode);
             this.Controls.Add(this.LblGoodName);
             this.Controls.Add(this.BtnOk);
             this.Controls.Add(this.TxtBxQuant);
             this.Menu = this.mainMenu1;
+            this.MinimizeBox = false;
             this.Name = "QuntityForm";
-            this.Text = "Введите кол-во:";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.QuntityForm_Load);
             this.Closed += new System.EventHandler(this.QuntityForm_Closed);
             this.ResumeLayout(false);
@@ -109,5 +116,7 @@
         private System.Windows.Forms.Label LblBarCode;
         private Microsoft.WindowsCE.Forms.InputPanel InptPanelQuantityForm;
         private System.Windows.Forms.TextBox TxtBxGoodName;
+        private System.Windows.Forms.Button BtnCancel;
+        private System.Windows.Forms.Label LblWindowName;
     }
 }

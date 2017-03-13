@@ -29,6 +29,7 @@ namespace DatalogicScorpio
             {
                 CurrentProduct.ProductName = TxtBxGoodName.Text;
                 CurrentProduct.ProductQuantity = TxtBxQuant.Text;
+                DialogResult = DialogResult.OK;
                 this.Close();
             }
         }
@@ -40,7 +41,7 @@ namespace DatalogicScorpio
 
         private void TxtBxQuant_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsNumber(e.KeyChar))
+            if (!Char.IsNumber(e.KeyChar) && !Char.IsPunctuation(e.KeyChar))
                 e.Handled = true;
             if (e.KeyChar == '\u0008')
                 e.Handled = false;
@@ -79,6 +80,12 @@ namespace DatalogicScorpio
         private void QuntityForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+            this.Close();
         }
     }
 }

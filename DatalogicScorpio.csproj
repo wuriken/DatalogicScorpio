@@ -90,6 +90,12 @@
     <Compile Include="InvoiceAdd\NewInvoiceForm.designer.cs">
       <DependentUpon>NewInvoiceForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProductsInfo\ProductsInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductsInfo\ProductsInfoForm.Designer.cs">
+      <DependentUpon>ProductsInfoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CurrentInvoices\CurrentInvoices.resx">
@@ -104,8 +110,16 @@
       <DependentUpon>Form1.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form1.ru.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="InvoiceAdd\NewInvoiceForm.resx">
       <DependentUpon>NewInvoiceForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductsInfo\ProductsInfoForm.resx">
+      <DependentUpon>ProductsInfoForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -114,6 +128,10 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="QuntityForm.resx">
+      <DependentUpon>QuntityForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuntityForm.ru.resx">
       <DependentUpon>QuntityForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>

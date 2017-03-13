@@ -29,7 +29,7 @@ namespace DatalogicScorpio.CurrentInvoices
             ProductList = new List<Product>();
             try
             {
-                StreamReader stream = new StreamReader(path, Encoding.UTF8);
+                StreamReader stream = new StreamReader(path, Encoding.Default);
                 string[] tempArr = new string[0];
                 while ((result = stream.ReadLine()) != null)
                 {
@@ -74,12 +74,15 @@ namespace DatalogicScorpio.CurrentInvoices
                 Product curProd = Helper.GetProductByBarCode(Form1.ProductsList, Form1.Scanner.BarcodeDataAsText);
                 QuntityForm addForm = new QuntityForm(curProd);
                 addForm.ShowDialog();
-                TreeViewAdd(Form1.Scanner.BarcodeDataAsText, addForm.CurrentProduct.ProductName, addForm.CurrentProduct.ProductQuantity);
-                curProd.ProductName = addForm.CurrentProduct.ProductName;
-                curProd.ProductQuantity = addForm.CurrentProduct.ProductQuantity;
-                ProductList.Add(curProd);
-                TxtBxQuant.Text = addForm.CurrentProduct.ProductQuantity;
-                TxtBxGoodName.Text = addForm.CurrentProduct.ProductName;
+                if (addForm.DialogResult == DialogResult.OK)
+                {
+                    TreeViewAdd(Form1.Scanner.BarcodeDataAsText, addForm.CurrentProduct.ProductName, addForm.CurrentProduct.ProductQuantity);
+                    curProd.ProductName = addForm.CurrentProduct.ProductName;
+                    curProd.ProductQuantity = addForm.CurrentProduct.ProductQuantity;
+                    ProductList.Add(curProd);
+                    TxtBxQuant.Text = addForm.CurrentProduct.ProductQuantity;
+                    TxtBxGoodName.Text = addForm.CurrentProduct.ProductName;
+                }
             }
         }
 
@@ -114,20 +117,17 @@ namespace DatalogicScorpio.CurrentInvoices
         {
             if (e.KeyChar == (int)Keys.Enter && TrVwInvoice.SelectedNode != null)
             {
-                Product curProd = Helper.GetProductByBarCode(ProductList, TxtBxBarCode.Text);
-                QuntityForm addForm = new QuntityForm(curProd);
+                int index = TrVwInvoice.SelectedNode.Index;
+                QuntityForm addForm = new QuntityForm(ProductList[index]);
                 addForm.ShowDialog();
-                TrVwInvoice.SelectedNode.Text = TxtBxBarCode.Text + " - " + addForm.CurrentProduct.ProductName+ " - " + addForm.CurrentProduct.ProductQuantity;
-                for (int i = 0; i < ProductList.Count; i++)
+                if (addForm.DialogResult == DialogResult.OK)
                 {
-                    if (curProd.ProductBarCode == ProductList[i].ProductBarCode)
-                    {
-                        ProductList[i].ProductName = addForm.CurrentProduct.ProductName;
-                        ProductList[i].ProductQuantity = addForm.CurrentProduct.ProductQuantity;
-                    }
+                    TrVwInvoice.SelectedNode.Text = TxtBxBarCode.Text + " - " + addForm.CurrentProduct.ProductName + " - " + addForm.CurrentProduct.ProductQuantity;
+                    ProductList[index].ProductName = addForm.CurrentProduct.ProductName;
+                    ProductList[index].ProductQuantity = addForm.CurrentProduct.ProductQuantity;
+                    TxtBxQuant.Text = addForm.CurrentProduct.ProductQuantity;
+                    TxtBxGoodName.Text = addForm.CurrentProduct.ProductName;
                 }
-                TxtBxQuant.Text = addForm.CurrentProduct.ProductQuantity;
-                TxtBxGoodName.Text = addForm.CurrentProduct.ProductName;
             }
         }
 
@@ -139,6 +139,16 @@ namespace DatalogicScorpio.CurrentInvoices
         private void TxtBxGoodName_LostFocus(object sender, EventArgs e)
         {
             InpPanelCurInv.Enabled = false;
+        }
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Invoice_Closing(object sender, CancelEventArgs e)
+        {
+            Form1.Scanner.GoodReadEvent -= Scanner_GoodReadEvent;
         }
     }
 }

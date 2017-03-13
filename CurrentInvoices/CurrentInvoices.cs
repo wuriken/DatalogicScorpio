@@ -13,6 +13,7 @@ namespace DatalogicScorpio.CurrentInvoices
     public partial class CurrentInvoices : Form
     {
         private Invoice invoiceShow;
+
         public CurrentInvoices()
         {
             InitializeComponent();
@@ -30,8 +31,7 @@ namespace DatalogicScorpio.CurrentInvoices
                 {
                     TrVwCurrentInvoices.Nodes[i].Nodes.Add(item.Name);
                 }
-            }
-               
+            }  
         }
 
         private void BtnInvoiceOpen_Click(object sender, EventArgs e)
@@ -66,6 +66,11 @@ namespace DatalogicScorpio.CurrentInvoices
                     BtnInvoiceOpen_Click(this, new EventArgs());
                 }
             }
+        }
+
+        private void BtnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

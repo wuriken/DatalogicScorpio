@@ -27,12 +27,18 @@ namespace DatalogicScorpio
             Scanner = new Laser();
             Cradle = new datalogic.device.Cradle();
             Scanner.ScannerEnabled = true;
+            if (!Helper.CheckRootDirectory())
+            {
+                MessageBox.Show("Рабочая папка недоступна");
+                this.Close();
+            }
             try
             {
                 ProductsList = Helper.GetProductList();
             }
             catch (Exception)
             {
+                ProductsList = new List<Product>();
                 MessageBox.Show("Ошибка. Список номенклатуры не загружен");
             }
         }
@@ -65,11 +71,15 @@ namespace DatalogicScorpio
             {
                 BtnSinhrozization_Click(this, new EventArgs());
             }
+            if (e.KeyChar == (int)Keys.D3)
+            {
+                BtnResidues_Click(this, new EventArgs());
+            }
         }
 
         private void BtnClose_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            this.Close();
         }
 
         private void BtnOpenInvoice_Click(object sender, EventArgs e)
@@ -103,6 +113,12 @@ namespace DatalogicScorpio
         private static void OnCradleEnterHandler(object sender, EventArgs e)
         {
 
+        }
+
+        private void BtnResidues_Click(object sender, EventArgs e)
+        {
+            ProductsInfo.ProductsInfoForm form = new ProductsInfo.ProductsInfoForm();
+            form.ShowDialog();
         }
     }
 }
