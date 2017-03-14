@@ -33,3 +33,8 @@ C:\Users\Alex\Desktop\РРО\DatalogicScorpio\DatalogicScorpio\bin\Debug\ru\Data
 C:\Users\Alex\Desktop\РРО\DatalogicScorpio\DatalogicScorpio\obj\Debug\DatalogicScorpio.Form1.ru.resources
 C:\Users\Alex\Desktop\РРО\DatalogicScorpio\DatalogicScorpio\obj\Debug\ru\DatalogicScorpio.resources.dll
 C:\Users\Alex\Desktop\РРО\DatalogicScorpio\DatalogicScorpio\obj\Debug\DatalogicScorpio.QuntityForm.ru.resources
+C:\Users\user\Desktop\Projects\DatalogicScorpio\obj\Debug\DatalogicScorpio.ProductsInfo.ProductsInfoForm.resources
+C:\Users\user\Desktop\Projects\DatalogicScorpio\obj\Debug\DatalogicScorpio.Form1.ru.resources
+C:\Users\user\Desktop\Projects\DatalogicScorpio\obj\Debug\DatalogicScorpio.QuntityForm.ru.resources
+C:\Users\user\Desktop\Projects\DatalogicScorpio\bin\Debug\ru\DatalogicScorpio.resources.dll
+C:\Users\user\Desktop\Projects\DatalogicScorpio\obj\Debug\ru\DatalogicScorpio.resources.dll

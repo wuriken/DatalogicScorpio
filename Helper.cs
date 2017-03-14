@@ -148,6 +148,7 @@ namespace DatalogicScorpio
             catch (Exception)
             {
                 MessageBox.Show("Ошибка. Список не загружен.");
+                return new List<Product>();
             }
             return resultList;
         }

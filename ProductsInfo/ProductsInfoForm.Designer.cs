@@ -51,11 +51,11 @@
             // 
             // TxtBxBarCode
             // 
-            this.TxtBxBarCode.Enabled = false;
             this.TxtBxBarCode.Location = new System.Drawing.Point(34, 81);
             this.TxtBxBarCode.Name = "TxtBxBarCode";
             this.TxtBxBarCode.Size = new System.Drawing.Size(150, 21);
             this.TxtBxBarCode.TabIndex = 1;
+            this.TxtBxBarCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtBxBarCode_KeyPress);
             // 
             // LblBarCode
             // 

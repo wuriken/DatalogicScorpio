@@ -12,12 +12,10 @@ namespace DatalogicScorpio
 {
     public partial class NewInvoiceForm : Form
     {
-        private datalogic.datacapture.Laser Scanner;
         private List<Product> ProdList { get; set; }
 
-        public NewInvoiceForm(datalogic.datacapture.Laser scanner)
+        public NewInvoiceForm()
         {
-            Scanner = scanner;
             InitializeComponent();
         }
 
@@ -26,27 +24,33 @@ namespace DatalogicScorpio
             TrwViewInvoice.Nodes.Clear();
             ProdList = new List<Product>();
             TxtBxDocName.Text = DateTime.Now.ToString("HH_mm");
-            Scanner.GoodReadEvent += new datalogic.datacapture.ScannerEngine.LaserEventHandler(Scanner_GoodReadEvent);
+            Form1.Scanner.GoodReadEvent += new datalogic.datacapture.ScannerEngine.LaserEventHandler(Scanner_GoodReadEvent);
         }
 
         private void Scanner_GoodReadEvent(datalogic.datacapture.ScannerEngine sender)
         {
+            string barCode = Form1.Scanner.BarcodeDataAsText;
             TxtBxBarCode.Text = string.Empty;
-            TxtBxBarCode.Text = Scanner.BarcodeDataAsText;
-            if (Scanner.BarcodeDataAsText.Length > 6)
+            TxtBxBarCode.Text = barCode;
+            if (barCode.Length > 6)
             {
-                Product curProd = Helper.GetProductByBarCode(Form1.ProductsList, Scanner.BarcodeDataAsText);
-                QuntityForm addForm = new QuntityForm(curProd);
-                addForm.ShowDialog();
-                if (addForm.DialogResult == DialogResult.OK)
-                {
-                    TreeViewAdd(Scanner.BarcodeDataAsText, addForm.CurrentProduct.ProductName, addForm.CurrentProduct.ProductQuantity);
-                    curProd.ProductName = addForm.CurrentProduct.ProductName;
-                    curProd.ProductQuantity = addForm.CurrentProduct.ProductQuantity;
-                    ProdList.Add(curProd);
-                    TxtBxQuant.Text = addForm.CurrentProduct.ProductQuantity;
-                    TxtBxGoodName.Text = addForm.CurrentProduct.ProductName;
-                }
+                FindAndAddProductToList(barCode);
+            }
+        }
+
+        private void FindAndAddProductToList(string barcode)
+        {
+            Product curProd = Helper.GetProductByBarCode(Form1.ProductsList, barcode);
+            QuntityForm addForm = new QuntityForm(curProd);
+            addForm.ShowDialog();
+            if (addForm.DialogResult == DialogResult.OK)
+            {
+                TreeViewAdd(Form1.Scanner.BarcodeDataAsText, addForm.CurrentProduct.ProductName, addForm.CurrentProduct.ProductQuantity);
+                curProd.ProductName = addForm.CurrentProduct.ProductName;
+                curProd.ProductQuantity = addForm.CurrentProduct.ProductQuantity;
+                ProdList.Add(curProd);
+                TxtBxQuant.Text = addForm.CurrentProduct.ProductQuantity;
+                TxtBxGoodName.Text = addForm.CurrentProduct.ProductName;
             }
         }
 
@@ -116,11 +120,19 @@ namespace DatalogicScorpio
 
         private void NewInvoiceForm_Closing(object sender, CancelEventArgs e)
         {
-            Scanner.GoodReadEvent -= Scanner_GoodReadEvent;
+            Form1.Scanner.GoodReadEvent -= Scanner_GoodReadEvent;
             TxtBxBarCode.Text = string.Empty;
             TxtBxDocName.Text = string.Empty;
             TxtBxGoodName.Text = string.Empty;
             TxtBxQuant.Text = string.Empty;
+        }
+
+        private void TxtBxBarCode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (int)Keys.Enter && TxtBxBarCode.Text != string.Empty)
+            {
+                FindAndAddProductToList(TxtBxBarCode.Text);
+            }
         }
     }
 }

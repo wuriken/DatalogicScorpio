@@ -15,7 +15,6 @@ namespace DatalogicScorpio
     public partial class Form1 : Form
     {
         public static datalogic.datacapture.Laser Scanner;
-        public datalogic.device.Cradle Cradle;
         public static List<Product> ProductsList;
 
         private static NewInvoiceForm newInvForm;
@@ -25,7 +24,6 @@ namespace DatalogicScorpio
         {
             InitializeComponent();
             Scanner = new Laser();
-            Cradle = new datalogic.device.Cradle();
             Scanner.ScannerEnabled = true;
             if (!Helper.CheckRootDirectory())
             {
@@ -48,7 +46,7 @@ namespace DatalogicScorpio
         {
             if (newInvForm == null)
             {
-                newInvForm = new NewInvoiceForm(Scanner);
+                newInvForm = new NewInvoiceForm();
             }
             newInvForm.ShowDialog();
         }
@@ -98,21 +96,15 @@ namespace DatalogicScorpio
 
         private void BtnSinhrozization_Click(object sender, EventArgs e)
         {
-            Cradle.Enabled = true;
-            Cradle.OnCradleEnter += OnCradleEnterHandler;
-            if (Helper.DirectoriesCopy())
+            ProductsList = Helper.GetProductList();
+            if (Helper.DirectoriesCopy() && ProductsList.Count != 0)
             {
-                MessageBox.Show("Папки скопированы");
+                MessageBox.Show("Данные обновлены");
             }
             else
             {
                 MessageBox.Show("Error");
             }
-        }
-
-        private static void OnCradleEnterHandler(object sender, EventArgs e)
-        {
-
         }
 
         private void BtnResidues_Click(object sender, EventArgs e)

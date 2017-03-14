@@ -11,11 +11,9 @@ namespace DatalogicScorpio.ProductsInfo
 {
     public partial class ProductsInfoForm : Form
     {
-        private datalogic.datacapture.Laser Scanner { get; set; }
 
         public ProductsInfoForm()
         {
-            Scanner = Form1.Scanner;
             InitializeComponent();
         }
 
@@ -29,34 +27,48 @@ namespace DatalogicScorpio.ProductsInfo
             TxtBxBarCode.Text = string.Empty;
             TxtBxName.Text = string.Empty;
             TxtBxQuant.Text = string.Empty;
-            Scanner.GoodReadEvent += new datalogic.datacapture.ScannerEngine.LaserEventHandler(Scanner_GoodReadEvent);
+            Form1.Scanner.GoodReadEvent += new datalogic.datacapture.ScannerEngine.LaserEventHandler(Scanner_GoodReadEvent);
         }
 
         private void Scanner_GoodReadEvent(datalogic.datacapture.ScannerEngine sender)
         {
-            if (Scanner.BarcodeDataAsText.Length > 6)
+            string barCode = Form1.Scanner.BarcodeDataAsText;
+            if (barCode.Length > 6)
             {
-                Product curProd = Helper.GetProductByBarCode(Form1.ProductsList, Scanner.BarcodeDataAsText);
-                if (curProd.ProductName == string.Empty)
-                {
-                    TxtBxName.Text = "Товар не найден";
-                }
-                else
-                {
-                    TxtBxName.Text = curProd.ProductName;
-
-                }
-                TxtBxBarCode.Text = curProd.ProductBarCode;
-                TxtBxQuant.Text = curProd.ProductQuantity;
+                FindAndShowProduct(barCode);
             }
+        }
+
+        private void FindAndShowProduct(string barcode)
+        {
+            Product curProd = Helper.GetProductByBarCode(Form1.ProductsList, barcode);
+            if (curProd.ProductName == string.Empty)
+            {
+                TxtBxName.Text = "Товар не найден";
+            }
+            else
+            {
+                TxtBxName.Text = curProd.ProductName;
+
+            }
+            TxtBxBarCode.Text = curProd.ProductBarCode;
+            TxtBxQuant.Text = curProd.ProductQuantity;
         }
 
         private void ProductsInfo_Closing(object sender, CancelEventArgs e)
         {
-            Scanner.GoodReadEvent -= Scanner_GoodReadEvent;
+            Form1.Scanner.GoodReadEvent -= Scanner_GoodReadEvent;
             TxtBxBarCode.Text = string.Empty;
             TxtBxName.Text = string.Empty;
             TxtBxQuant.Text = string.Empty;
+        }
+
+        private void TxtBxBarCode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (int)Keys.Enter && TxtBxBarCode.Text != string.Empty)
+            {
+                FindAndShowProduct(TxtBxBarCode.Text);
+            }
         }
 
     }
