@@ -89,11 +89,12 @@
             // 
             // TxtBxBarCode
             // 
-            this.TxtBxBarCode.Enabled = false;
             this.TxtBxBarCode.Location = new System.Drawing.Point(4, 76);
             this.TxtBxBarCode.Name = "TxtBxBarCode";
             this.TxtBxBarCode.Size = new System.Drawing.Size(147, 21);
             this.TxtBxBarCode.TabIndex = 12;
+            this.TxtBxBarCode.GotFocus += new System.EventHandler(this.TxtBxBarCode_GotFocus);
+            this.TxtBxBarCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtBxBarCode_KeyPress);
             // 
             // TxtBxQuant
             // 

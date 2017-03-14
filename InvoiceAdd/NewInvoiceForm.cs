@@ -41,13 +41,18 @@ namespace DatalogicScorpio
         private void FindAndAddProductToList(string barcode)
         {
             Product curProd = Helper.GetProductByBarCode(Form1.ProductsList, barcode);
+            bool isNewProd = curProd.ProductName == string.Empty ? true : false;
             QuntityForm addForm = new QuntityForm(curProd);
             addForm.ShowDialog();
             if (addForm.DialogResult == DialogResult.OK)
             {
-                TreeViewAdd(Form1.Scanner.BarcodeDataAsText, addForm.CurrentProduct.ProductName, addForm.CurrentProduct.ProductQuantity);
+                TreeViewAdd(addForm.CurrentProduct.ProductBarCode, addForm.CurrentProduct.ProductName, addForm.CurrentProduct.ProductQuantity);
                 curProd.ProductName = addForm.CurrentProduct.ProductName;
                 curProd.ProductQuantity = addForm.CurrentProduct.ProductQuantity;
+                if (isNewProd)
+                {
+                    Form1.ProductsList.Add(curProd);
+                }
                 ProdList.Add(curProd);
                 TxtBxQuant.Text = addForm.CurrentProduct.ProductQuantity;
                 TxtBxGoodName.Text = addForm.CurrentProduct.ProductName;
@@ -96,6 +101,7 @@ namespace DatalogicScorpio
         private void TxtBxDocName_GotFocus(object sender, EventArgs e)
         {
             InpPnNewInvForm.Enabled = true;
+            Helper.KeyboardChange(InpPnNewInvForm);
         }
 
         private void TxtBxDocName_LostFocus(object sender, EventArgs e)
@@ -133,6 +139,11 @@ namespace DatalogicScorpio
             {
                 FindAndAddProductToList(TxtBxBarCode.Text);
             }
+        }
+
+        private void TxtBxBarCode_GotFocus(object sender, EventArgs e)
+        {
+            TxtBxBarCode.Text = string.Empty;
         }
     }
 }

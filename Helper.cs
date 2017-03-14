@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using System.Windows.Forms;
+using Microsoft.WindowsCE.Forms;
 
 namespace DatalogicScorpio
 {
@@ -11,19 +12,7 @@ namespace DatalogicScorpio
     {
         public static string PathToSyncDirectory = @"\My Documents\Invoices\";
         public static string PathToRootDirectory = @"\Program Files\DatalogicScorpio\Invoices\";
-        public static string PathToProductList = @"\My Documents\Exchange\Products.csv";
-
-        public static void WriteLineToFile(string barCode, string name, string quant, string fileName)
-        {
-            StreamWriter SW;
-            FileStream FS;
-            FS = new FileStream(PathToRootDirectory + CurrentDirectoryCheck() + @"\" + fileName, System.IO.FileMode.Append);
-            SW = new StreamWriter(FS, Encoding.Default);
-            SW.WriteLine(barCode + ";" + name + ";" + fileName);
-            SW.Flush();
-            SW.Close();
-            FS.Close();
-        }
+        public static string PathToProductList = @"\BACKUP\Products.csv";
 
         public static bool CheckRootDirectory()
         {
@@ -42,16 +31,32 @@ namespace DatalogicScorpio
             return true;    
         }
 
+        public static void KeyboardChange(InputPanel panel)
+        {
+            foreach (InputMethod item in panel.InputMethods)
+            {
+                if (item.Name == "MSH Keyboard")
+                    panel.CurrentInputMethod = item;
+            }
+        }
+
         public static void WriteLineToFile(string product, string fileName)
         {
             StreamWriter SW;
             FileStream FS;
-            FS = new FileStream(PathToRootDirectory + CurrentDirectoryCheck() + @"\" + fileName, System.IO.FileMode.Append);
-            SW = new StreamWriter(FS, Encoding.Default);
-            SW.WriteLine(product);
-            SW.Flush();
-            SW.Close();
-            FS.Close();
+            try
+            {
+                FS = new FileStream(PathToRootDirectory + CurrentDirectoryCheck() + @"\" + fileName, System.IO.FileMode.Append);
+                SW = new StreamWriter(FS, Encoding.Default);
+                SW.WriteLine(product);
+                SW.Flush();
+                SW.Close();
+                FS.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         public static string CurrentDirectoryCheck()

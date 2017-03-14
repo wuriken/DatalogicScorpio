@@ -49,6 +49,7 @@
             this.TxtBxBarCode.Name = "TxtBxBarCode";
             this.TxtBxBarCode.Size = new System.Drawing.Size(136, 21);
             this.TxtBxBarCode.TabIndex = 0;
+            this.TxtBxBarCode.GotFocus += new System.EventHandler(this.TxtBxBarCode_GotFocus);
             this.TxtBxBarCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtBxBarCode_KeyPress);
             // 
             // TrwViewInvoice

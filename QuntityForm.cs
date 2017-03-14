@@ -54,6 +54,7 @@ namespace DatalogicScorpio
         private void TxtBxGoodName_GotFocus(object sender, EventArgs e)
         {
             InptPanelQuantityForm.Enabled = true;
+            Helper.KeyboardChange(InptPanelQuantityForm);
         }
 
         private void TxtBxGoodName_LostFocus(object sender, EventArgs e)

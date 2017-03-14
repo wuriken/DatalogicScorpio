@@ -67,22 +67,33 @@ namespace DatalogicScorpio.CurrentInvoices
 
         private void Scanner_GoodReadEvent(datalogic.datacapture.ScannerEngine sender)
         {
+            string barCode = Form1.Scanner.BarcodeDataAsText;
             TxtBxBarCode.Text = string.Empty;
-            TxtBxBarCode.Text = Form1.Scanner.BarcodeDataAsText;
-            if (Form1.Scanner.BarcodeDataAsText.Length > 6)
+            TxtBxBarCode.Text = barCode;
+            if (barCode.Length > 6)
             {
-                Product curProd = Helper.GetProductByBarCode(Form1.ProductsList, Form1.Scanner.BarcodeDataAsText);
-                QuntityForm addForm = new QuntityForm(curProd);
-                addForm.ShowDialog();
-                if (addForm.DialogResult == DialogResult.OK)
+                GetProductByBarCode(barCode);
+            }
+        }
+
+        private void GetProductByBarCode(string barCode)
+        {
+            Product curProd = Helper.GetProductByBarCode(Form1.ProductsList, barCode);
+            bool isNewProduct = curProd.ProductName == string.Empty ? true : false;
+            QuntityForm addForm = new QuntityForm(curProd);
+            addForm.ShowDialog();
+            if (addForm.DialogResult == DialogResult.OK)
+            {
+                TreeViewAdd(barCode, addForm.CurrentProduct.ProductName, addForm.CurrentProduct.ProductQuantity);
+                curProd.ProductName = addForm.CurrentProduct.ProductName;
+                curProd.ProductQuantity = addForm.CurrentProduct.ProductQuantity;
+                if (isNewProduct)
                 {
-                    TreeViewAdd(Form1.Scanner.BarcodeDataAsText, addForm.CurrentProduct.ProductName, addForm.CurrentProduct.ProductQuantity);
-                    curProd.ProductName = addForm.CurrentProduct.ProductName;
-                    curProd.ProductQuantity = addForm.CurrentProduct.ProductQuantity;
-                    ProductList.Add(curProd);
-                    TxtBxQuant.Text = addForm.CurrentProduct.ProductQuantity;
-                    TxtBxGoodName.Text = addForm.CurrentProduct.ProductName;
+                    Form1.ProductsList.Add(curProd);
                 }
+                ProductList.Add(curProd);
+                TxtBxQuant.Text = addForm.CurrentProduct.ProductQuantity;
+                TxtBxGoodName.Text = addForm.CurrentProduct.ProductName;
             }
         }
 
@@ -149,6 +160,19 @@ namespace DatalogicScorpio.CurrentInvoices
         private void Invoice_Closing(object sender, CancelEventArgs e)
         {
             Form1.Scanner.GoodReadEvent -= Scanner_GoodReadEvent;
+        }
+
+        private void TxtBxBarCode_GotFocus(object sender, EventArgs e)
+        {
+            TxtBxBarCode.Text = string.Empty;
+        }
+
+        private void TxtBxBarCode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (int)Keys.Enter &&  TxtBxBarCode.Text != string.Empty)
+            {
+                GetProductByBarCode(TxtBxBarCode.Text);
+            }
         }
     }
 }
