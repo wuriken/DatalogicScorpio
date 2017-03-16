@@ -18,8 +18,9 @@ namespace DatalogicScorpio
         {
             InitializeComponent();
             CurrentProduct = curProd;
-            LblBarCode.Text = curProd.ProductBarCode;
-            TxtBxGoodName.Text = curProd.ProductName;
+            LblBarCode.Text = curProd.BarCode;
+            TxtBxGoodName.Text = curProd.Name;
+            TxtBxPrice.Text = curProd.Price;
             InptPanelQuantityForm.Enabled = true;
         }
 
@@ -27,8 +28,9 @@ namespace DatalogicScorpio
         {
             if (TxtBxQuant.Text != string.Empty)
             {
-                CurrentProduct.ProductName = TxtBxGoodName.Text;
-                CurrentProduct.ProductQuantity = TxtBxQuant.Text;
+                CurrentProduct.Name = TxtBxGoodName.Text;
+                CurrentProduct.Quantity = TxtBxQuant.Text;
+                CurrentProduct.Price = TxtBxPrice.Text;
                 DialogResult = DialogResult.OK;
                 this.Close();
             }
@@ -76,6 +78,7 @@ namespace DatalogicScorpio
         {
             TxtBxGoodName.Text = string.Empty;
             TxtBxQuant.Text = string.Empty;
+            TxtBxPrice.Text = string.Empty;
         }
 
         private void QuntityForm_Load(object sender, EventArgs e)
@@ -87,6 +90,35 @@ namespace DatalogicScorpio
         {
             DialogResult = DialogResult.Cancel;
             this.Close();
+        }
+
+        private void TxtBxPrice_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void TxtBxPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsNumber(e.KeyChar) && !Char.IsPunctuation(e.KeyChar))
+                e.Handled = true;
+            if (e.KeyChar == '\u0008')
+                e.Handled = false;
+            if (e.KeyChar == (int)Keys.Enter)
+            {
+                BtnOk_Click(this, new EventArgs());
+            }
+        }
+
+        private void TxtBxPrice_GotFocus(object sender, EventArgs e)
+        {
+            InptPanelQuantityForm.Enabled = true;
+            if (TxtBxPrice.Text == "0.00")
+                TxtBxPrice.Text = string.Empty;
+        }
+
+        private void TxtBxPrice_LostFocus(object sender, EventArgs e)
+        {
+            InptPanelQuantityForm.Enabled = false;
         }
     }
 }

@@ -40,6 +40,9 @@
             this.TxtBxGoodName = new System.Windows.Forms.TextBox();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.LblWindowName = new System.Windows.Forms.Label();
+            this.TxtBxPrice = new System.Windows.Forms.TextBox();
+            this.LblPrice = new System.Windows.Forms.Label();
+            this.LblQuant = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // TxtBxQuant
@@ -85,12 +88,34 @@
             resources.ApplyResources(this.LblWindowName, "LblWindowName");
             this.LblWindowName.Name = "LblWindowName";
             // 
+            // TxtBxPrice
+            // 
+            resources.ApplyResources(this.TxtBxPrice, "TxtBxPrice");
+            this.TxtBxPrice.Name = "TxtBxPrice";
+            this.TxtBxPrice.TextChanged += new System.EventHandler(this.TxtBxPrice_TextChanged);
+            this.TxtBxPrice.GotFocus += new System.EventHandler(this.TxtBxPrice_GotFocus);
+            this.TxtBxPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtBxPrice_KeyPress);
+            this.TxtBxPrice.LostFocus += new System.EventHandler(this.TxtBxPrice_LostFocus);
+            // 
+            // LblPrice
+            // 
+            resources.ApplyResources(this.LblPrice, "LblPrice");
+            this.LblPrice.Name = "LblPrice";
+            // 
+            // LblQuant
+            // 
+            resources.ApplyResources(this.LblQuant, "LblQuant");
+            this.LblQuant.Name = "LblQuant";
+            // 
             // QuntityForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             resources.ApplyResources(this, "$this");
             this.BackColor = System.Drawing.Color.Gainsboro;
+            this.Controls.Add(this.LblQuant);
+            this.Controls.Add(this.LblPrice);
+            this.Controls.Add(this.TxtBxPrice);
             this.Controls.Add(this.LblWindowName);
             this.Controls.Add(this.BtnCancel);
             this.Controls.Add(this.TxtBxGoodName);
@@ -118,5 +143,8 @@
         private System.Windows.Forms.TextBox TxtBxGoodName;
         private System.Windows.Forms.Button BtnCancel;
         private System.Windows.Forms.Label LblWindowName;
+        private System.Windows.Forms.TextBox TxtBxPrice;
+        private System.Windows.Forms.Label LblPrice;
+        private System.Windows.Forms.Label LblQuant;
     }
 }

@@ -41,27 +41,29 @@ namespace DatalogicScorpio
         private void FindAndAddProductToList(string barcode)
         {
             Product curProd = Helper.GetProductByBarCode(Form1.ProductsList, barcode);
-            bool isNewProd = curProd.ProductName == string.Empty ? true : false;
+            bool isNewProd = curProd.Name == string.Empty ? true : false;
             QuntityForm addForm = new QuntityForm(curProd);
             addForm.ShowDialog();
             if (addForm.DialogResult == DialogResult.OK)
             {
-                TreeViewAdd(addForm.CurrentProduct.ProductBarCode, addForm.CurrentProduct.ProductName, addForm.CurrentProduct.ProductQuantity);
-                curProd.ProductName = addForm.CurrentProduct.ProductName;
-                curProd.ProductQuantity = addForm.CurrentProduct.ProductQuantity;
+                TreeViewAdd(addForm.CurrentProduct.BarCode, addForm.CurrentProduct.Name, addForm.CurrentProduct.Quantity, addForm.CurrentProduct.Price);
+                curProd.Name = addForm.CurrentProduct.Name;
+                curProd.Quantity = addForm.CurrentProduct.Quantity;
+                curProd.Price = addForm.CurrentProduct.Price;
                 if (isNewProd)
                 {
                     Form1.ProductsList.Add(curProd);
                 }
                 ProdList.Add(curProd);
-                TxtBxQuant.Text = addForm.CurrentProduct.ProductQuantity;
-                TxtBxGoodName.Text = addForm.CurrentProduct.ProductName;
+                TxtBxQuant.Text = addForm.CurrentProduct.Quantity;
+                TxtBxGoodName.Text = addForm.CurrentProduct.Name;
+                TxtBxPrice.Text = addForm.CurrentProduct.Price;
             }
         }
 
-        private void TreeViewAdd(string barCode, string name, string quantity)
+        private void TreeViewAdd(string barCode, string name, string quantity, string price)
         {
-            TrwViewInvoice.Nodes.Add(barCode + " - " +  name +  " - " + quantity);
+            TrwViewInvoice.Nodes.Add(barCode + " - " +  name +  " - " + quantity + " - " + price);
         }
 
         private void NewInvoiceForm_Closed(object sender, EventArgs e)
@@ -77,6 +79,7 @@ namespace DatalogicScorpio
                 TxtBxBarCode.Text = result[0].Trim();
                 TxtBxGoodName.Text = result[1].Trim();
                 TxtBxQuant.Text = result[2].Trim();
+                TxtBxPrice.Text = result[3].Trim();
             }
         }
 
@@ -144,6 +147,22 @@ namespace DatalogicScorpio
         private void TxtBxBarCode_GotFocus(object sender, EventArgs e)
         {
             TxtBxBarCode.Text = string.Empty;
+        }
+
+        private void TxtBxPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsNumber(e.KeyChar) && !Char.IsPunctuation(e.KeyChar))
+                e.Handled = true;
+            if (e.KeyChar == '\u0008')
+                e.Handled = false;
+        }
+
+        private void TxtBxQuant_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsNumber(e.KeyChar) && !Char.IsPunctuation(e.KeyChar))
+                e.Handled = true;
+            if (e.KeyChar == '\u0008')
+                e.Handled = false;
         }
     }
 }

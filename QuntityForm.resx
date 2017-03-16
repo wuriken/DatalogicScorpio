@@ -125,7 +125,7 @@
     <value>Tahoma, 9pt, style=Bold</value>
   </data>
   <data name="TxtBxQuant.Location" type="System.Drawing.Point, System.Drawing">
-    <value>161, 71</value>
+    <value>161, 132</value>
   </data>
   <data name="TxtBxQuant.Size" type="System.Drawing.Size, System.Drawing">
     <value>66, 21</value>
@@ -144,10 +144,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;TxtBxQuant.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>9</value>
   </data>
   <data name="BtnOk.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 99</value>
+    <value>3, 159</value>
   </data>
   <data name="BtnOk.Size" type="System.Drawing.Size, System.Drawing">
     <value>72, 20</value>
@@ -168,7 +168,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;BtnOk.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>8</value>
   </data>
   <data name="LblGoodName.Font" type="System.Drawing.Font, System.Drawing">
     <value>Tahoma, 9pt, style=Bold</value>
@@ -177,10 +177,10 @@
     <value>3, 40</value>
   </data>
   <data name="LblGoodName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
+    <value>83, 20</value>
   </data>
   <data name="LblGoodName.Text" xml:space="preserve">
-    <value>Товар:</value>
+    <value>Штрих-код:</value>
   </data>
   <data name="&gt;&gt;LblGoodName.Name" xml:space="preserve">
     <value>LblGoodName</value>
@@ -192,16 +192,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;LblGoodName.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>7</value>
   </data>
   <data name="LblBarCode.Font" type="System.Drawing.Font, System.Drawing">
     <value>Tahoma, 9pt, style=Bold</value>
   </data>
   <data name="LblBarCode.Location" type="System.Drawing.Point, System.Drawing">
-    <value>55, 40</value>
+    <value>77, 40</value>
   </data>
   <data name="LblBarCode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>178, 20</value>
+    <value>156, 20</value>
   </data>
   <data name="&gt;&gt;LblBarCode.Name" xml:space="preserve">
     <value>LblBarCode</value>
@@ -213,7 +213,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;LblBarCode.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>6</value>
   </data>
   <metadata name="InptPanelQuantityForm.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>134, 17</value>
@@ -222,7 +222,7 @@
     <value>Tahoma, 9pt, style=Bold</value>
   </data>
   <data name="TxtBxGoodName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 71</value>
+    <value>77, 70</value>
   </data>
   <data name="TxtBxGoodName.Size" type="System.Drawing.Size, System.Drawing">
     <value>151, 21</value>
@@ -240,10 +240,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;TxtBxGoodName.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>5</value>
   </data>
   <data name="BtnCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>155, 99</value>
+    <value>155, 159</value>
   </data>
   <data name="BtnCancel.Size" type="System.Drawing.Size, System.Drawing">
     <value>72, 20</value>
@@ -264,13 +264,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;BtnCancel.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>4</value>
   </data>
   <data name="LblWindowName.Font" type="System.Drawing.Font, System.Drawing">
     <value>Tahoma, 10pt, style=Bold</value>
   </data>
   <data name="LblWindowName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>75, 9</value>
+    <value>77, 9</value>
   </data>
   <data name="LblWindowName.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 20</value>
@@ -288,6 +288,78 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;LblWindowName.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="TxtBxPrice.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 9pt, style=Bold</value>
+  </data>
+  <data name="TxtBxPrice.Location" type="System.Drawing.Point, System.Drawing">
+    <value>161, 105</value>
+  </data>
+  <data name="TxtBxPrice.Size" type="System.Drawing.Size, System.Drawing">
+    <value>66, 21</value>
+  </data>
+  <data name="TxtBxPrice.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;TxtBxPrice.Name" xml:space="preserve">
+    <value>TxtBxPrice</value>
+  </data>
+  <data name="&gt;&gt;TxtBxPrice.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TxtBxPrice.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;TxtBxPrice.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="LblPrice.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 9pt, style=Bold</value>
+  </data>
+  <data name="LblPrice.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 106</value>
+  </data>
+  <data name="LblPrice.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="LblPrice.Text" xml:space="preserve">
+    <value>Цена:</value>
+  </data>
+  <data name="&gt;&gt;LblPrice.Name" xml:space="preserve">
+    <value>LblPrice</value>
+  </data>
+  <data name="&gt;&gt;LblPrice.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LblPrice.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;LblPrice.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="LblQuant.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 9pt, style=Bold</value>
+  </data>
+  <data name="LblQuant.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 132</value>
+  </data>
+  <data name="LblQuant.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="LblQuant.Text" xml:space="preserve">
+    <value>Кол-во:</value>
+  </data>
+  <data name="&gt;&gt;LblQuant.Name" xml:space="preserve">
+    <value>LblQuant</value>
+  </data>
+  <data name="&gt;&gt;LblQuant.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LblQuant.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;LblQuant.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.FormFactorShadowProperty" xml:space="preserve">
@@ -306,7 +378,7 @@
     <value>True</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>236, 132</value>
+    <value>236, 182</value>
   </data>
   <data name="$this.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>

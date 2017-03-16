@@ -43,14 +43,17 @@
             this.InpPanelCurInv = new Microsoft.WindowsCE.Forms.InputPanel(this.components);
             this.BtnCancel = new System.Windows.Forms.Button();
             this.LblWindowName = new System.Windows.Forms.Label();
+            this.TxtBxPrice = new System.Windows.Forms.TextBox();
+            this.LblQuant = new System.Windows.Forms.Label();
+            this.LblPrice = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // TrVwInvoice
             // 
-            this.TrVwInvoice.Location = new System.Drawing.Point(4, 129);
+            this.TrVwInvoice.Location = new System.Drawing.Point(4, 158);
             this.TrVwInvoice.Name = "TrVwInvoice";
             this.TrVwInvoice.ShowRootLines = false;
-            this.TrVwInvoice.Size = new System.Drawing.Size(233, 136);
+            this.TrVwInvoice.Size = new System.Drawing.Size(233, 107);
             this.TrVwInvoice.TabIndex = 0;
             this.TrVwInvoice.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.TrVwInvoice_AfterSelect);
             this.TrVwInvoice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TrVwInvoice_KeyPress);
@@ -99,9 +102,9 @@
             // TxtBxQuant
             // 
             this.TxtBxQuant.Enabled = false;
-            this.TxtBxQuant.Location = new System.Drawing.Point(157, 76);
+            this.TxtBxQuant.Location = new System.Drawing.Point(67, 130);
             this.TxtBxQuant.Name = "TxtBxQuant";
-            this.TxtBxQuant.Size = new System.Drawing.Size(79, 21);
+            this.TxtBxQuant.Size = new System.Drawing.Size(51, 21);
             this.TxtBxQuant.TabIndex = 13;
             // 
             // BtnSave
@@ -139,6 +142,30 @@
             this.LblWindowName.Size = new System.Drawing.Size(100, 20);
             this.LblWindowName.Text = "Документ";
             // 
+            // TxtBxPrice
+            // 
+            this.TxtBxPrice.Enabled = false;
+            this.TxtBxPrice.Location = new System.Drawing.Point(188, 130);
+            this.TxtBxPrice.Name = "TxtBxPrice";
+            this.TxtBxPrice.Size = new System.Drawing.Size(48, 21);
+            this.TxtBxPrice.TabIndex = 21;
+            // 
+            // LblQuant
+            // 
+            this.LblQuant.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.LblQuant.Location = new System.Drawing.Point(4, 131);
+            this.LblQuant.Name = "LblQuant";
+            this.LblQuant.Size = new System.Drawing.Size(63, 20);
+            this.LblQuant.Text = "Кол-во:";
+            // 
+            // LblPrice
+            // 
+            this.LblPrice.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.LblPrice.Location = new System.Drawing.Point(126, 131);
+            this.LblPrice.Name = "LblPrice";
+            this.LblPrice.Size = new System.Drawing.Size(62, 20);
+            this.LblPrice.Text = "Цена:";
+            // 
             // Invoice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -146,6 +173,9 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(240, 294);
+            this.Controls.Add(this.LblPrice);
+            this.Controls.Add(this.LblQuant);
+            this.Controls.Add(this.TxtBxPrice);
             this.Controls.Add(this.LblWindowName);
             this.Controls.Add(this.BtnCancel);
             this.Controls.Add(this.TxtBxGoodName);
@@ -183,5 +213,8 @@
         private Microsoft.WindowsCE.Forms.InputPanel InpPanelCurInv;
         private System.Windows.Forms.Button BtnCancel;
         private System.Windows.Forms.Label LblWindowName;
+        private System.Windows.Forms.TextBox TxtBxPrice;
+        private System.Windows.Forms.Label LblQuant;
+        private System.Windows.Forms.Label LblPrice;
     }
 }

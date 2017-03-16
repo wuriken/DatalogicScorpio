@@ -27,6 +27,7 @@ namespace DatalogicScorpio.ProductsInfo
             TxtBxBarCode.Text = string.Empty;
             TxtBxName.Text = string.Empty;
             TxtBxQuant.Text = string.Empty;
+            TxtBxPrice.Text = string.Empty;
             Form1.Scanner.GoodReadEvent += new datalogic.datacapture.ScannerEngine.LaserEventHandler(Scanner_GoodReadEvent);
         }
 
@@ -42,17 +43,18 @@ namespace DatalogicScorpio.ProductsInfo
         private void FindAndShowProduct(string barcode)
         {
             Product curProd = Helper.GetProductByBarCode(Form1.ProductsList, barcode);
-            if (curProd.ProductName == string.Empty)
+            if (curProd.Name == string.Empty)
             {
                 TxtBxName.Text = "Товар не найден";
             }
             else
             {
-                TxtBxName.Text = curProd.ProductName;
+                TxtBxName.Text = curProd.Name;
 
             }
-            TxtBxBarCode.Text = curProd.ProductBarCode;
-            TxtBxQuant.Text = curProd.ProductQuantity;
+            TxtBxPrice.Text = curProd.Price;
+            TxtBxBarCode.Text = curProd.BarCode;
+            TxtBxQuant.Text = curProd.Quantity;
         }
 
         private void ProductsInfo_Closing(object sender, CancelEventArgs e)
@@ -61,6 +63,7 @@ namespace DatalogicScorpio.ProductsInfo
             TxtBxBarCode.Text = string.Empty;
             TxtBxName.Text = string.Empty;
             TxtBxQuant.Text = string.Empty;
+            TxtBxPrice.Text = string.Empty;
         }
 
         private void TxtBxBarCode_KeyPress(object sender, KeyPressEventArgs e)

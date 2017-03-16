@@ -41,33 +41,38 @@
             this.TxtBxGoodName = new System.Windows.Forms.TextBox();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.LblWindowName = new System.Windows.Forms.Label();
+            this.LblQuant = new System.Windows.Forms.Label();
+            this.LblPrice = new System.Windows.Forms.Label();
+            this.TxtBxPrice = new System.Windows.Forms.TextBox();
+            this.LblName = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // TxtBxBarCode
             // 
-            this.TxtBxBarCode.Location = new System.Drawing.Point(4, 50);
+            this.TxtBxBarCode.Location = new System.Drawing.Point(99, 50);
             this.TxtBxBarCode.Name = "TxtBxBarCode";
-            this.TxtBxBarCode.Size = new System.Drawing.Size(136, 21);
+            this.TxtBxBarCode.Size = new System.Drawing.Size(134, 21);
             this.TxtBxBarCode.TabIndex = 0;
             this.TxtBxBarCode.GotFocus += new System.EventHandler(this.TxtBxBarCode_GotFocus);
             this.TxtBxBarCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtBxBarCode_KeyPress);
             // 
             // TrwViewInvoice
             // 
-            this.TrwViewInvoice.Location = new System.Drawing.Point(4, 104);
+            this.TrwViewInvoice.Location = new System.Drawing.Point(6, 133);
             this.TrwViewInvoice.Name = "TrwViewInvoice";
             this.TrwViewInvoice.ShowRootLines = false;
-            this.TrwViewInvoice.Size = new System.Drawing.Size(223, 154);
+            this.TrwViewInvoice.Size = new System.Drawing.Size(223, 125);
             this.TrwViewInvoice.TabIndex = 2;
             this.TrwViewInvoice.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.TrwViewInvoice_AfterSelect);
             // 
             // TxtBxQuant
             // 
             this.TxtBxQuant.Enabled = false;
-            this.TxtBxQuant.Location = new System.Drawing.Point(146, 50);
+            this.TxtBxQuant.Location = new System.Drawing.Point(75, 77);
             this.TxtBxQuant.Name = "TxtBxQuant";
-            this.TxtBxQuant.Size = new System.Drawing.Size(80, 21);
+            this.TxtBxQuant.Size = new System.Drawing.Size(44, 21);
             this.TxtBxQuant.TabIndex = 3;
+            this.TxtBxQuant.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtBxQuant_KeyPress);
             // 
             // BtnInvoiceSave
             // 
@@ -88,7 +93,7 @@
             // 
             // TxtBxDocName
             // 
-            this.TxtBxDocName.Location = new System.Drawing.Point(109, 26);
+            this.TxtBxDocName.Location = new System.Drawing.Point(115, 26);
             this.TxtBxDocName.Name = "TxtBxDocName";
             this.TxtBxDocName.Size = new System.Drawing.Size(118, 21);
             this.TxtBxDocName.TabIndex = 6;
@@ -97,7 +102,7 @@
             // 
             // TxtBxGoodName
             // 
-            this.TxtBxGoodName.Location = new System.Drawing.Point(4, 78);
+            this.TxtBxGoodName.Location = new System.Drawing.Point(7, 106);
             this.TxtBxGoodName.Name = "TxtBxGoodName";
             this.TxtBxGoodName.Size = new System.Drawing.Size(223, 21);
             this.TxtBxGoodName.TabIndex = 7;
@@ -121,6 +126,39 @@
             this.LblWindowName.Size = new System.Drawing.Size(129, 20);
             this.LblWindowName.Text = "Новый документ";
             // 
+            // LblQuant
+            // 
+            this.LblQuant.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.LblQuant.Location = new System.Drawing.Point(7, 79);
+            this.LblQuant.Name = "LblQuant";
+            this.LblQuant.Size = new System.Drawing.Size(56, 20);
+            this.LblQuant.Text = "Кол-во:";
+            // 
+            // LblPrice
+            // 
+            this.LblPrice.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.LblPrice.Location = new System.Drawing.Point(130, 79);
+            this.LblPrice.Name = "LblPrice";
+            this.LblPrice.Size = new System.Drawing.Size(56, 20);
+            this.LblPrice.Text = "Цена:";
+            // 
+            // TxtBxPrice
+            // 
+            this.TxtBxPrice.Enabled = false;
+            this.TxtBxPrice.Location = new System.Drawing.Point(187, 77);
+            this.TxtBxPrice.Name = "TxtBxPrice";
+            this.TxtBxPrice.Size = new System.Drawing.Size(44, 21);
+            this.TxtBxPrice.TabIndex = 13;
+            this.TxtBxPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtBxPrice_KeyPress);
+            // 
+            // LblName
+            // 
+            this.LblName.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.LblName.Location = new System.Drawing.Point(4, 50);
+            this.LblName.Name = "LblName";
+            this.LblName.Size = new System.Drawing.Size(91, 20);
+            this.LblName.Text = "Штрих-код:";
+            // 
             // NewInvoiceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -128,6 +166,10 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(240, 294);
+            this.Controls.Add(this.LblName);
+            this.Controls.Add(this.LblPrice);
+            this.Controls.Add(this.TxtBxPrice);
+            this.Controls.Add(this.LblQuant);
             this.Controls.Add(this.LblWindowName);
             this.Controls.Add(this.BtnCancel);
             this.Controls.Add(this.TxtBxGoodName);
@@ -163,5 +205,9 @@
         private System.Windows.Forms.TextBox TxtBxGoodName;
         private System.Windows.Forms.Button BtnCancel;
         private System.Windows.Forms.Label LblWindowName;
+        private System.Windows.Forms.Label LblQuant;
+        private System.Windows.Forms.Label LblPrice;
+        private System.Windows.Forms.TextBox TxtBxPrice;
+        private System.Windows.Forms.Label LblName;
     }
 }

@@ -143,7 +143,7 @@ namespace DatalogicScorpio
                     tempArr = result.Split(';');
                     if (tempArr.Length == 3)
                     {
-                        resultList.Add(new Product(tempArr[0], tempArr[1], tempArr[2]));
+                        resultList.Add(new Product(tempArr[0], tempArr[1], tempArr[2], string.Empty));
                     }
                     
                 }
@@ -162,31 +162,33 @@ namespace DatalogicScorpio
         {
             for (int i = 0; i < list.Count; i++)
             {
-                if (list[i].ProductBarCode == barCode)
+                if (list[i].BarCode == barCode)
                 {
                     return list[i];
                 }
             }
-            return new Product(barCode, string.Empty, "0");
+            return new Product(barCode, string.Empty, "0", "0.00");
         }
     }
 
     public class Product
     {
-        public string ProductBarCode { get; set; }
-        public string ProductName { get; set; }
-        public string ProductQuantity { get; set; }
+        public string BarCode { get; set; }
+        public string Name { get; set; }
+        public string Quantity { get; set; }
+        public string Price { get; set; }
 
-        public Product(string barCode, string name, string quantity)
+        public Product(string barCode, string name, string quantity, string price)
         {
-            ProductBarCode = barCode;
-            ProductName = name;
-            ProductQuantity = quantity;
+            BarCode = barCode;
+            Name = name;
+            Quantity = quantity;
+            Price = price;
         }
 
         public override string ToString()
         {
-            return ProductBarCode + ";" + ProductName + ";" + ProductQuantity;
+            return BarCode + ";" + Name + ";" + Quantity + ";" + Price;
         }
     }
 }

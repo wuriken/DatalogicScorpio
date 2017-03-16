@@ -38,6 +38,8 @@
             this.LblProdQuant = new System.Windows.Forms.Label();
             this.TxtBxQuant = new System.Windows.Forms.TextBox();
             this.LblWindowName = new System.Windows.Forms.Label();
+            this.TxtBxPrice = new System.Windows.Forms.TextBox();
+            this.LblPrice = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // BtnClose
@@ -51,7 +53,7 @@
             // 
             // TxtBxBarCode
             // 
-            this.TxtBxBarCode.Location = new System.Drawing.Point(34, 81);
+            this.TxtBxBarCode.Location = new System.Drawing.Point(34, 56);
             this.TxtBxBarCode.Name = "TxtBxBarCode";
             this.TxtBxBarCode.Size = new System.Drawing.Size(150, 21);
             this.TxtBxBarCode.TabIndex = 1;
@@ -60,7 +62,7 @@
             // LblBarCode
             // 
             this.LblBarCode.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.LblBarCode.Location = new System.Drawing.Point(34, 49);
+            this.LblBarCode.Location = new System.Drawing.Point(34, 33);
             this.LblBarCode.Name = "LblBarCode";
             this.LblBarCode.Size = new System.Drawing.Size(100, 20);
             this.LblBarCode.Text = "Штрих-код:";
@@ -68,7 +70,7 @@
             // LblProdName
             // 
             this.LblProdName.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.LblProdName.Location = new System.Drawing.Point(13, 123);
+            this.LblProdName.Location = new System.Drawing.Point(13, 91);
             this.LblProdName.Name = "LblProdName";
             this.LblProdName.Size = new System.Drawing.Size(100, 20);
             this.LblProdName.Text = "Номенклатура:";
@@ -77,7 +79,7 @@
             // 
             this.TxtBxName.Enabled = false;
             this.TxtBxName.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
-            this.TxtBxName.Location = new System.Drawing.Point(3, 151);
+            this.TxtBxName.Location = new System.Drawing.Point(3, 114);
             this.TxtBxName.Name = "TxtBxName";
             this.TxtBxName.Size = new System.Drawing.Size(232, 26);
             this.TxtBxName.TabIndex = 4;
@@ -85,7 +87,7 @@
             // LblProdQuant
             // 
             this.LblProdQuant.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.LblProdQuant.Location = new System.Drawing.Point(13, 206);
+            this.LblProdQuant.Location = new System.Drawing.Point(13, 158);
             this.LblProdQuant.Name = "LblProdQuant";
             this.LblProdQuant.Size = new System.Drawing.Size(100, 20);
             this.LblProdQuant.Text = "Количество:";
@@ -93,7 +95,7 @@
             // TxtBxQuant
             // 
             this.TxtBxQuant.Enabled = false;
-            this.TxtBxQuant.Location = new System.Drawing.Point(102, 205);
+            this.TxtBxQuant.Location = new System.Drawing.Point(102, 157);
             this.TxtBxQuant.Name = "TxtBxQuant";
             this.TxtBxQuant.Size = new System.Drawing.Size(72, 21);
             this.TxtBxQuant.TabIndex = 6;
@@ -106,6 +108,22 @@
             this.LblWindowName.Size = new System.Drawing.Size(100, 20);
             this.LblWindowName.Text = "Информация";
             // 
+            // TxtBxPrice
+            // 
+            this.TxtBxPrice.Enabled = false;
+            this.TxtBxPrice.Location = new System.Drawing.Point(102, 190);
+            this.TxtBxPrice.Name = "TxtBxPrice";
+            this.TxtBxPrice.Size = new System.Drawing.Size(72, 21);
+            this.TxtBxPrice.TabIndex = 11;
+            // 
+            // LblPrice
+            // 
+            this.LblPrice.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.LblPrice.Location = new System.Drawing.Point(13, 191);
+            this.LblPrice.Name = "LblPrice";
+            this.LblPrice.Size = new System.Drawing.Size(100, 20);
+            this.LblPrice.Text = "Цена:";
+            // 
             // ProductsInfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -113,6 +131,8 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(240, 294);
+            this.Controls.Add(this.TxtBxPrice);
+            this.Controls.Add(this.LblPrice);
             this.Controls.Add(this.LblWindowName);
             this.Controls.Add(this.TxtBxQuant);
             this.Controls.Add(this.LblProdQuant);
@@ -143,5 +163,7 @@
         private System.Windows.Forms.Label LblProdQuant;
         private System.Windows.Forms.TextBox TxtBxQuant;
         private System.Windows.Forms.Label LblWindowName;
+        private System.Windows.Forms.TextBox TxtBxPrice;
+        private System.Windows.Forms.Label LblPrice;
     }
 }

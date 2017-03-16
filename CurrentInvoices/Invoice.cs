@@ -34,8 +34,11 @@ namespace DatalogicScorpio.CurrentInvoices
                 while ((result = stream.ReadLine()) != null)
                 {
                     tempArr = result.Split(';');
-                    ProductList.Add(new Product(tempArr[0], tempArr[1], tempArr[2]));
-                    TreeViewAdd(tempArr[0], tempArr[1], tempArr[2]);
+                    if (tempArr.Length == 4)
+                    {
+                        ProductList.Add(new Product(tempArr[0], tempArr[1], tempArr[2], tempArr[3]));
+                        TreeViewAdd(tempArr[0], tempArr[1], tempArr[2], tempArr[3]);
+                    }
                 }
                 stream.Close();
                 stream.Dispose();
@@ -57,6 +60,7 @@ namespace DatalogicScorpio.CurrentInvoices
                 TxtBxBarCode.Text = tmpArr[0].Trim();
                 TxtBxGoodName.Text = tmpArr[1].Trim();
                 TxtBxQuant.Text = tmpArr[2].Trim();
+                TxtBxPrice.Text = tmpArr[3].Trim();
             }
         }
 
@@ -69,6 +73,7 @@ namespace DatalogicScorpio.CurrentInvoices
         {
             string barCode = Form1.Scanner.BarcodeDataAsText;
             TxtBxBarCode.Text = string.Empty;
+            TxtBxPrice.Text = string.Empty;
             TxtBxBarCode.Text = barCode;
             if (barCode.Length > 6)
             {
@@ -79,27 +84,29 @@ namespace DatalogicScorpio.CurrentInvoices
         private void GetProductByBarCode(string barCode)
         {
             Product curProd = Helper.GetProductByBarCode(Form1.ProductsList, barCode);
-            bool isNewProduct = curProd.ProductName == string.Empty ? true : false;
+            bool isNewProduct = curProd.Name == string.Empty ? true : false;
             QuntityForm addForm = new QuntityForm(curProd);
             addForm.ShowDialog();
             if (addForm.DialogResult == DialogResult.OK)
             {
-                TreeViewAdd(barCode, addForm.CurrentProduct.ProductName, addForm.CurrentProduct.ProductQuantity);
-                curProd.ProductName = addForm.CurrentProduct.ProductName;
-                curProd.ProductQuantity = addForm.CurrentProduct.ProductQuantity;
+                TreeViewAdd(barCode, addForm.CurrentProduct.Name, addForm.CurrentProduct.Quantity, addForm.CurrentProduct.Price);
+                curProd.Name = addForm.CurrentProduct.Name;
+                curProd.Quantity = addForm.CurrentProduct.Quantity;
+                curProd.Price = addForm.CurrentProduct.Price;
                 if (isNewProduct)
                 {
                     Form1.ProductsList.Add(curProd);
                 }
                 ProductList.Add(curProd);
-                TxtBxQuant.Text = addForm.CurrentProduct.ProductQuantity;
-                TxtBxGoodName.Text = addForm.CurrentProduct.ProductName;
+                TxtBxQuant.Text = addForm.CurrentProduct.Quantity;
+                TxtBxGoodName.Text = addForm.CurrentProduct.Name;
+                TxtBxPrice.Text = addForm.CurrentProduct.Price;
             }
         }
 
-        private void TreeViewAdd(string barCode, string name, string quantity)
+        private void TreeViewAdd(string barCode, string name, string quantity, string price)
         {
-            TrVwInvoice.Nodes.Add(barCode + " - " + name + " - " + quantity);
+            TrVwInvoice.Nodes.Add(barCode + " - " + name + " - " + quantity + " - " + price);
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
@@ -133,11 +140,14 @@ namespace DatalogicScorpio.CurrentInvoices
                 addForm.ShowDialog();
                 if (addForm.DialogResult == DialogResult.OK)
                 {
-                    TrVwInvoice.SelectedNode.Text = TxtBxBarCode.Text + " - " + addForm.CurrentProduct.ProductName + " - " + addForm.CurrentProduct.ProductQuantity;
-                    ProductList[index].ProductName = addForm.CurrentProduct.ProductName;
-                    ProductList[index].ProductQuantity = addForm.CurrentProduct.ProductQuantity;
-                    TxtBxQuant.Text = addForm.CurrentProduct.ProductQuantity;
-                    TxtBxGoodName.Text = addForm.CurrentProduct.ProductName;
+                    TrVwInvoice.SelectedNode.Text = addForm.CurrentProduct.BarCode + " - " + addForm.CurrentProduct.Name 
+                        + " - " + addForm.CurrentProduct.Quantity + " - " + addForm.CurrentProduct.Price;
+                    ProductList[index].Name = addForm.CurrentProduct.Name;
+                    ProductList[index].Quantity = addForm.CurrentProduct.Quantity;
+                    ProductList[index].Price = addForm.CurrentProduct.Price;
+                    TxtBxQuant.Text = addForm.CurrentProduct.Quantity;
+                    TxtBxGoodName.Text = addForm.CurrentProduct.Name;
+                    TxtBxPrice.Text = addForm.CurrentProduct.Price;
                 }
             }
         }
