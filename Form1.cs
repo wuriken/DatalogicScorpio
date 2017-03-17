@@ -15,7 +15,9 @@ namespace DatalogicScorpio
     public partial class Form1 : Form
     {
         public static datalogic.datacapture.Laser Scanner;
+        public static datalogic.device.BatteryMonitor Monitor;
         public static List<Product> ProductsList;
+
 
         private static NewInvoiceForm newInvForm;
         private static CurrentInvoices.CurrentInvoices curInvForm;
@@ -24,7 +26,9 @@ namespace DatalogicScorpio
         {
             InitializeComponent();
             Scanner = new Laser();
+            Monitor = new datalogic.device.BatteryMonitor();
             Scanner.ScannerEnabled = true;
+            BatteryMonitorCinfiguration();
             if (!Helper.CheckRootDirectory())
             {
                 MessageBox.Show("Рабочая папка недоступна");
@@ -39,6 +43,19 @@ namespace DatalogicScorpio
                 ProductsList = new List<Product>();
                 MessageBox.Show("Ошибка. Список номенклатуры не загружен");
             }
+        }
+
+        private void BatteryMonitorCinfiguration()
+        {
+            Monitor.Enabled = true;
+            Monitor.Interval = 300000;
+            Monitor.Threshold = 10;
+            Monitor.OnLowBattery += monitor_OnLowBattery;
+        }
+
+        private void monitor_OnLowBattery(object sender, EventArgs e)
+        {
+            MessageBox.Show("Батарея разряжена. Зарядите устройство!");
         }
 
         

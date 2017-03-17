@@ -141,6 +141,7 @@ namespace DatalogicScorpio
                 while ((result = stream.ReadLine()) != null)
                 {
                     tempArr = result.Split(';');
+                    string temp = string.Empty;
                     if (tempArr.Length == 3)
                     {
                         resultList.Add(new Product(tempArr[0], tempArr[1], tempArr[2], string.Empty));
@@ -173,10 +174,68 @@ namespace DatalogicScorpio
 
     public class Product
     {
+        private string _quantity;
+        private string _price;
+        private string _name;
+
         public string BarCode { get; set; }
-        public string Name { get; set; }
-        public string Quantity { get; set; }
-        public string Price { get; set; }
+        public string Name
+        {
+            get 
+            {
+                return _name;
+            }
+            set 
+            {
+                _name = value.Trim(new char[] { '"' });
+            }
+        }
+        public string Quantity 
+        {
+            get 
+            {
+                if (_quantity.Contains('.'))
+                    return _quantity.Replace('.', ',');
+                else
+                {
+                    return _quantity;
+                }
+            }
+            set
+            {
+                if(value.Contains('.'))
+                {
+                    _quantity = value.Replace('.', ',');
+                }
+                else
+                {
+                    _quantity = value;
+                }
+            } 
+        }
+        public string Price
+        {
+            get
+            {
+                if (_price.Contains('.'))
+                    return _price.Replace('.', ',');
+                else
+                {
+                    return _price;
+                }
+            }
+            set
+            {
+                if (value.Contains('.'))
+                {
+                    _price = value.Replace('.', ',');
+                }
+                else
+                {
+                    _price = value;
+                }
+            }
+        }
 
         public Product(string barCode, string name, string quantity, string price)
         {
