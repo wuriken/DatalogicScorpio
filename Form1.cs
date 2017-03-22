@@ -27,8 +27,8 @@ namespace DatalogicScorpio
             InitializeComponent();
             Scanner = new Laser();
             Monitor = new datalogic.device.BatteryMonitor();
-            Scanner.ScannerEnabled = true;
-            BatteryMonitorCinfiguration();
+            //Scanner.ScannerEnabled = true;
+            //BatteryMonitorCinfiguration();
             if (!Helper.CheckRootDirectory())
             {
                 MessageBox.Show("Рабочая папка недоступна");

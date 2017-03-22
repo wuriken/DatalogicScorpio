@@ -142,7 +142,7 @@ namespace DatalogicScorpio
                 {
                     tempArr = result.Split(';');
                     string temp = string.Empty;
-                    if (tempArr.Length == 3)
+                    if (tempArr.Length >= 3)
                     {
                         resultList.Add(new Product(tempArr[0], tempArr[1], tempArr[2], string.Empty));
                     }
