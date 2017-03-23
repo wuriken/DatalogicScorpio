@@ -19,8 +19,9 @@ namespace DatalogicScorpio
         public static List<Product> ProductsList;
         public static List<Storages> StorageList;
         public static List<ProductsType> ProductsTypeList;
-        public static List<ProsuctsGroup> ProductsGroupList;
+        public static List<ProductsGroup> ProductsGroupList;
         public static List<Contractors> ContractorsList;
+        public static List<string> UnitList;
 
 
         private static NewInvoiceForm newInvForm;
@@ -45,6 +46,7 @@ namespace DatalogicScorpio
                 ProductsGroupList = Helper.GetGroupList();
                 ContractorsList = Helper.GetContractorsList();
                 StorageList = Helper.GetStorageList();
+                UnitList = new List<string>{"шт", "кг"};
             }
             catch (Exception ex)
             {
@@ -69,10 +71,7 @@ namespace DatalogicScorpio
         
         private void BtnNewInvoice_Click(object sender, EventArgs e)
         {
-            if (newInvForm == null)
-            {
-                newInvForm = new NewInvoiceForm();
-            }
+            newInvForm = new NewInvoiceForm(InvoiceType.Arrival);
             newInvForm.ShowDialog();
         }
 
@@ -82,11 +81,19 @@ namespace DatalogicScorpio
             {
                 BtnNewInvoice_Click(this, new EventArgs());
             }
+            if (e.KeyChar == (int)Keys.D2)
+            {
+                BtnNewInvent_Click(this, new EventArgs());
+            }
+            if (e.KeyChar == (int)Keys.D3)
+            {
+                button1_Click(this, new EventArgs());
+            }
             if (e.KeyChar == (int)Keys.D0)
             {
                 BtnClose_Click(this, new EventArgs());
             }
-            if (e.KeyChar == (int)Keys.D2)
+            if (e.KeyChar == (int)Keys.D4)
             {
                 BtnOpenInvoice_Click(this, new EventArgs());
             }
@@ -94,7 +101,7 @@ namespace DatalogicScorpio
             {
                 BtnSinhrozization_Click(this, new EventArgs());
             }
-            if (e.KeyChar == (int)Keys.D3)
+            if (e.KeyChar == (int)Keys.D5)
             {
                 BtnResidues_Click(this, new EventArgs());
             }
@@ -136,6 +143,18 @@ namespace DatalogicScorpio
         {
             ProductsInfo.ProductsInfoForm form = new ProductsInfo.ProductsInfoForm();
             form.ShowDialog();
+        }
+
+        private void BtnNewInvent_Click(object sender, EventArgs e)
+        {
+            newInvForm = new NewInvoiceForm(InvoiceType.Inventory);
+            newInvForm.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            newInvForm = new NewInvoiceForm(InvoiceType.Production);
+            newInvForm.ShowDialog();
         }
     }
 }

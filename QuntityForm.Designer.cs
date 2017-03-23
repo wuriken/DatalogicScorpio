@@ -43,6 +43,10 @@
             this.TxtBxPrice = new System.Windows.Forms.TextBox();
             this.LblPrice = new System.Windows.Forms.Label();
             this.LblQuant = new System.Windows.Forms.Label();
+            this.CmbBxType = new System.Windows.Forms.ComboBox();
+            this.CmbBxGroup = new System.Windows.Forms.ComboBox();
+            this.ChkBxIsWeight = new System.Windows.Forms.CheckBox();
+            this.CmbBxUnit = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // TxtBxQuant
@@ -107,12 +111,36 @@
             resources.ApplyResources(this.LblQuant, "LblQuant");
             this.LblQuant.Name = "LblQuant";
             // 
+            // CmbBxType
+            // 
+            resources.ApplyResources(this.CmbBxType, "CmbBxType");
+            this.CmbBxType.Name = "CmbBxType";
+            // 
+            // CmbBxGroup
+            // 
+            resources.ApplyResources(this.CmbBxGroup, "CmbBxGroup");
+            this.CmbBxGroup.Name = "CmbBxGroup";
+            // 
+            // ChkBxIsWeight
+            // 
+            resources.ApplyResources(this.ChkBxIsWeight, "ChkBxIsWeight");
+            this.ChkBxIsWeight.Name = "ChkBxIsWeight";
+            // 
+            // CmbBxUnit
+            // 
+            resources.ApplyResources(this.CmbBxUnit, "CmbBxUnit");
+            this.CmbBxUnit.Name = "CmbBxUnit";
+            // 
             // QuntityForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             resources.ApplyResources(this, "$this");
             this.BackColor = System.Drawing.Color.Gainsboro;
+            this.Controls.Add(this.CmbBxUnit);
+            this.Controls.Add(this.ChkBxIsWeight);
+            this.Controls.Add(this.CmbBxGroup);
+            this.Controls.Add(this.CmbBxType);
             this.Controls.Add(this.LblQuant);
             this.Controls.Add(this.LblPrice);
             this.Controls.Add(this.TxtBxPrice);
@@ -146,5 +174,9 @@
         private System.Windows.Forms.TextBox TxtBxPrice;
         private System.Windows.Forms.Label LblPrice;
         private System.Windows.Forms.Label LblQuant;
+        private System.Windows.Forms.ComboBox CmbBxType;
+        private System.Windows.Forms.ComboBox CmbBxGroup;
+        private System.Windows.Forms.CheckBox ChkBxIsWeight;
+        private System.Windows.Forms.ComboBox CmbBxUnit;
     }
 }

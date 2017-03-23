@@ -132,7 +132,7 @@
     <value>1</value>
   </data>
   <data name="BtnNewInvoice.Text" xml:space="preserve">
-    <value>1) Новый документ</value>
+    <value>1) Поступление товаров</value>
   </data>
   <data name="&gt;&gt;BtnNewInvoice.Name" xml:space="preserve">
     <value>BtnNewInvoice</value>
@@ -144,10 +144,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;BtnNewInvoice.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <data name="BtnOpenInvoice.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 31</value>
+    <value>4, 82</value>
   </data>
   <data name="BtnOpenInvoice.Size" type="System.Drawing.Size, System.Drawing">
     <value>233, 20</value>
@@ -156,7 +156,7 @@
     <value>2</value>
   </data>
   <data name="BtnOpenInvoice.Text" xml:space="preserve">
-    <value>2) Просмотр документов</value>
+    <value>4) Просмотр документов</value>
   </data>
   <data name="&gt;&gt;BtnOpenInvoice.Name" xml:space="preserve">
     <value>BtnOpenInvoice</value>
@@ -168,7 +168,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;BtnOpenInvoice.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="BtnClose.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 245</value>
@@ -192,7 +192,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;BtnClose.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="BtnSinhrozization.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 219</value>
@@ -216,10 +216,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;BtnSinhrozization.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="BtnResidues.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 58</value>
+    <value>4, 108</value>
   </data>
   <data name="BtnResidues.Size" type="System.Drawing.Size, System.Drawing">
     <value>233, 20</value>
@@ -228,7 +228,7 @@
     <value>3</value>
   </data>
   <data name="BtnResidues.Text" xml:space="preserve">
-    <value>3) Остатки по товару</value>
+    <value>5) Информация по товару</value>
   </data>
   <data name="&gt;&gt;BtnResidues.Name" xml:space="preserve">
     <value>BtnResidues</value>
@@ -240,6 +240,54 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;BtnResidues.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="BtnNewInvent.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 30</value>
+  </data>
+  <data name="BtnNewInvent.Size" type="System.Drawing.Size, System.Drawing">
+    <value>233, 20</value>
+  </data>
+  <data name="BtnNewInvent.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="BtnNewInvent.Text" xml:space="preserve">
+    <value>2) Инвентаризация</value>
+  </data>
+  <data name="&gt;&gt;BtnNewInvent.Name" xml:space="preserve">
+    <value>BtnNewInvent</value>
+  </data>
+  <data name="&gt;&gt;BtnNewInvent.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BtnNewInvent.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;BtnNewInvent.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="BtnShiftInfo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 56</value>
+  </data>
+  <data name="BtnShiftInfo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>233, 20</value>
+  </data>
+  <data name="BtnShiftInfo.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="BtnShiftInfo.Text" xml:space="preserve">
+    <value>3) Отчет производства</value>
+  </data>
+  <data name="&gt;&gt;BtnShiftInfo.Name" xml:space="preserve">
+    <value>BtnShiftInfo</value>
+  </data>
+  <data name="&gt;&gt;BtnShiftInfo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BtnShiftInfo.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;BtnShiftInfo.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.FormFactorShadowProperty" xml:space="preserve">
@@ -258,7 +306,7 @@
     <value>True</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>240, 294</value>
+    <value>240, 268</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -425,9 +473,6 @@
         //AAHwAAAB//8AAPAAAAP//4AAcAAAB///gABwAAgP///AAPAADB///8AA8AAOf///8APwAA/////8D/
         AAA=
 </value>
-  </data>
-  <data name="$this.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Application</value>

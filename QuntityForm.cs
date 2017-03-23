@@ -17,11 +17,47 @@ namespace DatalogicScorpio
         public QuntityForm(Product curProd)
         {
             InitializeComponent();
-            CurrentProduct = curProd;
-            LblBarCode.Text = curProd.BarCode;
-            TxtBxGoodName.Text = curProd.Name;
-            TxtBxPrice.Text = curProd.Price;
-            InptPanelQuantityForm.Enabled = true;
+            QuanFormLoad(curProd);
+        }
+
+        private void QuanFormLoad(Product prod)
+        {
+            CurrentProduct = prod;
+            LblBarCode.Text = prod.BarCode;
+            if (prod.Name != string.Empty)
+            {
+                TxtBxGoodName.Text = prod.Name;
+                TxtBxGoodName.Enabled = false;
+                TxtBxPrice.Text = prod.Price;
+                ChkBxIsWeight.Checked = prod.IsWeight == "ИСТИНА" ? true : false;
+                ChkBxIsWeight.Enabled = false;
+                CmbBxGroup.Items.Add(prod.Group);
+                CmbBxGroup.SelectedIndex = 0;
+                CmbBxGroup.Enabled = false;
+                CmbBxType.Items.Add(prod.Type);
+                CmbBxType.SelectedIndex = 0;
+                CmbBxType.Enabled = false;
+                CmbBxUnit.Items.Add(prod.Unit);
+                CmbBxUnit.SelectedIndex = 0;
+                CmbBxUnit.Enabled = false;
+                InptPanelQuantityForm.Enabled = true;
+            }
+            else
+            {
+                foreach (string item in Form1.UnitList)
+                {
+                    CmbBxUnit.Items.Add(item);
+                }
+                foreach (ProductsGroup item in Form1.ProductsGroupList)
+                {
+                    CmbBxGroup.Items.Add(item.Group);
+                }
+                foreach (ProductsType item in Form1.ProductsTypeList)
+                {
+                    CmbBxType.Items.Add(item.Type);
+                }
+            }
+            
         }
 
         private void BtnOk_Click(object sender, EventArgs e)
@@ -66,7 +102,7 @@ namespace DatalogicScorpio
 
         private void TxtBxQuant_GotFocus(object sender, EventArgs e)
         {
-            InptPanelQuantityForm.Enabled = true;
+            //InptPanelQuantityForm.Enabled = true;
         }
 
         private void TxtBxQuant_LostFocus(object sender, EventArgs e)

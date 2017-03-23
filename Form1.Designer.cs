@@ -36,6 +36,8 @@
             this.BtnClose = new System.Windows.Forms.Button();
             this.BtnSinhrozization = new System.Windows.Forms.Button();
             this.BtnResidues = new System.Windows.Forms.Button();
+            this.BtnNewInvent = new System.Windows.Forms.Button();
+            this.BtnShiftInfo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BtnNewInvoice
@@ -73,21 +75,35 @@
             this.BtnResidues.TabStop = false;
             this.BtnResidues.Click += new System.EventHandler(this.BtnResidues_Click);
             // 
+            // BtnNewInvent
+            // 
+            resources.ApplyResources(this.BtnNewInvent, "BtnNewInvent");
+            this.BtnNewInvent.Name = "BtnNewInvent";
+            this.BtnNewInvent.TabStop = false;
+            this.BtnNewInvent.Click += new System.EventHandler(this.BtnNewInvent_Click);
+            // 
+            // BtnShiftInfo
+            // 
+            resources.ApplyResources(this.BtnShiftInfo, "BtnShiftInfo");
+            this.BtnShiftInfo.Name = "BtnShiftInfo";
+            this.BtnShiftInfo.TabStop = false;
+            this.BtnShiftInfo.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             resources.ApplyResources(this, "$this");
             this.BackColor = System.Drawing.Color.Gainsboro;
+            this.Controls.Add(this.BtnShiftInfo);
+            this.Controls.Add(this.BtnNewInvent);
             this.Controls.Add(this.BtnResidues);
             this.Controls.Add(this.BtnSinhrozization);
             this.Controls.Add(this.BtnClose);
             this.Controls.Add(this.BtnOpenInvoice);
             this.Controls.Add(this.BtnNewInvoice);
             this.Menu = this.mainMenu1;
-            this.MinimizeBox = false;
             this.Name = "Form1";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Closed += new System.EventHandler(this.Form1_Closed);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             this.ResumeLayout(false);
@@ -101,6 +117,8 @@
         private System.Windows.Forms.Button BtnClose;
         private System.Windows.Forms.Button BtnSinhrozization;
         private System.Windows.Forms.Button BtnResidues;
+        private System.Windows.Forms.Button BtnNewInvent;
+        private System.Windows.Forms.Button BtnShiftInfo;
 
     }
 }

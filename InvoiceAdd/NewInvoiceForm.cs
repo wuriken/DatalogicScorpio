@@ -13,10 +13,12 @@ namespace DatalogicScorpio
     public partial class NewInvoiceForm : Form
     {
         private List<Product> ProdList { get; set; }
+        private InvoiceType invType;
 
-        public NewInvoiceForm()
+        public NewInvoiceForm(InvoiceType type)
         {
             InitializeComponent();
+            invType = type;
         }
 
         private void NewInvoiceForm_Load(object sender, EventArgs e)
@@ -25,6 +27,33 @@ namespace DatalogicScorpio
             ProdList = new List<Product>();
             TxtBxDocName.Text = DateTime.Now.ToString("HH_mm");
             Form1.Scanner.GoodReadEvent += new datalogic.datacapture.ScannerEngine.LaserEventHandler(Scanner_GoodReadEvent);
+            ControlsFilling();
+            switch (invType)
+            {
+                case InvoiceType.Arrival:
+                    LblWindowName.Text = "Приходная накладная";
+                    break;
+                case InvoiceType.Inventory:
+                    LblWindowName.Text = "Инвентаризация";
+                    CmbBxContractors.Enabled = false;
+                    break;
+                case InvoiceType.Production:
+                    LblWindowName.Text = "Производство";
+                    CmbBxContractors.Enabled = false;
+                    break;
+            }
+        }
+
+        private void ControlsFilling()
+        {
+            foreach (Contractors item in Form1.ContractorsList)
+            {
+                CmbBxContractors.Items.Add(item.Contractor);
+            }
+            foreach (Storages item in Form1.StorageList)
+            {
+                CmbBxStorage.Items.Add(item.Storage);
+            }
         }
 
         private void Scanner_GoodReadEvent(datalogic.datacapture.ScannerEngine sender)
@@ -85,9 +114,12 @@ namespace DatalogicScorpio
 
         private void BtnInvoiceSave_Click(object sender, EventArgs e)
         {
+            Helper.WriteLineToFile(Helper.HeaderInvoice,invType.ToString() + "_" + TxtBxDocName.Text + ".csv");
             foreach (Product item in ProdList)
             {
-                Helper.WriteLineToFile(item.ToString(), TxtBxDocName.Text + ".csv");
+                item.Contractor = CmbBxContractors.Text;
+                item.Storage = CmbBxStorage.Text;
+                Helper.WriteLineToFile(item.ToString() + ";" + item.Contractor + ";" + item.Storage, invType.ToString() + "_" + TxtBxDocName.Text + ".csv");
             }
             
             this.Close();

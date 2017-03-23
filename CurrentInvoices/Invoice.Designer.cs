@@ -46,6 +46,8 @@
             this.TxtBxPrice = new System.Windows.Forms.TextBox();
             this.LblQuant = new System.Windows.Forms.Label();
             this.LblPrice = new System.Windows.Forms.Label();
+            this.CmbBxContractors = new System.Windows.Forms.ComboBox();
+            this.CmbBxStorage = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // TrVwInvoice
@@ -61,40 +63,43 @@
             // TxtBoxDate
             // 
             this.TxtBoxDate.Enabled = false;
-            this.TxtBoxDate.Location = new System.Drawing.Point(77, 50);
+            this.TxtBoxDate.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
+            this.TxtBoxDate.Location = new System.Drawing.Point(77, 47);
             this.TxtBoxDate.Name = "TxtBoxDate";
-            this.TxtBoxDate.Size = new System.Drawing.Size(152, 21);
+            this.TxtBoxDate.Size = new System.Drawing.Size(152, 19);
             this.TxtBoxDate.TabIndex = 9;
             // 
             // TxtBxName
             // 
             this.TxtBxName.Enabled = false;
-            this.TxtBxName.Location = new System.Drawing.Point(77, 26);
+            this.TxtBxName.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
+            this.TxtBxName.Location = new System.Drawing.Point(77, 23);
             this.TxtBxName.Name = "TxtBxName";
-            this.TxtBxName.Size = new System.Drawing.Size(152, 21);
+            this.TxtBxName.Size = new System.Drawing.Size(152, 19);
             this.TxtBxName.TabIndex = 8;
             // 
             // LblDate
             // 
-            this.LblDate.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.LblDate.Location = new System.Drawing.Point(4, 52);
+            this.LblDate.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.LblDate.Location = new System.Drawing.Point(4, 49);
             this.LblDate.Name = "LblDate";
             this.LblDate.Size = new System.Drawing.Size(100, 20);
             this.LblDate.Text = "Дата:";
             // 
             // LblInvName
             // 
-            this.LblInvName.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.LblInvName.Location = new System.Drawing.Point(4, 28);
+            this.LblInvName.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.LblInvName.Location = new System.Drawing.Point(4, 25);
             this.LblInvName.Name = "LblInvName";
             this.LblInvName.Size = new System.Drawing.Size(100, 20);
             this.LblInvName.Text = "Имя:";
             // 
             // TxtBxBarCode
             // 
-            this.TxtBxBarCode.Location = new System.Drawing.Point(4, 76);
+            this.TxtBxBarCode.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
+            this.TxtBxBarCode.Location = new System.Drawing.Point(4, 71);
             this.TxtBxBarCode.Name = "TxtBxBarCode";
-            this.TxtBxBarCode.Size = new System.Drawing.Size(147, 21);
+            this.TxtBxBarCode.Size = new System.Drawing.Size(147, 19);
             this.TxtBxBarCode.TabIndex = 12;
             this.TxtBxBarCode.GotFocus += new System.EventHandler(this.TxtBxBarCode_GotFocus);
             this.TxtBxBarCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtBxBarCode_KeyPress);
@@ -102,9 +107,10 @@
             // TxtBxQuant
             // 
             this.TxtBxQuant.Enabled = false;
-            this.TxtBxQuant.Location = new System.Drawing.Point(67, 130);
+            this.TxtBxQuant.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
+            this.TxtBxQuant.Location = new System.Drawing.Point(59, 115);
             this.TxtBxQuant.Name = "TxtBxQuant";
-            this.TxtBxQuant.Size = new System.Drawing.Size(51, 21);
+            this.TxtBxQuant.Size = new System.Drawing.Size(51, 19);
             this.TxtBxQuant.TabIndex = 13;
             // 
             // BtnSave
@@ -118,9 +124,10 @@
             // 
             // TxtBxGoodName
             // 
-            this.TxtBxGoodName.Location = new System.Drawing.Point(4, 103);
+            this.TxtBxGoodName.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
+            this.TxtBxGoodName.Location = new System.Drawing.Point(4, 93);
             this.TxtBxGoodName.Name = "TxtBxGoodName";
-            this.TxtBxGoodName.Size = new System.Drawing.Size(232, 21);
+            this.TxtBxGoodName.Size = new System.Drawing.Size(232, 19);
             this.TxtBxGoodName.TabIndex = 15;
             this.TxtBxGoodName.GotFocus += new System.EventHandler(this.TxtBxGoodName_GotFocus);
             this.TxtBxGoodName.LostFocus += new System.EventHandler(this.TxtBxGoodName_LostFocus);
@@ -137,34 +144,51 @@
             // LblWindowName
             // 
             this.LblWindowName.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            this.LblWindowName.Location = new System.Drawing.Point(77, 3);
+            this.LblWindowName.Location = new System.Drawing.Point(51, 0);
             this.LblWindowName.Name = "LblWindowName";
-            this.LblWindowName.Size = new System.Drawing.Size(100, 20);
+            this.LblWindowName.Size = new System.Drawing.Size(178, 20);
             this.LblWindowName.Text = "Документ";
             // 
             // TxtBxPrice
             // 
             this.TxtBxPrice.Enabled = false;
-            this.TxtBxPrice.Location = new System.Drawing.Point(188, 130);
+            this.TxtBxPrice.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
+            this.TxtBxPrice.Location = new System.Drawing.Point(164, 115);
             this.TxtBxPrice.Name = "TxtBxPrice";
-            this.TxtBxPrice.Size = new System.Drawing.Size(48, 21);
+            this.TxtBxPrice.Size = new System.Drawing.Size(48, 19);
             this.TxtBxPrice.TabIndex = 21;
             // 
             // LblQuant
             // 
-            this.LblQuant.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.LblQuant.Location = new System.Drawing.Point(4, 131);
+            this.LblQuant.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.LblQuant.Location = new System.Drawing.Point(4, 117);
             this.LblQuant.Name = "LblQuant";
-            this.LblQuant.Size = new System.Drawing.Size(63, 20);
+            this.LblQuant.Size = new System.Drawing.Size(49, 20);
             this.LblQuant.Text = "Кол-во:";
             // 
             // LblPrice
             // 
-            this.LblPrice.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.LblPrice.Location = new System.Drawing.Point(126, 131);
+            this.LblPrice.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.LblPrice.Location = new System.Drawing.Point(116, 117);
             this.LblPrice.Name = "LblPrice";
-            this.LblPrice.Size = new System.Drawing.Size(62, 20);
+            this.LblPrice.Size = new System.Drawing.Size(46, 20);
             this.LblPrice.Text = "Цена:";
+            // 
+            // CmbBxContractors
+            // 
+            this.CmbBxContractors.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
+            this.CmbBxContractors.Location = new System.Drawing.Point(4, 136);
+            this.CmbBxContractors.Name = "CmbBxContractors";
+            this.CmbBxContractors.Size = new System.Drawing.Size(127, 20);
+            this.CmbBxContractors.TabIndex = 25;
+            // 
+            // CmbBxStorage
+            // 
+            this.CmbBxStorage.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
+            this.CmbBxStorage.Location = new System.Drawing.Point(135, 136);
+            this.CmbBxStorage.Name = "CmbBxStorage";
+            this.CmbBxStorage.Size = new System.Drawing.Size(100, 20);
+            this.CmbBxStorage.TabIndex = 26;
             // 
             // Invoice
             // 
@@ -173,6 +197,8 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(240, 294);
+            this.Controls.Add(this.CmbBxStorage);
+            this.Controls.Add(this.CmbBxContractors);
             this.Controls.Add(this.LblPrice);
             this.Controls.Add(this.LblQuant);
             this.Controls.Add(this.TxtBxPrice);
@@ -187,6 +213,7 @@
             this.Controls.Add(this.LblDate);
             this.Controls.Add(this.LblInvName);
             this.Controls.Add(this.TrVwInvoice);
+            this.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
             this.Location = new System.Drawing.Point(0, 0);
             this.Menu = this.mainMenu1;
             this.MinimizeBox = false;
@@ -194,7 +221,6 @@
             this.Text = "Документ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Invoice_Load);
-            this.Closing += new System.ComponentModel.CancelEventHandler(this.Invoice_Closing);
             this.ResumeLayout(false);
 
         }
@@ -216,5 +242,7 @@
         private System.Windows.Forms.TextBox TxtBxPrice;
         private System.Windows.Forms.Label LblQuant;
         private System.Windows.Forms.Label LblPrice;
+        private System.Windows.Forms.ComboBox CmbBxContractors;
+        private System.Windows.Forms.ComboBox CmbBxStorage;
     }
 }

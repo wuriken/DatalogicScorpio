@@ -26,26 +26,37 @@ namespace DatalogicScorpio.CurrentInvoices
         private void TreeViewLoad(string path)
         {
             string result = string.Empty;
-            ProductList = new List<Product>();
-            try
+            ProductList = Helper.InvoiceLoad(path);
+            foreach (Product item in ProductList)
             {
-                StreamReader stream = new StreamReader(path, Encoding.Default);
-                string[] tempArr = new string[0];
-                while ((result = stream.ReadLine()) != null)
+                TreeViewAdd(item.BarCode, item.Name, item.Quantity, item.Price);
+            }
+            if(ProductList.Count > 0)
+            {
+                if (ProductList[0].Contractor != string.Empty)
                 {
-                    tempArr = result.Split(';');
-                    if (tempArr.Length == 4)
+                    CmbBxContractors.Items.Add(ProductList[0].Contractor);
+                    CmbBxContractors.SelectedIndex = 0;
+                }
+                else
+                {
+                    foreach (Contractors item in Form1.ContractorsList)
                     {
-                       // ProductList.Add(new Product(tempArr[0], tempArr[1], tempArr[2], tempArr[3]));
-                        TreeViewAdd(tempArr[0], tempArr[1], tempArr[2], tempArr[3]);
+                        CmbBxContractors.Items.Add(item.Contractor);
                     }
                 }
-                stream.Close();
-                stream.Dispose();
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Ошибка. Документ не загружен.");
+                if (ProductList[0].Storage != string.Empty)
+                {
+                    CmbBxStorage.Items.Add(ProductList[0].Storage);
+                    CmbBxStorage.SelectedIndex = 0;
+                }
+                else
+                {
+                    foreach (Storages item in Form1.StorageList)
+                    {
+                        CmbBxStorage.Items.Add(item.Storage);
+                    }
+                }
             }
             FileInfo info = new FileInfo(path);
             TxtBxName.Text = info.Name;
@@ -67,6 +78,20 @@ namespace DatalogicScorpio.CurrentInvoices
         private void Invoice_Load(object sender, EventArgs e)
         {
             Form1.Scanner.GoodReadEvent += new datalogic.datacapture.ScannerEngine.LaserEventHandler(Scanner_GoodReadEvent);
+            if(PathToFile.Contains(InvoiceType.Arrival.ToString()))
+            {
+                    LblWindowName.Text = "Приходная накладная";
+            }
+            else if(PathToFile.Contains(InvoiceType.Inventory.ToString()))
+            {
+                    LblWindowName.Text = "Инвентаризация";
+                    CmbBxContractors.Enabled = false;
+            }
+            else if(PathToFile.Contains(InvoiceType.Production.ToString()))
+            {
+                    LblWindowName.Text = "Производство";
+                    CmbBxContractors.Enabled = false;
+            }
         }
 
         private void Scanner_GoodReadEvent(datalogic.datacapture.ScannerEngine sender)
@@ -122,10 +147,12 @@ namespace DatalogicScorpio.CurrentInvoices
             catch (Exception)
             {
             }
-            
+            Helper.WriteLineToFile(Helper.HeaderInvoice, infFile.Name);
             foreach (Product item in ProductList)
             {
-                Helper.WriteLineToFile(item.ToString(), infFile.Name);
+                item.Contractor = CmbBxContractors.Text;
+                item.Storage = CmbBxStorage.Text;
+                Helper.WriteLineToFile(item.ToString() + ";" + item.Contractor + ";" + item.Storage, infFile.Name);
             }
             Form1.Scanner.GoodReadEvent -= Scanner_GoodReadEvent;
             this.Close();
