@@ -36,7 +36,7 @@ namespace DatalogicScorpio.CurrentInvoices
                     tempArr = result.Split(';');
                     if (tempArr.Length == 4)
                     {
-                        ProductList.Add(new Product(tempArr[0], tempArr[1], tempArr[2], tempArr[3]));
+                       // ProductList.Add(new Product(tempArr[0], tempArr[1], tempArr[2], tempArr[3]));
                         TreeViewAdd(tempArr[0], tempArr[1], tempArr[2], tempArr[3]);
                     }
                 }

@@ -17,6 +17,10 @@ namespace DatalogicScorpio
         public static datalogic.datacapture.Laser Scanner;
         public static datalogic.device.BatteryMonitor Monitor;
         public static List<Product> ProductsList;
+        public static List<Storages> StorageList;
+        public static List<ProductsType> ProductsTypeList;
+        public static List<ProsuctsGroup> ProductsGroupList;
+        public static List<Contractors> ContractorsList;
 
 
         private static NewInvoiceForm newInvForm;
@@ -37,11 +41,15 @@ namespace DatalogicScorpio
             try
             {
                 ProductsList = Helper.GetProductList();
+                ProductsTypeList = Helper.GetTypeList();
+                ProductsGroupList = Helper.GetGroupList();
+                ContractorsList = Helper.GetContractorsList();
+                StorageList = Helper.GetStorageList();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 ProductsList = new List<Product>();
-                MessageBox.Show("Ошибка. Список номенклатуры не загружен");
+                MessageBox.Show(ex.Message);
             }
         }
 

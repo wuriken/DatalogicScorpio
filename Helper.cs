@@ -5,6 +5,8 @@ using System.Text;
 using System.IO;
 using System.Windows.Forms;
 using Microsoft.WindowsCE.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
+using Microsoft.Office.Interop.Excel;
 
 namespace DatalogicScorpio
 {
@@ -12,7 +14,11 @@ namespace DatalogicScorpio
     {
         public static string PathToSyncDirectory = @"\My Documents\Invoices\";
         public static string PathToRootDirectory = @"\Program Files\DatalogicScorpio\Invoices\";
-        public static string PathToProductList = @"\BACKUP\Products.csv";
+        public static string PathToProductList = @"\My Documents\Products.csv";
+        public static string PathToGroupList = @"\My Documents\ProductsGroup.csv";
+        public static string PathToContractorsList = @"\My Documents\Contractors.csv";
+        public static string PathToStorageList = @"\My Documents\Storage.csv";
+        public static string PathToTypeList = @"\My Documents\ProductsType.csv";
 
         public static bool CheckRootDirectory()
         {
@@ -73,6 +79,23 @@ namespace DatalogicScorpio
                 DateTime.Now.ToString("dd-MM-yyyy")).Name;
         }
 
+        public static object CellsValueGet(Worksheet sheet, string cellFrom, string cellTo)
+        {
+            bool stop = false;
+            while (!stop)
+            {
+                try
+                {
+                    return sheet.get_Range(cellFrom, cellTo).Cells.Text ?? string.Empty;
+                }
+                catch (Exception)
+                {
+                    // ignored
+                }
+            }
+            return String.Empty;
+        }
+
         public static bool DirectoriesCopy()
         {
             if (Directory.Exists(PathToSyncDirectory))
@@ -130,23 +153,26 @@ namespace DatalogicScorpio
             return new DirectoryInfo(PathToRootDirectory);
         }
 
+
         public static List<Product> GetProductList()
         {
             string result = string.Empty;
             List<Product> resultList = new List<Product>();
             try
             {
-                StreamReader stream = new StreamReader(PathToProductList, Encoding.Default);
+                StreamReader stream = new StreamReader(PathToProductList, Encoding.GetEncoding(1251));
                 string[] tempArr = new string[0];
                 while ((result = stream.ReadLine()) != null)
                 {
                     tempArr = result.Split(';');
                     string temp = string.Empty;
-                    if (tempArr.Length >= 3)
+                    if (tempArr.Length == 11 && !tempArr[0].Contains("Наименование"))
                     {
-                        resultList.Add(new Product(tempArr[0], tempArr[1], tempArr[2], string.Empty));
+                        resultList.Add(new Product
+                            (tempArr[0], tempArr[1], tempArr[2], tempArr[3], tempArr[4], tempArr[5], 
+                            tempArr[6], tempArr[7], tempArr[8], tempArr[9], tempArr[10]));
                     }
-                    
+
                 }
                 stream.Close();
                 stream.Dispose();
@@ -155,6 +181,122 @@ namespace DatalogicScorpio
             {
                 MessageBox.Show("Ошибка. Список не загружен.");
                 return new List<Product>();
+            }
+            return resultList;
+        }
+
+        public static List<Contractors> GetContractorsList()
+        {
+            string result = string.Empty;
+            List<Contractors> resultList = new List<Contractors>();
+            try
+            {
+                StreamReader stream = new StreamReader(PathToContractorsList, Encoding.GetEncoding(1251));
+                string[] tempArr = new string[0];
+                while ((result = stream.ReadLine()) != null)
+                {
+                    tempArr = result.Split(';');
+                    string temp = string.Empty;
+                    if (tempArr.Length == 1 && !tempArr[0].Contains("Контрагент"))
+                    {
+                        resultList.Add(new Contractors(tempArr[0]));
+                    }
+
+                }
+                stream.Close();
+                stream.Dispose();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ошибка. Список не загружен.");
+                return new List<Contractors>();
+            }
+            return resultList;
+        }
+
+        public static List<ProductsType> GetTypeList()
+        {
+            string result = string.Empty;
+            List<ProductsType> resultList = new List<ProductsType>();
+            try
+            {
+                StreamReader stream = new StreamReader(PathToTypeList, Encoding.GetEncoding(1251));
+                string[] tempArr = new string[0];
+                while ((result = stream.ReadLine()) != null)
+                {
+                    tempArr = result.Split(';');
+                    string temp = string.Empty;
+                    if (tempArr.Length == 1 && !tempArr[0].Contains("Вид товара"))
+                    {
+                        resultList.Add(new ProductsType(tempArr[0]));
+                    }
+
+                }
+                stream.Close();
+                stream.Dispose();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ошибка. Список не загружен.");
+                return new List<ProductsType>();
+            }
+            return resultList;
+        }
+
+        public static List<ProsuctsGroup> GetGroupList()
+        {
+            string result = string.Empty;
+            List<ProsuctsGroup> resultList = new List<ProsuctsGroup>();
+            try
+            {
+                StreamReader stream = new StreamReader(PathToGroupList, Encoding.GetEncoding(1251));
+                string[] tempArr = new string[0];
+                while ((result = stream.ReadLine()) != null)
+                {
+                    tempArr = result.Split(';');
+                    string temp = string.Empty;
+                    if (tempArr.Length == 1 && !tempArr[0].Contains("Группы товаров"))
+                    {
+                        resultList.Add(new ProsuctsGroup(tempArr[0]));
+                    }
+
+                }
+                stream.Close();
+                stream.Dispose();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ошибка. Список не загружен.");
+                return new List<ProsuctsGroup>();
+            }
+            return resultList;
+        }
+
+        public static List<Storages> GetStorageList()
+        {
+            string result = string.Empty;
+            List<Storages> resultList = new List<Storages>();
+            try
+            {
+                StreamReader stream = new StreamReader(PathToStorageList, Encoding.GetEncoding(1251));
+                string[] tempArr = new string[0];
+                while ((result = stream.ReadLine()) != null)
+                {
+                    tempArr = result.Split(';');
+                    string temp = string.Empty;
+                    if (tempArr.Length == 1 && !tempArr[0].Contains("Склад:"))
+                    {
+                        resultList.Add(new Storages(tempArr[0]));
+                    }
+
+                }
+                stream.Close();
+                stream.Dispose();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ошибка. Список не загружен.");
+                return new List<Storages>();
             }
             return resultList;
         }
@@ -168,7 +310,7 @@ namespace DatalogicScorpio
                     return list[i];
                 }
             }
-            return new Product(barCode, string.Empty, "0", "0.00");
+            return new Product(barCode, string.Empty, "0", "0.00", "", "", "", "", "","","");
         }
     }
 
@@ -177,8 +319,22 @@ namespace DatalogicScorpio
         private string _quantity;
         private string _price;
         private string _name;
+        private string _barcode;
+        private string _article;
+        private string _code;
+        private string _weightCode;
 
-        public string BarCode { get; set; }
+        public string BarCode 
+        {
+            get
+            {
+                return _barcode.Trim();
+            }
+            set
+            {
+                _barcode = value.Trim();
+            }
+        }
         public string Name
         {
             get 
@@ -187,7 +343,7 @@ namespace DatalogicScorpio
             }
             set 
             {
-                _name = value.Trim(new char[] { '"' });
+                _name = value;
             }
         }
         public string Quantity 
@@ -236,8 +392,79 @@ namespace DatalogicScorpio
                 }
             }
         }
+        public string Article
+        {
+            get
+            {
+                if (_article.Contains('.'))
+                    return _article.Replace('.', ',');
+                else
+                {
+                    return _article;
+                }
+            }
+            set
+            {
+                if (value.Contains('.'))
+                {
+                    _article = value.Replace('.', ',');
+                }
+                else
+                {
+                    _article = value;
+                }
+            }
+        }
+        public string Code
+        {
+            get
+            {
+                if (_code.Contains('.'))
+                    return _code.Replace('.', ',');
+                else
+                {
+                    return _code;
+                }
+            }
+            set
+            {
+                if (value.Contains('.'))
+                {
+                    _code = value.Replace('.', ',');
+                }
+                else
+                {
+                    _code = value;
+                }
+            }
+        }
+        public string WeightCode
+        {
+            get
+            {
+                if (_weightCode.Contains('.'))
+                    return _weightCode.Replace('.', ',');
+                else
+                {
+                    return _weightCode;
+                }
+            }
+            set
+            {
+                if (value.Contains('.'))
+                {
+                    _weightCode = value.Replace('.', ',');
+                }
+                else
+                {
+                    _weightCode = value;
+                }
+            }
+        }
 
-        public Product(string barCode, string name, string quantity, string price)
+
+        public Product(string name, string code, string article, string group, string type,
+            string unit, string weighted, string weightCode, string barCode, string price, string quantity)
         {
             BarCode = barCode;
             Name = name;
@@ -248,6 +475,42 @@ namespace DatalogicScorpio
         public override string ToString()
         {
             return BarCode + ";" + Name + ";" + Quantity + ";" + Price;
+        }
+    }
+
+    public class Storages
+    {
+        public string Storage { get; set; }
+        public Storages(string storage)
+        {
+            Storage = storage;
+        }
+    }
+
+    public class ProductsType
+    {
+        public string Type { get; set; }
+        public ProductsType(string type)
+        {
+            Type = type;
+        }
+    }
+
+    public class Contractors
+    {
+        public string Contractor { get; set; }
+        public Contractors(string contract)
+        {
+            Contractor = contract;
+        }
+    }
+
+    public class ProsuctsGroup
+    {
+        public string Group { get; set; }
+        public ProsuctsGroup(string group)
+        {
+            Group = group;
         }
     }
 }
