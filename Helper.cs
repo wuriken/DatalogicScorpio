@@ -22,14 +22,14 @@ namespace DatalogicScorpio
 
         public static string PathToSyncDirectory = @"\My Documents\Invoices\";
         public static string PathToRootDirectory = @"\Program Files\DatalogicScorpio\Invoices\";
-        public static string PathToProductList = @"\My Documents\Products.csv";
-        public static string PathToGroupList = @"\My Documents\ProductsGroup.csv";
-        public static string PathToContractorsList = @"\My Documents\Contractors.csv";
-        public static string PathToStorageList = @"\My Documents\Storage.csv";
-        public static string PathToTypeList = @"\My Documents\ProductsType.csv";
+        public static string PathToProductList = @"\Program Files\DatalogicScorpio\Products.csv";
+        public static string PathToGroupList = @"\Program Files\DatalogicScorpio\ProductsGroup.csv";
+        public static string PathToContractorsList = @"\Program Files\DatalogicScorpio\Contractors.csv";
+        public static string PathToStorageList = @"\Program Files\DatalogicScorpio\Storage.csv";
+        public static string PathToTypeList = @"\Program Files\DatalogicScorpio\ProductsType.csv";
         public static string HeaderProductsList = @"Наименование:;Код товара:;Артикул:;Группа товаров:;Вид товаров:;Единица измерения:;Весовой товар:;
-                        Код весового товара;Штрих-код:;Цена:;Количество:";
-        public static string HeaderInvoice = @"Наименование:;Код товара:;Артикул:;Группа товаров:;Вид товаров:;Единица измерения:;Весовой товар:;Код весового товара;Штрих-код:;Цена:;Количество:;Контрагент:;Склад:";
+                        Код весового товара:;Штрих-код:;Цена:;Количество:";
+        public static string HeaderInvoice = @"Наименование:;Код товара:;Артикул:;Группа товаров:;Вид товаров:;Единица измерения:;Весовой товар:;Код весового товара:;Штрих-код:;Цена:;Количество:;Контрагент:;Склад:";
 
         public static bool CheckRootDirectory()
         {
@@ -132,8 +132,6 @@ namespace DatalogicScorpio
             {
                 return false;
             }
-            
-            
         }
 
         public static DirectoryInfo[] GetWorkDirectories()
@@ -200,7 +198,6 @@ namespace DatalogicScorpio
                             (tempArr[0], tempArr[1], tempArr[2], tempArr[3], tempArr[4], tempArr[5], 
                             tempArr[6], tempArr[7], tempArr[8], tempArr[9], tempArr[10]));
                     }
-
                 }
                 stream.Close();
                 stream.Dispose();
@@ -213,10 +210,10 @@ namespace DatalogicScorpio
             return resultList;
         }
 
-        public static List<Contractors> GetContractorsList()
+        public static List<string> GetContractorsList()
         {
             string result = string.Empty;
-            List<Contractors> resultList = new List<Contractors>();
+            List<string> resultList = new List<string>();
             try
             {
                 StreamReader stream = new StreamReader(PathToContractorsList, Encoding.GetEncoding(1251));
@@ -227,7 +224,7 @@ namespace DatalogicScorpio
                     string temp = string.Empty;
                     if (tempArr.Length == 1 && !tempArr[0].Contains("Контрагент"))
                     {
-                        resultList.Add(new Contractors(tempArr[0]));
+                        if(!String.IsNullOrEmpty(tempArr[0]))resultList.Add(tempArr[0]);
                     }
 
                 }
@@ -237,15 +234,15 @@ namespace DatalogicScorpio
             catch (Exception)
             {
                 MessageBox.Show("Ошибка. Список не загружен.");
-                return new List<Contractors>();
+                return new List<string>();
             }
             return resultList;
         }
 
-        public static List<ProductsType> GetTypeList()
+        public static List<string> GetTypeList()
         {
             string result = string.Empty;
-            List<ProductsType> resultList = new List<ProductsType>();
+            List<string> resultList = new List<string>();
             try
             {
                 StreamReader stream = new StreamReader(PathToTypeList, Encoding.GetEncoding(1251));
@@ -256,7 +253,7 @@ namespace DatalogicScorpio
                     string temp = string.Empty;
                     if (tempArr.Length == 1 && !tempArr[0].Contains("Вид товара"))
                     {
-                        resultList.Add(new ProductsType(tempArr[0]));
+                        if(!string.IsNullOrEmpty(tempArr[0]))resultList.Add(tempArr[0]);
                     }
 
                 }
@@ -266,15 +263,15 @@ namespace DatalogicScorpio
             catch (Exception)
             {
                 MessageBox.Show("Ошибка. Список не загружен.");
-                return new List<ProductsType>();
+                return new List<string>();
             }
             return resultList;
         }
 
-        public static List<ProductsGroup> GetGroupList()
+        public static List<string> GetGroupList()
         {
             string result = string.Empty;
-            List<ProductsGroup> resultList = new List<ProductsGroup>();
+            List<string> resultList = new List<string>();
             try
             {
                 StreamReader stream = new StreamReader(PathToGroupList, Encoding.GetEncoding(1251));
@@ -285,7 +282,7 @@ namespace DatalogicScorpio
                     string temp = string.Empty;
                     if (tempArr.Length == 1 && !tempArr[0].Contains("Группы товаров"))
                     {
-                        resultList.Add(new ProductsGroup(tempArr[0]));
+                        if(!string.IsNullOrEmpty(tempArr[0]))resultList.Add(tempArr[0]);
                     }
 
                 }
@@ -295,15 +292,15 @@ namespace DatalogicScorpio
             catch (Exception)
             {
                 MessageBox.Show("Ошибка. Список не загружен.");
-                return new List<ProductsGroup>();
+                return new List<string>();
             }
             return resultList;
         }
 
-        public static List<Storages> GetStorageList()
+        public static List<string> GetStorageList()
         {
             string result = string.Empty;
-            List<Storages> resultList = new List<Storages>();
+            List<string> resultList = new List<string>();
             try
             {
                 StreamReader stream = new StreamReader(PathToStorageList, Encoding.GetEncoding(1251));
@@ -314,7 +311,7 @@ namespace DatalogicScorpio
                     string temp = string.Empty;
                     if (tempArr.Length == 1 && !tempArr[0].Contains("Склад:"))
                     {
-                        resultList.Add(new Storages(tempArr[0]));
+                        if(!string.IsNullOrEmpty(tempArr[0]))resultList.Add(tempArr[0]);
                     }
 
                 }
@@ -324,7 +321,7 @@ namespace DatalogicScorpio
             catch (Exception)
             {
                 MessageBox.Show("Ошибка. Список не загружен.");
-                return new List<Storages>();
+                return new List<string>();
             }
             return resultList;
         }
@@ -523,39 +520,39 @@ namespace DatalogicScorpio
         }
     }
 
-    public class Storages
-    {
-        public string Storage { get; set; }
-        public Storages(string storage)
-        {
-            Storage = storage;
-        }
-    }
+    //public class Storages
+    //{
+    //    public string Storage { get; set; }
+    //    public Storages(string storage)
+    //    {
+    //        Storage = storage;
+    //    }
+    //}
 
-    public class ProductsType
-    {
-        public string Type { get; set; }
-        public ProductsType(string type)
-        {
-            Type = type;
-        }
-    }
+    //public class ProductsType
+    //{
+    //    public string Type { get; set; }
+    //    public ProductsType(string type)
+    //    {
+    //        Type = type;
+    //    }
+    //}
 
-    public class Contractors
-    {
-        public string Contractor { get; set; }
-        public Contractors(string contract)
-        {
-            Contractor = contract;
-        }
-    }
+    //public class Contractors
+    //{
+    //    public string Contractor { get; set; }
+    //    public Contractors(string contract)
+    //    {
+    //        Contractor = contract;
+    //    }
+    //}
 
-    public class ProductsGroup
-    {
-        public string Group { get; set; }
-        public ProductsGroup(string group)
-        {
-            Group = group;
-        }
-    }
+    //public class ProductsGroup
+    //{
+    //    public string Group { get; set; }
+    //    public ProductsGroup(string group)
+    //    {
+    //        Group = group;
+    //    }
+    //}
 }

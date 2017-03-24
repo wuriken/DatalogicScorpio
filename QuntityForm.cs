@@ -48,13 +48,13 @@ namespace DatalogicScorpio
                 {
                     CmbBxUnit.Items.Add(item);
                 }
-                foreach (ProductsGroup item in Form1.ProductsGroupList)
+                foreach (string item in Form1.ProductsGroupList)
                 {
-                    CmbBxGroup.Items.Add(item.Group);
+                    CmbBxGroup.Items.Add(item);
                 }
-                foreach (ProductsType item in Form1.ProductsTypeList)
+                foreach (string item in Form1.ProductsTypeList)
                 {
-                    CmbBxType.Items.Add(item.Type);
+                    CmbBxType.Items.Add(item);
                 }
             }
             

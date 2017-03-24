@@ -46,13 +46,13 @@ namespace DatalogicScorpio
 
         private void ControlsFilling()
         {
-            foreach (Contractors item in Form1.ContractorsList)
+            foreach (string item in Form1.ContractorsList)
             {
-                CmbBxContractors.Items.Add(item.Contractor);
+                CmbBxContractors.Items.Add(item);
             }
-            foreach (Storages item in Form1.StorageList)
+            foreach (string item in Form1.StorageList)
             {
-                CmbBxStorage.Items.Add(item.Storage);
+                CmbBxStorage.Items.Add(item);
             }
         }
 

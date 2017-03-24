@@ -17,10 +17,10 @@ namespace DatalogicScorpio
         public static datalogic.datacapture.Laser Scanner;
         public static datalogic.device.BatteryMonitor Monitor;
         public static List<Product> ProductsList;
-        public static List<Storages> StorageList;
-        public static List<ProductsType> ProductsTypeList;
-        public static List<ProductsGroup> ProductsGroupList;
-        public static List<Contractors> ContractorsList;
+        public static List<string> StorageList;
+        public static List<string> ProductsTypeList;
+        public static List<string> ProductsGroupList;
+        public static List<string> ContractorsList;
         public static List<string> UnitList;
 
 
@@ -129,6 +129,11 @@ namespace DatalogicScorpio
         private void BtnSinhrozization_Click(object sender, EventArgs e)
         {
             ProductsList = Helper.GetProductList();
+            StorageList = Helper.GetStorageList();
+            ProductsTypeList = Helper.GetTypeList();
+            ProductsGroupList = Helper.GetGroupList();
+            ContractorsList = Helper.GetContractorsList();
+
             if (Helper.DirectoriesCopy() && ProductsList.Count != 0)
             {
                 MessageBox.Show("Данные обновлены");

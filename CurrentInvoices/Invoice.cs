@@ -40,9 +40,9 @@ namespace DatalogicScorpio.CurrentInvoices
                 }
                 else
                 {
-                    foreach (Contractors item in Form1.ContractorsList)
+                    foreach (string item in Form1.ContractorsList)
                     {
-                        CmbBxContractors.Items.Add(item.Contractor);
+                        CmbBxContractors.Items.Add(item);
                     }
                 }
                 if (ProductList[0].Storage != string.Empty)
@@ -52,9 +52,9 @@ namespace DatalogicScorpio.CurrentInvoices
                 }
                 else
                 {
-                    foreach (Storages item in Form1.StorageList)
+                    foreach (string item in Form1.StorageList)
                     {
-                        CmbBxStorage.Items.Add(item.Storage);
+                        CmbBxStorage.Items.Add(item);
                     }
                 }
             }
