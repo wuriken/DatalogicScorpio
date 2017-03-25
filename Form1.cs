@@ -32,8 +32,8 @@ namespace DatalogicScorpio
             InitializeComponent();
             Scanner = new Laser();
             Monitor = new datalogic.device.BatteryMonitor();
-            //Scanner.ScannerEnabled = true;
-            //BatteryMonitorCinfiguration();
+            Scanner.ScannerEnabled = true;
+            BatteryMonitorCinfiguration();
             if (!Helper.CheckRootDirectory())
             {
                 MessageBox.Show("Рабочая папка недоступна");
@@ -128,19 +128,26 @@ namespace DatalogicScorpio
 
         private void BtnSinhrozization_Click(object sender, EventArgs e)
         {
-            ProductsList = Helper.GetProductList();
-            StorageList = Helper.GetStorageList();
-            ProductsTypeList = Helper.GetTypeList();
-            ProductsGroupList = Helper.GetGroupList();
-            ContractorsList = Helper.GetContractorsList();
-
-            if (Helper.DirectoriesCopy() && ProductsList.Count != 0)
+            try
             {
-                MessageBox.Show("Данные обновлены");
+                ProductsList = Helper.GetProductList();
+                StorageList = Helper.GetStorageList();
+                ProductsTypeList = Helper.GetTypeList();
+                ProductsGroupList = Helper.GetGroupList();
+                ContractorsList = Helper.GetContractorsList();
+                //if (Helper.DirectoriesCopy() && ProductsList.Count != 0)
+                if (ProductsList.Count != 0)
+                {
+                    MessageBox.Show("Данные обновлены");
+                }
+                else
+                {
+                    MessageBox.Show("Error");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Error");
+                MessageBox.Show(ex.Message);
             }
         }
 

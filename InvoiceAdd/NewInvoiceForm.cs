@@ -25,7 +25,7 @@ namespace DatalogicScorpio
         {
             TrwViewInvoice.Nodes.Clear();
             ProdList = new List<Product>();
-            TxtBxDocName.Text = DateTime.Now.ToString("HH_mm");
+            TxtBxDocName.Text = DateTime.Now.ToString("dd_MM_HH_mm");
             Form1.Scanner.GoodReadEvent += new datalogic.datacapture.ScannerEngine.LaserEventHandler(Scanner_GoodReadEvent);
             ControlsFilling();
             switch (invType)

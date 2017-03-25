@@ -204,7 +204,7 @@
     <value>4</value>
   </data>
   <data name="BtnSinhrozization.Text" xml:space="preserve">
-    <value>9) Синхронизация</value>
+    <value>9) Обновить данные</value>
   </data>
   <data name="&gt;&gt;BtnSinhrozization.Name" xml:space="preserve">
     <value>BtnSinhrozization</value>

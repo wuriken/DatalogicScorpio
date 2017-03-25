@@ -22,11 +22,11 @@ namespace DatalogicScorpio
 
         public static string PathToSyncDirectory = @"\My Documents\Invoices\";
         public static string PathToRootDirectory = @"\Program Files\DatalogicScorpio\Invoices\";
-        public static string PathToProductList = @"\Program Files\DatalogicScorpio\Products.csv";
-        public static string PathToGroupList = @"\Program Files\DatalogicScorpio\ProductsGroup.csv";
-        public static string PathToContractorsList = @"\Program Files\DatalogicScorpio\Contractors.csv";
-        public static string PathToStorageList = @"\Program Files\DatalogicScorpio\Storage.csv";
-        public static string PathToTypeList = @"\Program Files\DatalogicScorpio\ProductsType.csv";
+        public static string PathToProductList = @"\Program Files\DatalogicScorpio\Invoices\Products.csv";
+        public static string PathToGroupList = @"\Program Files\DatalogicScorpio\Invoices\ProductsGroup.csv";
+        public static string PathToContractorsList = @"\Program Files\DatalogicScorpio\Invoices\Contractors.csv";
+        public static string PathToStorageList = @"\Program Files\DatalogicScorpio\Invoices\Storage.csv";
+        public static string PathToTypeList = @"\Program Files\DatalogicScorpio\Invoices\ProductsType.csv";
         public static string HeaderProductsList = @"Наименование:;Код товара:;Артикул:;Группа товаров:;Вид товаров:;Единица измерения:;Весовой товар:;
                         Код весового товара:;Штрих-код:;Цена:;Количество:";
         public static string HeaderInvoice = @"Наименование:;Код товара:;Артикул:;Группа товаров:;Вид товаров:;Единица измерения:;Весовой товар:;Код весового товара:;Штрих-код:;Цена:;Количество:;Контрагент:;Склад:";
