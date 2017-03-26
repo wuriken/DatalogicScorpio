@@ -137,7 +137,7 @@
             this.LblQuantValue.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.LblQuantValue.Location = new System.Drawing.Point(93, 223);
             this.LblQuantValue.Name = "LblQuantValue";
-            this.LblQuantValue.Size = new System.Drawing.Size(32, 20);
+            this.LblQuantValue.Size = new System.Drawing.Size(44, 20);
             this.LblQuantValue.Text = "___";
             // 
             // LblPriceValue

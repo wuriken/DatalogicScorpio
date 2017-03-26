@@ -21,6 +21,7 @@ namespace DatalogicScorpio.CurrentInvoices
             TrVwInvoice.Nodes.Clear();
             TreeViewLoad(path);
             PathToFile = path;
+            Form1.Scanner.GoodReadEvent += new datalogic.datacapture.ScannerEngine.LaserEventHandler(Scanner_GoodReadEvent);
         }
 
         private void TreeViewLoad(string path)
@@ -29,7 +30,7 @@ namespace DatalogicScorpio.CurrentInvoices
             ProductList = Helper.InvoiceLoad(path);
             foreach (Product item in ProductList)
             {
-                TreeViewAdd(item.BarCode, item.Name, item.Quantity, item.Price);
+                TreeViewAdd(item.Quantity, item.Price, item.Name);
             }
             if(ProductList.Count > 0)
             {
@@ -60,6 +61,7 @@ namespace DatalogicScorpio.CurrentInvoices
             }
             FileInfo info = new FileInfo(path);
             TxtBxName.Text = info.Name;
+            LblInvSumValue.Text = Helper.InvoiceSummCount(ProductList).ToString();
             TxtBoxDate.Text = info.CreationTime.ToString("dd-MM-yyyy HH:ss");
         }
 
@@ -67,17 +69,17 @@ namespace DatalogicScorpio.CurrentInvoices
         {
             if (TrVwInvoice.SelectedNode != null)
             {
-                string[] tmpArr = TrVwInvoice.SelectedNode.Text.Split('-');
-                TxtBxBarCode.Text = tmpArr[0].Trim();
-                TxtBxGoodName.Text = tmpArr[1].Trim();
-                TxtBxQuant.Text = tmpArr[2].Trim();
-                TxtBxPrice.Text = tmpArr[3].Trim();
+                int index = TrVwInvoice.SelectedNode.Index;
+                TxtBxBarCode.Text = ProductList[index].BarCode;
+                TxtBxGoodName.Text = ProductList[index].Name;
+                TxtBxPrice.Text = ProductList[index].Price;
+                TxtBxQuant.Text = ProductList[index].Quantity;
             }
         }
 
         private void Invoice_Load(object sender, EventArgs e)
         {
-            Form1.Scanner.GoodReadEvent += new datalogic.datacapture.ScannerEngine.LaserEventHandler(Scanner_GoodReadEvent);
+           
             if(PathToFile.Contains(InvoiceType.Arrival.ToString()))
             {
                     LblWindowName.Text = "Приходная накладная";
@@ -96,6 +98,7 @@ namespace DatalogicScorpio.CurrentInvoices
 
         private void Scanner_GoodReadEvent(datalogic.datacapture.ScannerEngine sender)
         {
+            TxtBxBarCode.Text = string.Empty;
             string barCode = Form1.Scanner.BarcodeDataAsText;
             TxtBxBarCode.Text = string.Empty;
             TxtBxPrice.Text = string.Empty;
@@ -108,13 +111,13 @@ namespace DatalogicScorpio.CurrentInvoices
 
         private void GetProductByBarCode(string barCode)
         {
-            Product curProd = Helper.GetProductByBarCode(Form1.ProductsList, barCode);
+            Product curProd = new Product(Helper.GetProductByBarCode(Form1.ProductsList, barCode));
             bool isNewProduct = curProd.Name == string.Empty ? true : false;
             QuntityForm addForm = new QuntityForm(curProd);
             addForm.ShowDialog();
             if (addForm.DialogResult == DialogResult.OK)
             {
-                TreeViewAdd(barCode, addForm.CurrentProduct.Name, addForm.CurrentProduct.Quantity, addForm.CurrentProduct.Price);
+                TreeViewAdd(addForm.CurrentProduct.Quantity, addForm.CurrentProduct.Price, addForm.CurrentProduct.Name);
                 curProd.Name = addForm.CurrentProduct.Name;
                 curProd.Quantity = addForm.CurrentProduct.Quantity;
                 curProd.Price = addForm.CurrentProduct.Price;
@@ -123,15 +126,16 @@ namespace DatalogicScorpio.CurrentInvoices
                     Form1.ProductsList.Add(curProd);
                 }
                 ProductList.Add(curProd);
+                LblInvSumValue.Text = Helper.InvoiceSummCount(ProductList).ToString();
                 TxtBxQuant.Text = addForm.CurrentProduct.Quantity;
                 TxtBxGoodName.Text = addForm.CurrentProduct.Name;
                 TxtBxPrice.Text = addForm.CurrentProduct.Price;
             }
         }
 
-        private void TreeViewAdd(string barCode, string name, string quantity, string price)
+        private void TreeViewAdd(string quantity, string price, string name)
         {
-            TrVwInvoice.Nodes.Add(barCode + " - " + name + " - " + quantity + " - " + price);
+            TrVwInvoice.Nodes.Add(quantity + " - " + price + " - " + name);
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
@@ -167,8 +171,7 @@ namespace DatalogicScorpio.CurrentInvoices
                 addForm.ShowDialog();
                 if (addForm.DialogResult == DialogResult.OK)
                 {
-                    TrVwInvoice.SelectedNode.Text = addForm.CurrentProduct.BarCode + " - " + addForm.CurrentProduct.Name 
-                        + " - " + addForm.CurrentProduct.Quantity + " - " + addForm.CurrentProduct.Price;
+                    TrVwInvoice.SelectedNode.Text = addForm.CurrentProduct.Quantity + " - " + addForm.CurrentProduct.Price + " - " + addForm.CurrentProduct.Name;
                     ProductList[index].Name = addForm.CurrentProduct.Name;
                     ProductList[index].Quantity = addForm.CurrentProduct.Quantity;
                     ProductList[index].Price = addForm.CurrentProduct.Price;
@@ -194,11 +197,6 @@ namespace DatalogicScorpio.CurrentInvoices
             this.Close();
         }
 
-        private void Invoice_Closing(object sender, CancelEventArgs e)
-        {
-            Form1.Scanner.GoodReadEvent -= Scanner_GoodReadEvent;
-        }
-
         private void TxtBxBarCode_GotFocus(object sender, EventArgs e)
         {
             TxtBxBarCode.Text = string.Empty;
@@ -210,6 +208,36 @@ namespace DatalogicScorpio.CurrentInvoices
             {
                 GetProductByBarCode(TxtBxBarCode.Text);
             }
+        }
+
+        private void Invoice_KeyDown(object sender, KeyEventArgs e)
+        {
+            if ((e.KeyCode == System.Windows.Forms.Keys.Up))
+            {
+                // Up
+            }
+            if ((e.KeyCode == System.Windows.Forms.Keys.Down))
+            {
+                // Down
+            }
+            if ((e.KeyCode == System.Windows.Forms.Keys.Left))
+            {
+                // Left
+            }
+            if ((e.KeyCode == System.Windows.Forms.Keys.Right))
+            {
+                // Right
+            }
+            if ((e.KeyCode == System.Windows.Forms.Keys.Enter))
+            {
+                // Enter
+            }
+
+        }
+
+        private void Invoice_Closed(object sender, EventArgs e)
+        {
+            Form1.Scanner.GoodReadEvent -= Scanner_GoodReadEvent;
         }
     }
 }

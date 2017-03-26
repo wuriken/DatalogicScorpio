@@ -44,8 +44,8 @@ namespace DatalogicScorpio
 
                 return false;
             }
-            
-            return true;    
+
+            return true;
         }
 
         public static void KeyboardChange(InputPanel panel)
@@ -55,6 +55,20 @@ namespace DatalogicScorpio
                 if (item.Name == "MSH Keyboard")
                     panel.CurrentInputMethod = item;
             }
+        }
+
+        public static double InvoiceSummCount(List<Product> list)
+        {
+            double sum = 0.00;
+            string price = string.Empty;
+            string quant = string.Empty;
+            for (int i = 0; i < list.Count; i++)
+			{
+                price = list[i].Price.Contains(",") ? list[i].Price.Replace(',', '.') : list[i].Price;
+                quant = list[i].Quantity.Contains(",") ? list[i].Quantity.Replace(',', '.') : list[i].Quantity;
+                sum += Double.Parse(price) * Double.Parse(quant);
+            }
+            return sum;
         }
 
         public static void WriteLineToFile(string product, string fileName)
@@ -76,6 +90,62 @@ namespace DatalogicScorpio
             }
         }
 
+        public static int[] ArrivalInvoiceCount()
+        {
+            DirectoryInfo[] dirInfo = new DirectoryInfo(PathToRootDirectory).GetDirectories();
+            int[] count = new int[] { 0, 0 };
+            for (int i = 0; i < dirInfo.Length; i++)
+			{
+                FileInfo[] fileInf = dirInfo[i].GetFiles();
+                for (int j = 0; j < fileInf.Length; j++)
+                {
+                    if (fileInf[j].Name.Contains(InvoiceType.Arrival.ToString()) && !fileInf[j].Name.EndsWith(".exc"))
+                        count[0]++;
+                    else if (fileInf[j].Name.Contains(InvoiceType.Arrival.ToString()) && fileInf[j].Name.EndsWith(".exc"))
+                        count[1]++;
+                }
+			}
+                
+            return count;
+        }
+
+        public static int[] InventoryInvoiceCount()
+        {
+            DirectoryInfo[] dirInfo = new DirectoryInfo(PathToRootDirectory).GetDirectories();
+            int[] count = new int[] { 0, 0 };
+            for (int i = 0; i < dirInfo.Length; i++)
+            {
+                FileInfo[] fileInf = dirInfo[i].GetFiles();
+                for (int j = 0; j < fileInf.Length; j++)
+                {
+                    if (fileInf[j].Name.Contains(InvoiceType.Inventory.ToString()) && !fileInf[j].Name.EndsWith(".exc"))
+                        count[0]++;
+                    else if (fileInf[j].Name.Contains(InvoiceType.Inventory.ToString()) && fileInf[j].Name.EndsWith(".exc"))
+                        count[1]++; 
+                }
+            }
+            return count;
+        }
+
+        public static int[] ProductionsInvoiceCount()
+        {
+            DirectoryInfo[] dirInfo = new DirectoryInfo(PathToRootDirectory).GetDirectories();
+            int[] count = new int[] { 0, 0 };
+                for (int i = 0; i < dirInfo.Length; i++)
+                {
+                    FileInfo[] fileInf = dirInfo[i].GetFiles();
+                    for (int j = 0; j < fileInf.Length; j++)
+                    {
+                        if (fileInf[j].Name.Contains(InvoiceType.Production.ToString()) && !fileInf[j].Name.EndsWith(".exc"))
+                            count[0]++;
+                        else if (fileInf[j].Name.Contains(InvoiceType.Production.ToString()) && fileInf[j].Name.EndsWith(".exc"))
+                            count[1]++;
+                    }
+                }
+
+            return count;
+        }
+
         public static string CurrentDirectoryCheck()
         {
             DirectoryInfo[] dirInfo = GetWorkDirectories();
@@ -86,52 +156,8 @@ namespace DatalogicScorpio
                     return item.Name;
                 }
             }
-            return Directory.CreateDirectory(PathToRootDirectory + 
+            return Directory.CreateDirectory(PathToRootDirectory +
                 DateTime.Now.ToString("dd-MM-yyyy")).Name;
-        }
-
-        public static bool DirectoriesCopy()
-        {
-            if (Directory.Exists(PathToSyncDirectory))
-            {
-                try
-                {
-                    Directory.Delete(PathToSyncDirectory, true);
-                }
-                catch (Exception)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                try
-                {
-                    Directory.CreateDirectory(PathToSyncDirectory);
-                }
-                catch (Exception)
-                {
-                    return false;
-                }
-            }
-            try
-            {
-                DirectoryInfo[] dirs = GetWorkDirectories();
-                foreach (DirectoryInfo item in dirs)
-                {
-                    Directory.CreateDirectory(PathToSyncDirectory + item.Name);
-                    FileInfo[] fileInf = item.GetFiles();
-                    foreach (FileInfo file in fileInf)
-                    {
-                        File.Copy(PathToRootDirectory + item.Name + "\\" + file.Name, PathToSyncDirectory + item.Name + "\\" + file.Name, true);
-                    }
-                }
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
         }
 
         public static DirectoryInfo[] GetWorkDirectories()
@@ -195,7 +221,7 @@ namespace DatalogicScorpio
                     if (tempArr.Length == 11 && !tempArr[0].Contains("Наименование"))
                     {
                         resultList.Add(new Product
-                            (tempArr[0], tempArr[1], tempArr[2], tempArr[3], tempArr[4], tempArr[5], 
+                            (tempArr[0], tempArr[1], tempArr[2], tempArr[3], tempArr[4], tempArr[5],
                             tempArr[6], tempArr[7], tempArr[8], tempArr[9], tempArr[10]));
                     }
                 }
@@ -224,7 +250,7 @@ namespace DatalogicScorpio
                     string temp = string.Empty;
                     if (tempArr.Length == 1 && !tempArr[0].Contains("Контрагент"))
                     {
-                        if(!String.IsNullOrEmpty(tempArr[0]))resultList.Add(tempArr[0]);
+                        if (!String.IsNullOrEmpty(tempArr[0])) resultList.Add(tempArr[0]);
                     }
 
                 }
@@ -253,7 +279,7 @@ namespace DatalogicScorpio
                     string temp = string.Empty;
                     if (tempArr.Length == 1 && !tempArr[0].Contains("Вид товара"))
                     {
-                        if(!string.IsNullOrEmpty(tempArr[0]))resultList.Add(tempArr[0]);
+                        if (!string.IsNullOrEmpty(tempArr[0])) resultList.Add(tempArr[0]);
                     }
 
                 }
@@ -282,7 +308,7 @@ namespace DatalogicScorpio
                     string temp = string.Empty;
                     if (tempArr.Length == 1 && !tempArr[0].Contains("Группы товаров"))
                     {
-                        if(!string.IsNullOrEmpty(tempArr[0]))resultList.Add(tempArr[0]);
+                        if (!string.IsNullOrEmpty(tempArr[0])) resultList.Add(tempArr[0]);
                     }
 
                 }
@@ -296,6 +322,49 @@ namespace DatalogicScorpio
             }
             return resultList;
         }
+
+        public static bool DirectoriesCopy()
+        {
+            if (CheckRootDirectory())
+            {
+                string path = RootDirectoryInfo().Parent.FullName + @"\Archives";
+                if (!Directory.Exists(path))
+                {
+                    try
+                    {
+                        Directory.CreateDirectory(path);
+                    }
+                    catch (Exception)
+                    {
+                        return false;
+                    }
+                }
+                try
+                {
+                    DirectoryInfo[] dirs = RootDirectoryInfo().GetDirectories();
+                    foreach (DirectoryInfo item in dirs)
+                    {
+                        Directory.CreateDirectory(RootDirectoryInfo().Parent.FullName + @"\Archives\" + item.Name);
+                        FileInfo[] fileInf = item.GetFiles();
+                        foreach (FileInfo file in fileInf)
+                        {
+                            if (file.Name.EndsWith(".exc"))
+                            {
+                                File.Move(PathToRootDirectory + item.Name + @"\" + file.Name,
+                                    RootDirectoryInfo().Parent.FullName + @"\Archives\" + item.Name + @"\" + file.Name);
+                            }
+                        }
+                    }
+                    return true;
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+            }
+            return false;
+        }
+
 
         public static List<string> GetStorageList()
         {
@@ -311,9 +380,8 @@ namespace DatalogicScorpio
                     string temp = string.Empty;
                     if (tempArr.Length == 1 && !tempArr[0].Contains("Склад:"))
                     {
-                        if(!string.IsNullOrEmpty(tempArr[0]))resultList.Add(tempArr[0]);
+                        if (!string.IsNullOrEmpty(tempArr[0])) resultList.Add(tempArr[0]);
                     }
-
                 }
                 stream.Close();
                 stream.Dispose();
@@ -349,7 +417,7 @@ namespace DatalogicScorpio
         private string _code;
         private string _weightCode;
 
-        public string BarCode 
+        public string BarCode
         {
             get
             {
@@ -362,18 +430,18 @@ namespace DatalogicScorpio
         }
         public string Name
         {
-            get 
+            get
             {
                 return _name;
             }
-            set 
+            set
             {
                 _name = value;
             }
         }
-        public string Quantity 
+        public string Quantity
         {
-            get 
+            get
             {
                 if (_quantity.Contains('.'))
                     return _quantity.Replace('.', ',');
@@ -384,7 +452,7 @@ namespace DatalogicScorpio
             }
             set
             {
-                if(value.Contains('.'))
+                if (value.Contains('.'))
                 {
                     _quantity = value.Replace('.', ',');
                 }
@@ -392,7 +460,7 @@ namespace DatalogicScorpio
                 {
                     _quantity = value;
                 }
-            } 
+            }
         }
         public string Price
         {
@@ -493,6 +561,22 @@ namespace DatalogicScorpio
         public string Storage { get; set; }
         public string Contractor { get; set; }
 
+        public Product(Product prod)
+        {
+            BarCode = prod.BarCode;
+            Name = prod.Name;
+            Quantity = prod.Quantity;
+            Price = prod.Price;
+            Code = prod.Code;
+            Article = prod.Article;
+            Group = prod.Group;
+            Type = prod.Type;
+            Unit = prod.Unit;
+            IsWeight = prod.IsWeight;
+            WeightCode = prod.WeightCode;
+            Storage = string.Empty;
+            Contractor = string.Empty;
+        }
 
 
         public Product(string name, string code, string article, string group, string type,
@@ -515,44 +599,10 @@ namespace DatalogicScorpio
 
         public override string ToString()
         {
-            return Name + ";" + Code + ";" + Article + ";" + Group + ";" + Type + ";" + 
+            return Name + ";" + Code + ";" + Article + ";" + Group + ";" + Type + ";" +
                 Unit + ";" + IsWeight + ";" + WeightCode + ";" + BarCode + ";" + Price + ";" + Quantity;
         }
     }
 
-    //public class Storages
-    //{
-    //    public string Storage { get; set; }
-    //    public Storages(string storage)
-    //    {
-    //        Storage = storage;
-    //    }
-    //}
 
-    //public class ProductsType
-    //{
-    //    public string Type { get; set; }
-    //    public ProductsType(string type)
-    //    {
-    //        Type = type;
-    //    }
-    //}
-
-    //public class Contractors
-    //{
-    //    public string Contractor { get; set; }
-    //    public Contractors(string contract)
-    //    {
-    //        Contractor = contract;
-    //    }
-    //}
-
-    //public class ProductsGroup
-    //{
-    //    public string Group { get; set; }
-    //    public ProductsGroup(string group)
-    //    {
-    //        Group = group;
-    //    }
-    //}
 }

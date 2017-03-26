@@ -16,6 +16,7 @@ namespace DatalogicScorpio
     {
         public static datalogic.datacapture.Laser Scanner;
         public static datalogic.device.BatteryMonitor Monitor;
+        public static datalogic.device.Cradle Cradle;
         public static List<Product> ProductsList;
         public static List<string> StorageList;
         public static List<string> ProductsTypeList;
@@ -31,9 +32,12 @@ namespace DatalogicScorpio
         {
             InitializeComponent();
             Scanner = new Laser();
+            Cradle = new datalogic.device.Cradle();
             Monitor = new datalogic.device.BatteryMonitor();
             Scanner.ScannerEnabled = true;
+            Cradle.Enabled = true;
             BatteryMonitorCinfiguration();
+            SystemInfoUpdate();
             if (!Helper.CheckRootDirectory())
             {
                 MessageBox.Show("Рабочая папка недоступна");
@@ -46,13 +50,28 @@ namespace DatalogicScorpio
                 ProductsGroupList = Helper.GetGroupList();
                 ContractorsList = Helper.GetContractorsList();
                 StorageList = Helper.GetStorageList();
-                UnitList = new List<string>{"шт", "кг"};
+                UnitList = new List<string>{"шт", "кг", "л"};
             }
             catch (Exception ex)
             {
                 ProductsList = new List<Product>();
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void SystemInfoUpdate()
+        {
+            int batLvl = 0;
+            bool isEnabled = false;
+            Monitor.GetBatteryLevel(ref batLvl, ref isEnabled);
+            LblTermInfo.Text = "(" + Helper.ArrivalInvoiceCount()[0].ToString() + @"/"
+            + Helper.ArrivalInvoiceCount()[1].ToString() + ")  " + 
+            "(" + Helper.InventoryInvoiceCount()[0].ToString() + @"/"
+                + Helper.InventoryInvoiceCount()[1].ToString() + ")  " +
+            "(" + Helper.ProductionsInvoiceCount()[0].ToString() + @"/"
+                + Helper.ProductionsInvoiceCount()[1].ToString() + ")  ";
+            LblTermInfo.Text += batLvl + " %  ";
+            LblTermInfo.Text += Cradle.GetInCradle() ? " In crdl." : " No crdl.";
         }
 
         private void BatteryMonitorCinfiguration()
@@ -97,13 +116,17 @@ namespace DatalogicScorpio
             {
                 BtnOpenInvoice_Click(this, new EventArgs());
             }
-            if (e.KeyChar == (int)Keys.D9)
+            if (e.KeyChar == (int)Keys.D8)
             {
                 BtnSinhrozization_Click(this, new EventArgs());
             }
             if (e.KeyChar == (int)Keys.D5)
             {
                 BtnResidues_Click(this, new EventArgs());
+            }
+             if (e.KeyChar == (int)Keys.D9)
+            {
+                BtnArchive_Click(this, new EventArgs());
             }
         }
 
@@ -114,10 +137,7 @@ namespace DatalogicScorpio
 
         private void BtnOpenInvoice_Click(object sender, EventArgs e)
         {
-            if (curInvForm == null)
-            {
-                curInvForm = new DatalogicScorpio.CurrentInvoices.CurrentInvoices();
-            }
+            curInvForm = new DatalogicScorpio.CurrentInvoices.CurrentInvoices();
             curInvForm.ShowDialog();
         }
 
@@ -135,7 +155,6 @@ namespace DatalogicScorpio
                 ProductsTypeList = Helper.GetTypeList();
                 ProductsGroupList = Helper.GetGroupList();
                 ContractorsList = Helper.GetContractorsList();
-                //if (Helper.DirectoriesCopy() && ProductsList.Count != 0)
                 if (ProductsList.Count != 0)
                 {
                     MessageBox.Show("Данные обновлены");
@@ -167,6 +186,34 @@ namespace DatalogicScorpio
         {
             newInvForm = new NewInvoiceForm(InvoiceType.Production);
             newInvForm.ShowDialog();
+        }
+
+        private void BtnArchive_Click(object sender, EventArgs e)
+        {
+            if (Helper.DirectoriesCopy())
+            {
+                MessageBox.Show("Данные заархивированы.");
+            }
+            else
+            {
+                MessageBox.Show("Ошибка архивации.");
+            }
+
+        }
+
+        private void Form1_GotFocus(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void BtnNewInvoice_GotFocus(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Form1_Activated(object sender, EventArgs e)
+        {
+            SystemInfoUpdate();
         }
     }
 }

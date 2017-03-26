@@ -48,6 +48,8 @@
             this.LblPrice = new System.Windows.Forms.Label();
             this.CmbBxContractors = new System.Windows.Forms.ComboBox();
             this.CmbBxStorage = new System.Windows.Forms.ComboBox();
+            this.LblInvSum = new System.Windows.Forms.Label();
+            this.LblInvSumValue = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // TrVwInvoice
@@ -55,7 +57,7 @@
             this.TrVwInvoice.Location = new System.Drawing.Point(4, 158);
             this.TrVwInvoice.Name = "TrVwInvoice";
             this.TrVwInvoice.ShowRootLines = false;
-            this.TrVwInvoice.Size = new System.Drawing.Size(233, 107);
+            this.TrVwInvoice.Size = new System.Drawing.Size(233, 90);
             this.TrVwInvoice.TabIndex = 0;
             this.TrVwInvoice.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.TrVwInvoice_AfterSelect);
             this.TrVwInvoice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TrVwInvoice_KeyPress);
@@ -190,6 +192,22 @@
             this.CmbBxStorage.Size = new System.Drawing.Size(100, 20);
             this.CmbBxStorage.TabIndex = 26;
             // 
+            // LblInvSum
+            // 
+            this.LblInvSum.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.LblInvSum.Location = new System.Drawing.Point(4, 251);
+            this.LblInvSum.Name = "LblInvSum";
+            this.LblInvSum.Size = new System.Drawing.Size(100, 17);
+            this.LblInvSum.Text = "Сумма:";
+            // 
+            // LblInvSumValue
+            // 
+            this.LblInvSumValue.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.LblInvSumValue.Location = new System.Drawing.Point(60, 251);
+            this.LblInvSumValue.Name = "LblInvSumValue";
+            this.LblInvSumValue.Size = new System.Drawing.Size(100, 14);
+            this.LblInvSumValue.Text = "0.00";
+            // 
             // Invoice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -197,6 +215,8 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(240, 294);
+            this.Controls.Add(this.LblInvSumValue);
+            this.Controls.Add(this.LblInvSum);
             this.Controls.Add(this.CmbBxStorage);
             this.Controls.Add(this.CmbBxContractors);
             this.Controls.Add(this.LblPrice);
@@ -214,6 +234,7 @@
             this.Controls.Add(this.LblInvName);
             this.Controls.Add(this.TrVwInvoice);
             this.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
+            this.KeyPreview = true;
             this.Location = new System.Drawing.Point(0, 0);
             this.Menu = this.mainMenu1;
             this.MinimizeBox = false;
@@ -221,6 +242,8 @@
             this.Text = "Документ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Invoice_Load);
+            this.Closed += new System.EventHandler(this.Invoice_Closed);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Invoice_KeyDown);
             this.ResumeLayout(false);
 
         }
@@ -244,5 +267,7 @@
         private System.Windows.Forms.Label LblPrice;
         private System.Windows.Forms.ComboBox CmbBxContractors;
         private System.Windows.Forms.ComboBox CmbBxStorage;
+        private System.Windows.Forms.Label LblInvSum;
+        private System.Windows.Forms.Label LblInvSumValue;
     }
 }

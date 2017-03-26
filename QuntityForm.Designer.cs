@@ -47,6 +47,7 @@
             this.CmbBxGroup = new System.Windows.Forms.ComboBox();
             this.ChkBxIsWeight = new System.Windows.Forms.CheckBox();
             this.CmbBxUnit = new System.Windows.Forms.ComboBox();
+            this.TxtBxArticle = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // TxtBxQuant
@@ -78,6 +79,7 @@
             // 
             resources.ApplyResources(this.TxtBxGoodName, "TxtBxGoodName");
             this.TxtBxGoodName.Name = "TxtBxGoodName";
+            this.TxtBxGoodName.TabStop = false;
             this.TxtBxGoodName.GotFocus += new System.EventHandler(this.TxtBxGoodName_GotFocus);
             this.TxtBxGoodName.LostFocus += new System.EventHandler(this.TxtBxGoodName_LostFocus);
             // 
@@ -131,12 +133,18 @@
             resources.ApplyResources(this.CmbBxUnit, "CmbBxUnit");
             this.CmbBxUnit.Name = "CmbBxUnit";
             // 
+            // TxtBxArticle
+            // 
+            resources.ApplyResources(this.TxtBxArticle, "TxtBxArticle");
+            this.TxtBxArticle.Name = "TxtBxArticle";
+            // 
             // QuntityForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             resources.ApplyResources(this, "$this");
             this.BackColor = System.Drawing.Color.Gainsboro;
+            this.Controls.Add(this.TxtBxArticle);
             this.Controls.Add(this.CmbBxUnit);
             this.Controls.Add(this.ChkBxIsWeight);
             this.Controls.Add(this.CmbBxGroup);
@@ -178,5 +186,6 @@
         private System.Windows.Forms.ComboBox CmbBxGroup;
         private System.Windows.Forms.CheckBox ChkBxIsWeight;
         private System.Windows.Forms.ComboBox CmbBxUnit;
+        private System.Windows.Forms.TextBox TxtBxArticle;
     }
 }

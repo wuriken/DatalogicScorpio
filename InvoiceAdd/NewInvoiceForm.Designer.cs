@@ -49,6 +49,8 @@
             this.LblCntractors = new System.Windows.Forms.Label();
             this.CmbBxStorage = new System.Windows.Forms.ComboBox();
             this.CmbBxContractors = new System.Windows.Forms.ComboBox();
+            this.LblInvSumm = new System.Windows.Forms.Label();
+            this.LblInvSumValue = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // TxtBxBarCode
@@ -66,7 +68,7 @@
             this.TrwViewInvoice.Location = new System.Drawing.Point(6, 158);
             this.TrwViewInvoice.Name = "TrwViewInvoice";
             this.TrwViewInvoice.ShowRootLines = false;
-            this.TrwViewInvoice.Size = new System.Drawing.Size(223, 100);
+            this.TrwViewInvoice.Size = new System.Drawing.Size(223, 84);
             this.TrwViewInvoice.TabIndex = 2;
             this.TrwViewInvoice.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.TrwViewInvoice_AfterSelect);
             // 
@@ -82,7 +84,7 @@
             // 
             // BtnInvoiceSave
             // 
-            this.BtnInvoiceSave.Location = new System.Drawing.Point(4, 266);
+            this.BtnInvoiceSave.Location = new System.Drawing.Point(4, 268);
             this.BtnInvoiceSave.Name = "BtnInvoiceSave";
             this.BtnInvoiceSave.Size = new System.Drawing.Size(91, 20);
             this.BtnInvoiceSave.TabIndex = 4;
@@ -119,7 +121,7 @@
             // 
             // BtnCancel
             // 
-            this.BtnCancel.Location = new System.Drawing.Point(147, 266);
+            this.BtnCancel.Location = new System.Drawing.Point(147, 268);
             this.BtnCancel.Name = "BtnCancel";
             this.BtnCancel.Size = new System.Drawing.Size(80, 20);
             this.BtnCancel.TabIndex = 9;
@@ -200,6 +202,22 @@
             this.CmbBxContractors.Size = new System.Drawing.Size(142, 20);
             this.CmbBxContractors.TabIndex = 24;
             // 
+            // LblInvSumm
+            // 
+            this.LblInvSumm.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.LblInvSumm.Location = new System.Drawing.Point(7, 245);
+            this.LblInvSumm.Name = "LblInvSumm";
+            this.LblInvSumm.Size = new System.Drawing.Size(100, 15);
+            this.LblInvSumm.Text = "Сумма:";
+            // 
+            // LblInvSumValue
+            // 
+            this.LblInvSumValue.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.LblInvSumValue.Location = new System.Drawing.Point(59, 245);
+            this.LblInvSumValue.Name = "LblInvSumValue";
+            this.LblInvSumValue.Size = new System.Drawing.Size(100, 15);
+            this.LblInvSumValue.Text = "0.00";
+            // 
             // NewInvoiceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -207,6 +225,8 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(240, 294);
+            this.Controls.Add(this.LblInvSumValue);
+            this.Controls.Add(this.LblInvSumm);
             this.Controls.Add(this.CmbBxContractors);
             this.Controls.Add(this.CmbBxStorage);
             this.Controls.Add(this.LblCntractors);
@@ -258,5 +278,7 @@
         private System.Windows.Forms.Label LblCntractors;
         private System.Windows.Forms.ComboBox CmbBxStorage;
         private System.Windows.Forms.ComboBox CmbBxContractors;
+        private System.Windows.Forms.Label LblInvSumm;
+        private System.Windows.Forms.Label LblInvSumValue;
     }
 }

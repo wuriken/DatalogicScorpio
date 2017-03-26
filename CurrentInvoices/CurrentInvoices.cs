@@ -29,6 +29,7 @@ namespace DatalogicScorpio.CurrentInvoices
                 FileInfo[] fileInf = dirs[i].GetFiles();
                 foreach (FileInfo item in fileInf)
                 {
+                    if(!item.Name.EndsWith(".exc"))
                     TrVwCurrentInvoices.Nodes[i].Nodes.Add(item.Name);
                 }
             }  

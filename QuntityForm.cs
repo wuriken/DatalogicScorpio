@@ -40,6 +40,8 @@ namespace DatalogicScorpio
                 CmbBxUnit.Items.Add(prod.Unit);
                 CmbBxUnit.SelectedIndex = 0;
                 CmbBxUnit.Enabled = false;
+                TxtBxArticle.Text = prod.Article;
+                TxtBxArticle.Enabled = false;
                 InptPanelQuantityForm.Enabled = true;
             }
             else
@@ -57,6 +59,7 @@ namespace DatalogicScorpio
                     CmbBxType.Items.Add(item);
                 }
             }
+            InptPanelQuantityForm.Enabled = false;
             
         }
 
@@ -67,6 +70,11 @@ namespace DatalogicScorpio
                 CurrentProduct.Name = TxtBxGoodName.Text;
                 CurrentProduct.Quantity = TxtBxQuant.Text;
                 CurrentProduct.Price = TxtBxPrice.Text;
+                CurrentProduct.Group = CmbBxGroup.Text;
+                CurrentProduct.Type = CmbBxType.Text;
+                CurrentProduct.Unit = CmbBxUnit.Text;
+                CurrentProduct.Article = TxtBxArticle.Text;
+                CurrentProduct.IsWeight = ChkBxIsWeight.Checked ? "ИСТИНА" : "ЛОЖЬ";
                 DialogResult = DialogResult.OK;
                 this.Close();
             }
@@ -91,7 +99,7 @@ namespace DatalogicScorpio
 
         private void TxtBxGoodName_GotFocus(object sender, EventArgs e)
         {
-            InptPanelQuantityForm.Enabled = true;
+            //InptPanelQuantityForm.Enabled = true;
             Helper.KeyboardChange(InptPanelQuantityForm);
         }
 
@@ -148,7 +156,7 @@ namespace DatalogicScorpio
         private void TxtBxPrice_GotFocus(object sender, EventArgs e)
         {
             InptPanelQuantityForm.Enabled = true;
-            if (TxtBxPrice.Text == "0.00")
+            if (TxtBxPrice.Text == "0.00" || TxtBxPrice.Text == "0")
                 TxtBxPrice.Text = string.Empty;
         }
 

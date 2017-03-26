@@ -15,6 +15,7 @@ namespace DatalogicScorpio.ProductsInfo
         public ProductsInfoForm()
         {
             InitializeComponent();
+            Form1.Scanner.GoodReadEvent += new datalogic.datacapture.ScannerEngine.LaserEventHandler(Scanner_GoodReadEvent);
         }
 
         private void BtnClose_Click(object sender, EventArgs e)
@@ -26,11 +27,11 @@ namespace DatalogicScorpio.ProductsInfo
         {
             TxtBxBarCode.Text = string.Empty;
             TxtBxName.Text = string.Empty;
-            Form1.Scanner.GoodReadEvent += new datalogic.datacapture.ScannerEngine.LaserEventHandler(Scanner_GoodReadEvent);
         }
 
         private void Scanner_GoodReadEvent(datalogic.datacapture.ScannerEngine sender)
         {
+            TxtBxBarCode.Text = string.Empty;
             string barCode = Form1.Scanner.BarcodeDataAsText;
             if (barCode.Length > 6)
             {

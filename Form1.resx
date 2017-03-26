@@ -144,7 +144,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;BtnNewInvoice.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>8</value>
   </data>
   <data name="BtnOpenInvoice.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 82</value>
@@ -153,7 +153,7 @@
     <value>233, 20</value>
   </data>
   <data name="BtnOpenInvoice.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="BtnOpenInvoice.Text" xml:space="preserve">
     <value>4) Просмотр документов</value>
@@ -168,16 +168,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;BtnOpenInvoice.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
   </data>
   <data name="BtnClose.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 245</value>
+    <value>4, 230</value>
   </data>
   <data name="BtnClose.Size" type="System.Drawing.Size, System.Drawing">
     <value>233, 20</value>
   </data>
   <data name="BtnClose.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+    <value>8</value>
   </data>
   <data name="BtnClose.Text" xml:space="preserve">
     <value>0) Закрыть</value>
@@ -192,19 +192,19 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;BtnClose.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <data name="BtnSinhrozization.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 219</value>
+    <value>4, 178</value>
   </data>
   <data name="BtnSinhrozization.Size" type="System.Drawing.Size, System.Drawing">
     <value>233, 20</value>
   </data>
   <data name="BtnSinhrozization.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+    <value>6</value>
   </data>
   <data name="BtnSinhrozization.Text" xml:space="preserve">
-    <value>9) Обновить данные</value>
+    <value>8) Обновить данные</value>
   </data>
   <data name="&gt;&gt;BtnSinhrozization.Name" xml:space="preserve">
     <value>BtnSinhrozization</value>
@@ -216,7 +216,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;BtnSinhrozization.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="BtnResidues.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 108</value>
@@ -225,7 +225,7 @@
     <value>233, 20</value>
   </data>
   <data name="BtnResidues.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="BtnResidues.Text" xml:space="preserve">
     <value>5) Информация по товару</value>
@@ -240,7 +240,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;BtnResidues.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="BtnNewInvent.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 30</value>
@@ -249,7 +249,7 @@
     <value>233, 20</value>
   </data>
   <data name="BtnNewInvent.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+    <value>2</value>
   </data>
   <data name="BtnNewInvent.Text" xml:space="preserve">
     <value>2) Инвентаризация</value>
@@ -264,7 +264,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;BtnNewInvent.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="BtnShiftInfo.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 56</value>
@@ -273,7 +273,7 @@
     <value>233, 20</value>
   </data>
   <data name="BtnShiftInfo.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
+    <value>3</value>
   </data>
   <data name="BtnShiftInfo.Text" xml:space="preserve">
     <value>3) Отчет производства</value>
@@ -288,6 +288,51 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;BtnShiftInfo.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="BtnArchive.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 204</value>
+  </data>
+  <data name="BtnArchive.Size" type="System.Drawing.Size, System.Drawing">
+    <value>233, 20</value>
+  </data>
+  <data name="BtnArchive.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="BtnArchive.Text" xml:space="preserve">
+    <value>9) Архивировать</value>
+  </data>
+  <data name="&gt;&gt;BtnArchive.Name" xml:space="preserve">
+    <value>BtnArchive</value>
+  </data>
+  <data name="&gt;&gt;BtnArchive.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BtnArchive.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;BtnArchive.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="LblTermInfo.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 9pt, style=Bold</value>
+  </data>
+  <data name="LblTermInfo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 253</value>
+  </data>
+  <data name="LblTermInfo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>233, 14</value>
+  </data>
+  <data name="&gt;&gt;LblTermInfo.Name" xml:space="preserve">
+    <value>LblTermInfo</value>
+  </data>
+  <data name="&gt;&gt;LblTermInfo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LblTermInfo.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;LblTermInfo.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.FormFactorShadowProperty" xml:space="preserve">
@@ -475,7 +520,7 @@
 </value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Application</value>
+    <value>Datalogic</value>
   </data>
   <data name="&gt;&gt;mainMenu1.Name" xml:space="preserve">
     <value>mainMenu1</value>
