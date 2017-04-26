@@ -71,6 +71,11 @@ namespace DatalogicScorpio
             return sum;
         }
 
+        public static bool FileExistsCheck(string file)
+        {
+            return File.Exists(PathToRootDirectory + CurrentDirectoryCheck() + @"\" + file);
+        }
+
         public static void WriteLineToFile(string product, string fileName)
         {
             StreamWriter SW;

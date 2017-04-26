@@ -117,6 +117,21 @@ namespace DatalogicScorpio
 
         private void BtnInvoiceSave_Click(object sender, EventArgs e)
         {
+            if (ProdList.Count == 0)
+            {
+                MessageBox.Show("Документ пуст. Сохранение не возможно!");
+                return;
+            }
+            if (invType == InvoiceType.Arrival && CmbBxContractors.Text == string.Empty)
+            {
+                MessageBox.Show("Поставщик не заполнен!!!");
+                return;
+            }
+            if (Helper.FileExistsCheck(invType.ToString() + "_" + TxtBxDocName.Text + ".csv"))
+            {
+                MessageBox.Show("Документ существует. Переименуйте документ");
+                return;
+            }
             Helper.WriteLineToFile(Helper.HeaderInvoice,invType.ToString() + "_" + TxtBxDocName.Text + ".csv");
             foreach (Product item in ProdList)
             {
