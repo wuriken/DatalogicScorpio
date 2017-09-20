@@ -32,10 +32,10 @@ namespace DatalogicScorpio
         {
             InitializeComponent();
             Scanner = new Laser();
-            Cradle = new datalogic.device.Cradle();
-            Monitor = new datalogic.device.BatteryMonitor();
-            Scanner.ScannerEnabled = true;
-            Cradle.Enabled = true;
+            //Cradle = new datalogic.device.Cradle();
+           // Monitor = new datalogic.device.BatteryMonitor();
+           // Scanner.ScannerEnabled = true;
+            //Cradle.Enabled = true;
             BatteryMonitorCinfiguration();
             SystemInfoUpdate();
             if (!Helper.CheckRootDirectory())
@@ -63,7 +63,7 @@ namespace DatalogicScorpio
         {
             int batLvl = 0;
             bool isEnabled = false;
-            Monitor.GetBatteryLevel(ref batLvl, ref isEnabled);
+            //Monitor.GetBatteryLevel(ref batLvl, ref isEnabled);
             LblTermInfo.Text = "(" + Helper.ArrivalInvoiceCount()[0].ToString() + @"/"
             + Helper.ArrivalInvoiceCount()[1].ToString() + ")  " + 
             "(" + Helper.InventoryInvoiceCount()[0].ToString() + @"/"
@@ -71,15 +71,15 @@ namespace DatalogicScorpio
             "(" + Helper.ProductionsInvoiceCount()[0].ToString() + @"/"
                 + Helper.ProductionsInvoiceCount()[1].ToString() + ")  ";
             LblTermInfo.Text += batLvl + " %  ";
-            LblTermInfo.Text += Cradle.GetInCradle() ? " In crdl." : " No crdl.";
+           // LblTermInfo.Text += Cradle.GetInCradle() ? " In crdl." : " No crdl.";
         }
 
         private void BatteryMonitorCinfiguration()
         {
-            Monitor.Enabled = true;
-            Monitor.Interval = 300000;
-            Monitor.Threshold = 10;
-            Monitor.OnLowBattery += monitor_OnLowBattery;
+            //Monitor.Enabled = true;
+            //Monitor.Interval = 300000;
+            //Monitor.Threshold = 10;
+            //Monitor.OnLowBattery += monitor_OnLowBattery;
         }
 
         private void monitor_OnLowBattery(object sender, EventArgs e)

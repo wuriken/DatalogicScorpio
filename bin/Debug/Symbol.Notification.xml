@@ -1,0 +1,390 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Symbol.Notification</name>
+    </assembly>
+    <members>
+        <member name="T:Symbol.Notification.NotifyState">
+            <summary>
+            Defines the states of a notification object.
+            </summary>
+        </member>
+        <member name="F:Symbol.Notification.NotifyState.OFF">
+            <summary>
+            The notification object is off.
+            </summary>
+        </member>
+        <member name="F:Symbol.Notification.NotifyState.ON">
+            <summary>
+            The notification object is on.
+            </summary>
+        </member>
+        <member name="F:Symbol.Notification.NotifyState.CYCLE">
+            <summary>
+            The notification object is cycling though its states.
+            </summary>
+        </member>
+        <member name="F:Symbol.Notification.NotifyState.UNKNOWN">
+            <summary>
+            The notification object is in an unknown state.
+            </summary>
+        </member>
+        <member name="T:Symbol.Notification.NotifyObject">
+            <summary>
+            The NotifyObject class is the base class that provides the common notification 
+            functionality for the different notify type objects.
+            </summary>
+            <remarks>
+            The Beeper, LED, and Vibrator classes are derived from the NotifyObject base class.
+            This class is an abstract class and therefore cannot be instantiated on its own.
+            </remarks>
+        </member>
+        <member name="M:Symbol.Notification.NotifyObject.#ctor(Symbol.Generic.Device)">
+            <summary>
+            The NotifyObject contructor with settable device object.
+            </summary>
+            <remarks>
+            An exception will be thrown if the device object does not represent a 
+            notification object.
+            </remarks>
+            <param name="device">A notification device object.</param>
+        </member>
+        <member name="M:Symbol.Notification.NotifyObject.Finalize">
+            <summary>
+            Allows a NotifyObject to attempt to free resources and perform other cleanup 
+            operations before it is reclaimed by garbage collection.
+            </summary>
+        </member>
+        <member name="M:Symbol.Notification.NotifyObject.OnStateChange(System.EventArgs)">
+            <summary>
+            Called by MessageWindow class to notify UI thread of state change. 
+            </summary>
+            <param name="e">A System.EventArgs object.</param>
+        </member>
+        <member name="M:Symbol.Notification.NotifyObject.Dispose">
+            <summary>
+            Frees up all resources used by the NotifyObject, including any objects it has
+            created. It is strongly recommended that this method be called when the 
+            NotifyObject is no longer needed by the application.
+            </summary>
+        </member>
+        <member name="P:Symbol.Notification.NotifyObject.State">
+            <summary>
+            The State of the notification object. 
+            </summary>
+            <value>
+            One of the NotifyState members.
+            </value>
+        </member>
+        <member name="P:Symbol.Notification.NotifyObject.Type">
+            <summary>
+            Get the NotifyType of the notification object.
+            </summary>
+            <value>
+            A NotifyType member that specifies the type of notification object. (LED, Beeper,
+            etc.)
+            </value>
+        </member>
+        <member name="P:Symbol.Notification.NotifyObject.Version">
+            <summary>
+            Get version information.
+            </summary>
+            <value>
+            A <see cref="P:Symbol.Notification.NotifyObject.Version"/> object that contain version information about the
+            assembly and underlying driver stack.
+            </value>
+        </member>
+        <member name="P:Symbol.Notification.NotifyObject.Name">
+            <summary>
+            Get the name of the notification object.
+            </summary>
+            <value>
+            A string that contains the device name for the notification object.
+            </value>
+        </member>
+        <member name="E:Symbol.Notification.NotifyObject.StateChange">
+            <summary>
+            Attach to this notification event to be called back when a notify event occurs.
+            </summary>
+            <value>
+            A <see cref="T:System.EventHandler"/> delegate of the method that will be invoked
+            when a notify event occurs.
+            </value>
+        </member>
+        <member name="T:Symbol.Notification.Beeper">
+            <summary>
+            The Beeper class provides access to beeper specific notification functionality.
+            </summary>
+            <remarks>
+            Not all devices provide Beeper functionality. 
+            </remarks>
+        </member>
+        <member name="M:Symbol.Notification.Beeper.#ctor(Symbol.Generic.Device)">
+            <summary>
+            Beeper constructor with settable device object.
+            </summary>
+            <param name="device">A <see cref="T:Symbol.Notification.Device"/> object that must be of 
+            NotifyType.BEEPER otherwise an exception will be thrown.</param>
+        </member>
+        <member name="P:Symbol.Notification.Beeper.Frequency">
+            <summary>
+            Configure the frequency of beep (in Hertz).
+            </summary>
+            <value>
+            An integer that provides information about the frequency of the beep in hertz.
+            </value>
+            <remarks>Only positive integer values are accepted. Any negative/invalid values provided will 
+            result in Symbol.Exception.InvalidUsageException("Negative values are not allowed...") being thrown.
+            </remarks>
+        </member>
+        <member name="P:Symbol.Notification.Beeper.Volume">
+            <summary>
+            Configure the volume of beep.
+            </summary>
+            <value>
+            An Integer value that represents the volume of the beeper.
+            </value>
+            <remarks>Only positive integer values are accepted. Any negative/invalid values provided will 
+            result in Symbol.Exception.InvalidUsageException("Negative values are not allowed...") being thrown.
+            </remarks>
+        </member>
+        <member name="P:Symbol.Notification.Beeper.Duration">
+            <summary>
+            Configure the duration of beep.
+            </summary>
+            <value>
+            An Integer value that represents the duration of the beep in milliseconds.
+            </value>
+            <remarks>Only positive integer values are accepted. Any negative/invalid values provided will 
+            result in Symbol.Exception.InvalidUsageException("Negative values are not allowed...") being thrown.
+            </remarks>
+        </member>
+        <member name="T:Symbol.Notification.LED">
+            <summary>
+            The LED class provides access to notification lights on the device.
+            </summary>
+            <remarks>
+            Not all devices provide notification LEDs. 
+            </remarks>
+        </member>
+        <member name="M:Symbol.Notification.LED.#ctor(Symbol.Generic.Device)">
+            <summary>
+            LED contructor with settable device.
+            </summary>
+            <param name="device">A <see cref="T:Symbol.Notification.Device"/> object. This object must be of type
+            NotifyType.LED or otherwise an exception will be thrown.</param>
+        </member>
+        <member name="P:Symbol.Notification.LED.OnDuration">
+            <summary>
+            Configure how long the LED will remain on.
+            </summary>
+            <value>
+            An Integer value that represents the duration that the LED will remain on in
+            milliseconds.
+            </value>
+            <remarks>Only positive integer values are accepted. Any negative/invalid values provided will 
+            result in Symbol.Exception.InvalidUsageException("Negative values are not allowed...") being thrown.
+            </remarks>
+        </member>
+        <member name="P:Symbol.Notification.LED.OffDuration">
+            <summary>
+            Configure how long the LED will remain off during a cycle.
+            </summary>
+            <value>
+            An Integer value that represents the duration that the LED will remain off in
+            milliseconds during a cycle.
+            </value>
+            <remarks>Only positive integer values are accepted. Any negative/invalid values provided will 
+            result in Symbol.Exception.InvalidUsageException("Negative values are not allowed...") being thrown.
+            </remarks>
+        </member>
+        <member name="P:Symbol.Notification.LED.CycleCount">
+            <summary>
+            Number of cycles (on + off) to run before shutting off the LED.
+            </summary>
+            <value>
+            An integer that contains the number of cycles. A cycle includes both an on and 
+            an off phase.
+            </value>
+            <remarks>Only positive integer values are accepted. Any negative/invalid values provided will 
+            result in Symbol.Exception.InvalidUsageException("Negative values are not allowed...") being thrown.
+            </remarks>
+        </member>
+        <member name="T:Symbol.Notification.Vibrator">
+            <summary>
+            The Vibrator class provides access to the motion notification mechanism on the device.
+            </summary>
+            <remarks>
+            Not all devices provide motion based notification. 
+            </remarks>
+        </member>
+        <member name="M:Symbol.Notification.Vibrator.#ctor(Symbol.Generic.Device)">
+            <summary>
+            The Vibrator contructor with settable device object.
+            </summary>
+            <param name="device">A <see cref="T:Symbol.Notification.Device"/> object. The object must be of type
+            NotifyType.VIBRATOR or otherwise an OperationFailureException will occur.</param>
+        </member>
+        <member name="P:Symbol.Notification.Vibrator.Duration">
+            <summary>
+            Configure the duration of motion.
+            </summary>
+            <value>
+            An Integer value that represents the duration of the motion in milliseconds.
+            </value>
+            <remarks>Only positive integer values are accepted. Any negative/invalid values provided will 
+            result in Symbol.Exception.InvalidUsageException("Negative values are not allowed...") being thrown.
+            </remarks>
+        </member>
+        <member name="T:Symbol.Notification.NotifyType">
+            <summary>
+            Defines the different types of notify objects supported on Symbol mobile devices.
+            </summary>
+        </member>
+        <member name="F:Symbol.Notification.NotifyType.LED">
+            <summary>
+            An indicator light notification object.
+            </summary>
+        </member>
+        <member name="F:Symbol.Notification.NotifyType.BEEPER">
+            <summary>
+            A beeper that can make different tones.
+            </summary>
+        </member>
+        <member name="F:Symbol.Notification.NotifyType.VIBRATOR">
+            <summary>
+            A vibrator notification object.
+            </summary>
+        </member>
+        <member name="F:Symbol.Notification.NotifyType.UNKNOWN">
+            <summary>
+            An unknown notification object.
+            </summary>
+        </member>
+        <member name="T:Symbol.Notification.Device">
+            <summary>
+            The Symbol.Notification.Device class provides information about all the
+            available notification hardware in the system.
+            </summary>
+            <remarks>
+            The Symbol.Notification.Device class provides an excellent starting point for
+            applications that wish to gain more information about the available notification
+            objects. The AvailableDevices property provides a static Device array with each
+            entry mapping to available notification hardware. 
+            </remarks>
+        </member>
+        <member name="M:Symbol.Notification.Device.#ctor(System.String,Symbol.Notification.NotifyType,System.Int32)">
+            <summary>
+            Device constructor with settable DeviceName, notification type, and index. 
+            </summary>
+            <remarks>
+            Not normally called by the developer. It is recommended that developers gain 
+            access to notification information through the AvailableDevices device array.
+            </remarks>
+            <param name="name">Name of the notification hardware.</param>
+            <param name="type">Type of the notify device</param>
+            <param name="index">Index of the device</param>
+        </member>
+        <member name="M:Symbol.Notification.Device.#ctor(System.String,Symbol.Notification.NotifyType,System.Int32,System.Boolean)">
+            <summary>
+            Device contructor with settable simulation flag.
+            </summary>
+            <remarks>
+            Not normally called by the developer. It is recommended that developers gain 
+            access to notification information through the AvailableDevices device array.
+            </remarks>
+            <param name="name">Name of the notification hardware.</param>
+            <param name="type">Type of the notify device</param>
+            <param name="index">Index of the device</param>
+            <param name="simulating">If the device is a simulated device.</param>
+        </member>
+        <member name="P:Symbol.Notification.Device.AvailableDevices">
+            <summary>
+            The AvailableDevices property can be used to obtain a list of all available 
+            notify hardware for use with the notification classes.
+            </summary>
+            <remarks>
+            The AvailableDevices property provides a static Device array with each entry
+            mapping to available notify hardware. Each entry can be used to contruct an
+            object based on the notify hardware information.
+            </remarks>
+            <value>
+            A <see cref="T:Symbol.Notification.Device"/> array that represents all available notify hardware.
+            </value>
+        </member>
+        <member name="P:Symbol.Notification.Device.ObjectType">
+            <summary>
+            Returns the type of the notification hardware. 
+            </summary>
+            <remarks>
+            This information is used by applications to determine which Notify object can
+            be contructed.
+            </remarks>
+            <value>
+            An NotifyType value that specifies what type of device that is being targeted.
+            </value>
+        </member>
+        <member name="P:Symbol.Notification.Device.ObjectIndex">
+            <summary>
+            Get the index of the object.
+            </summary>
+            <remarks>
+            The index of the object is the number (zero indexed) of the object during the 
+            enumeration process.
+            </remarks>
+            <value>
+            An integer that contains the object index.
+            </value>
+        </member>
+        <member name="P:Symbol.Notification.Device.IsSimulatingDevice">
+            <summary>
+            Specifies whether or not the notification hardware is being simulated.
+            </summary>
+            <value>
+            A boolean flag that specifies the simulation status of the notification device.
+            </value>
+        </member>
+        <member name="T:Symbol.Notification.Version">
+            <summary>
+            Symbol.Notification.Version class.
+            </summary>
+        </member>
+        <member name="M:Symbol.Notification.Version.#ctor">
+            <summary>
+            Default Version class constructor.
+            </summary>
+        </member>
+        <member name="M:Symbol.Notification.Version.#ctor(System.Boolean)">
+            <summary>
+            Version constructor with simulation flag.
+            </summary>
+            <param name="bSimulating">A boolean flag that specifies whether or not the 
+            notification APIs are being simulated.</param>
+        </member>
+        <member name="P:Symbol.Notification.Version.Assembly">
+            <summary>
+            Version of the the assembly.
+            </summary>
+        </member>
+        <member name="P:Symbol.Notification.Version.CAPI">
+            <summary>
+            Version of the underlying Notify 'C' API.
+            </summary>
+        </member>
+        <member name="F:Symbol.Notification.STRUCT_INFO.dwAllocated">
+            <summary>
+            Size of the allocated structure, in bytes.
+            </summary>
+        </member>
+        <member name="F:Symbol.Notification.STRUCT_INFO.dwUsed">
+            <summary>
+            Amount of memory the structure actually uses, in bytes.
+            </summary>
+        </member>
+        <member name="M:Symbol.Notification.NotifyMarshal.FindFirst(Symbol.Notification.NOTIFY_FINDINFO@,System.IntPtr@)">
+            <summary>
+            Marshal the Notify_FindFirst call
+            </summary>
+        </member>
+    </members>
+</doc>

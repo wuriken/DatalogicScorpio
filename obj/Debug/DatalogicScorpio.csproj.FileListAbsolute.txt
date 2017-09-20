@@ -38,3 +38,9 @@ C:\Users\Alex\Desktop\РРО\DatalogicScorpio\DatalogicScorpio\obj\Debug\Datalog
 C:\Users\Alex\Desktop\РРО\DatalogicScorpio\DatalogicScorpio\obj\Debug\ru\DatalogicScorpio.resources.dll
 C:\Users\Alex\Desktop\РРО\DatalogicScorpio\DatalogicScorpio\obj\Debug\DatalogicScorpio.exe
 C:\Users\Alex\Desktop\РРО\DatalogicScorpio\DatalogicScorpio\obj\Debug\DatalogicScorpio.pdb
+C:\Users\user\Desktop\Projects\DatalogicScorpio\bin\Debug\Symbol.Audio.dll
+C:\Users\user\Desktop\Projects\DatalogicScorpio\bin\Debug\Symbol.dll
+C:\Users\user\Desktop\Projects\DatalogicScorpio\bin\Debug\Symbol.Notification.dll
+C:\Users\user\Desktop\Projects\DatalogicScorpio\bin\Debug\Symbol.xml
+C:\Users\user\Desktop\Projects\DatalogicScorpio\bin\Debug\Symbol.Notification.xml
+C:\Users\user\Desktop\Projects\DatalogicScorpio\bin\Debug\Symbol.Audio.xml
