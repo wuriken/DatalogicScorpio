@@ -184,7 +184,7 @@ namespace DatalogicScorpio.CurrentInvoices
 
         private void TxtBxGoodName_GotFocus(object sender, EventArgs e)
         {
-            InpPanelCurInv.Enabled = true;
+            //InpPanelCurInv.Enabled = true;
         }
 
         private void TxtBxGoodName_LostFocus(object sender, EventArgs e)

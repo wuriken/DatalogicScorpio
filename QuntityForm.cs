@@ -155,7 +155,7 @@ namespace DatalogicScorpio
 
         private void TxtBxPrice_GotFocus(object sender, EventArgs e)
         {
-            InptPanelQuantityForm.Enabled = true;
+            //InptPanelQuantityForm.Enabled = true;
             if (TxtBxPrice.Text == "0.00" || TxtBxPrice.Text == "0")
                 TxtBxPrice.Text = string.Empty;
         }
@@ -163,6 +163,11 @@ namespace DatalogicScorpio
         private void TxtBxPrice_LostFocus(object sender, EventArgs e)
         {
             InptPanelQuantityForm.Enabled = false;
+        }
+
+        private void InptPanelQuantityForm_EnabledChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

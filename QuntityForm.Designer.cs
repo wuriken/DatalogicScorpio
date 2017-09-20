@@ -6,7 +6,6 @@
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
-        private System.Windows.Forms.MainMenu mainMenu1;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -31,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuntityForm));
-            this.mainMenu1 = new System.Windows.Forms.MainMenu();
             this.TxtBxQuant = new System.Windows.Forms.TextBox();
             this.BtnOk = new System.Windows.Forms.Button();
             this.LblGoodName = new System.Windows.Forms.Label();
@@ -48,6 +46,8 @@
             this.ChkBxIsWeight = new System.Windows.Forms.CheckBox();
             this.CmbBxUnit = new System.Windows.Forms.ComboBox();
             this.TxtBxArticle = new System.Windows.Forms.TextBox();
+            this.LblArticle = new System.Windows.Forms.Label();
+            this.LblProdName = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // TxtBxQuant
@@ -74,6 +74,10 @@
             // 
             resources.ApplyResources(this.LblBarCode, "LblBarCode");
             this.LblBarCode.Name = "LblBarCode";
+            // 
+            // InptPanelQuantityForm
+            // 
+            this.InptPanelQuantityForm.EnabledChanged += new System.EventHandler(this.InptPanelQuantityForm_EnabledChanged);
             // 
             // TxtBxGoodName
             // 
@@ -138,12 +142,24 @@
             resources.ApplyResources(this.TxtBxArticle, "TxtBxArticle");
             this.TxtBxArticle.Name = "TxtBxArticle";
             // 
+            // LblArticle
+            // 
+            resources.ApplyResources(this.LblArticle, "LblArticle");
+            this.LblArticle.Name = "LblArticle";
+            // 
+            // LblProdName
+            // 
+            resources.ApplyResources(this.LblProdName, "LblProdName");
+            this.LblProdName.Name = "LblProdName";
+            // 
             // QuntityForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             resources.ApplyResources(this, "$this");
             this.BackColor = System.Drawing.Color.Gainsboro;
+            this.Controls.Add(this.LblProdName);
+            this.Controls.Add(this.LblArticle);
             this.Controls.Add(this.TxtBxArticle);
             this.Controls.Add(this.CmbBxUnit);
             this.Controls.Add(this.ChkBxIsWeight);
@@ -159,7 +175,6 @@
             this.Controls.Add(this.LblGoodName);
             this.Controls.Add(this.BtnOk);
             this.Controls.Add(this.TxtBxQuant);
-            this.Menu = this.mainMenu1;
             this.MinimizeBox = false;
             this.Name = "QuntityForm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -187,5 +202,7 @@
         private System.Windows.Forms.CheckBox ChkBxIsWeight;
         private System.Windows.Forms.ComboBox CmbBxUnit;
         private System.Windows.Forms.TextBox TxtBxArticle;
+        private System.Windows.Forms.Label LblArticle;
+        private System.Windows.Forms.Label LblProdName;
     }
 }

@@ -6,7 +6,6 @@
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
-        private System.Windows.Forms.MainMenu mainMenu1;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -30,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.mainMenu1 = new System.Windows.Forms.MainMenu();
             this.BtnNewInvoice = new System.Windows.Forms.Button();
             this.BtnOpenInvoice = new System.Windows.Forms.Button();
             this.BtnClose = new System.Windows.Forms.Button();
@@ -119,7 +117,6 @@
             this.Controls.Add(this.BtnClose);
             this.Controls.Add(this.BtnOpenInvoice);
             this.Controls.Add(this.BtnNewInvoice);
-            this.Menu = this.mainMenu1;
             this.Name = "Form1";
             this.Closed += new System.EventHandler(this.Form1_Closed);
             this.Activated += new System.EventHandler(this.Form1_Activated);

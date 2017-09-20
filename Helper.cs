@@ -97,45 +97,64 @@ namespace DatalogicScorpio
 
         public static int[] ArrivalInvoiceCount()
         {
-            DirectoryInfo[] dirInfo = new DirectoryInfo(PathToRootDirectory).GetDirectories();
-            int[] count = new int[] { 0, 0 };
-            for (int i = 0; i < dirInfo.Length; i++)
-			{
-                FileInfo[] fileInf = dirInfo[i].GetFiles();
-                for (int j = 0; j < fileInf.Length; j++)
+            try
+            {
+                DirectoryInfo[] dirInfo = new DirectoryInfo(PathToRootDirectory).GetDirectories();
+                int[] count = new int[] { 0, 0 };
+                for (int i = 0; i < dirInfo.Length; i++)
                 {
-                    if (fileInf[j].Name.Contains(InvoiceType.Arrival.ToString()) && !fileInf[j].Name.EndsWith(".exc"))
-                        count[0]++;
-                    else if (fileInf[j].Name.Contains(InvoiceType.Arrival.ToString()) && fileInf[j].Name.EndsWith(".exc"))
-                        count[1]++;
+                    FileInfo[] fileInf = dirInfo[i].GetFiles();
+                    for (int j = 0; j < fileInf.Length; j++)
+                    {
+                        if (fileInf[j].Name.Contains(InvoiceType.Arrival.ToString()) && !fileInf[j].Name.EndsWith(".exc"))
+                            count[0]++;
+                        else if (fileInf[j].Name.Contains(InvoiceType.Arrival.ToString()) && fileInf[j].Name.EndsWith(".exc"))
+                            count[1]++;
+                    }
                 }
-			}
-                
-            return count;
+                return count;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return new int[] { 0, 0 };
+            
         }
 
         public static int[] InventoryInvoiceCount()
         {
-            DirectoryInfo[] dirInfo = new DirectoryInfo(PathToRootDirectory).GetDirectories();
-            int[] count = new int[] { 0, 0 };
-            for (int i = 0; i < dirInfo.Length; i++)
+            try
             {
-                FileInfo[] fileInf = dirInfo[i].GetFiles();
-                for (int j = 0; j < fileInf.Length; j++)
+                DirectoryInfo[] dirInfo = new DirectoryInfo(PathToRootDirectory).GetDirectories();
+                int[] count = new int[] { 0, 0 };
+                for (int i = 0; i < dirInfo.Length; i++)
                 {
-                    if (fileInf[j].Name.Contains(InvoiceType.Inventory.ToString()) && !fileInf[j].Name.EndsWith(".exc"))
-                        count[0]++;
-                    else if (fileInf[j].Name.Contains(InvoiceType.Inventory.ToString()) && fileInf[j].Name.EndsWith(".exc"))
-                        count[1]++; 
+                    FileInfo[] fileInf = dirInfo[i].GetFiles();
+                    for (int j = 0; j < fileInf.Length; j++)
+                    {
+                        if (fileInf[j].Name.Contains(InvoiceType.Inventory.ToString()) && !fileInf[j].Name.EndsWith(".exc"))
+                            count[0]++;
+                        else if (fileInf[j].Name.Contains(InvoiceType.Inventory.ToString()) && fileInf[j].Name.EndsWith(".exc"))
+                            count[1]++;
+                    }
                 }
+                return count;
             }
-            return count;
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return new int[] { 0, 0 };
+          
         }
 
         public static int[] ProductionsInvoiceCount()
         {
-            DirectoryInfo[] dirInfo = new DirectoryInfo(PathToRootDirectory).GetDirectories();
-            int[] count = new int[] { 0, 0 };
+            try
+            {
+                DirectoryInfo[] dirInfo = new DirectoryInfo(PathToRootDirectory).GetDirectories();
+                int[] count = new int[] { 0, 0 };
                 for (int i = 0; i < dirInfo.Length; i++)
                 {
                     FileInfo[] fileInf = dirInfo[i].GetFiles();
@@ -147,8 +166,15 @@ namespace DatalogicScorpio
                             count[1]++;
                     }
                 }
+                return count;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
-            return count;
+            return new int[] { 0, 0 };
+       
         }
 
         public static string CurrentDirectoryCheck()
@@ -167,8 +193,16 @@ namespace DatalogicScorpio
 
         public static DirectoryInfo[] GetWorkDirectories()
         {
-            DirectoryInfo dirInfo = new DirectoryInfo(PathToRootDirectory);
-            return dirInfo.GetDirectories();
+            try
+            {
+                DirectoryInfo dirInfo = new DirectoryInfo(PathToRootDirectory);
+                return dirInfo.GetDirectories();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return new DirectoryInfo[] { };
         }
 
         public static DirectoryInfo RootDirectoryInfo()

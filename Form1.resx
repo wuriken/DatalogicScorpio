@@ -117,15 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="mainMenu1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="BtnNewInvoice.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 11pt, style=Bold</value>
+  </data>
   <data name="BtnNewInvoice.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 33</value>
+    <value>4, 10</value>
   </data>
   <data name="BtnNewInvoice.Size" type="System.Drawing.Size, System.Drawing">
-    <value>313, 20</value>
+    <value>313, 25</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="BtnNewInvoice.TabIndex" type="System.Int32, mscorlib">
@@ -146,11 +146,14 @@
   <data name="&gt;&gt;BtnNewInvoice.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
+  <data name="BtnOpenInvoice.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 11pt, style=Bold</value>
+  </data>
   <data name="BtnOpenInvoice.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 111</value>
+    <value>3, 101</value>
   </data>
   <data name="BtnOpenInvoice.Size" type="System.Drawing.Size, System.Drawing">
-    <value>313, 20</value>
+    <value>313, 25</value>
   </data>
   <data name="BtnOpenInvoice.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -171,7 +174,7 @@
     <value>7</value>
   </data>
   <data name="BtnClose.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 230</value>
+    <value>3, 214</value>
   </data>
   <data name="BtnClose.Size" type="System.Drawing.Size, System.Drawing">
     <value>313, 20</value>
@@ -195,7 +198,7 @@
     <value>6</value>
   </data>
   <data name="BtnSinhrozization.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 178</value>
+    <value>3, 162</value>
   </data>
   <data name="BtnSinhrozization.Size" type="System.Drawing.Size, System.Drawing">
     <value>313, 20</value>
@@ -218,11 +221,14 @@
   <data name="&gt;&gt;BtnSinhrozization.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
+  <data name="BtnResidues.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 11pt, style=Bold</value>
+  </data>
   <data name="BtnResidues.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 137</value>
+    <value>3, 133</value>
   </data>
   <data name="BtnResidues.Size" type="System.Drawing.Size, System.Drawing">
-    <value>313, 20</value>
+    <value>313, 25</value>
   </data>
   <data name="BtnResidues.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -242,11 +248,14 @@
   <data name="&gt;&gt;BtnResidues.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
+  <data name="BtnNewInvent.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 11pt, style=Bold</value>
+  </data>
   <data name="BtnNewInvent.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 59</value>
+    <value>4, 40</value>
   </data>
   <data name="BtnNewInvent.Size" type="System.Drawing.Size, System.Drawing">
-    <value>313, 20</value>
+    <value>313, 25</value>
   </data>
   <data name="BtnNewInvent.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -266,11 +275,14 @@
   <data name="&gt;&gt;BtnNewInvent.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <data name="BtnShiftInfo.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 11pt, style=Bold</value>
+  </data>
   <data name="BtnShiftInfo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 85</value>
+    <value>3, 70</value>
   </data>
   <data name="BtnShiftInfo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>313, 20</value>
+    <value>313, 25</value>
   </data>
   <data name="BtnShiftInfo.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -291,7 +303,7 @@
     <value>2</value>
   </data>
   <data name="BtnArchive.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 204</value>
+    <value>3, 188</value>
   </data>
   <data name="BtnArchive.Size" type="System.Drawing.Size, System.Drawing">
     <value>313, 20</value>
@@ -318,10 +330,10 @@
     <value>Tahoma, 9pt, style=Bold</value>
   </data>
   <data name="LblTermInfo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 253</value>
+    <value>4, 237</value>
   </data>
   <data name="LblTermInfo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>233, 14</value>
+    <value>262, 20</value>
   </data>
   <data name="&gt;&gt;LblTermInfo.Name" xml:space="preserve">
     <value>LblTermInfo</value>
@@ -342,7 +354,7 @@
     <value>True</value>
   </metadata>
   <metadata name="$this.Skin" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
+    <value>False</value>
   </metadata>
   <data name="$this.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -518,12 +530,6 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Datalogic</value>
-  </data>
-  <data name="&gt;&gt;mainMenu1.Name" xml:space="preserve">
-    <value>mainMenu1</value>
-  </data>
-  <data name="&gt;&gt;mainMenu1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MainMenu, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>Form1</value>

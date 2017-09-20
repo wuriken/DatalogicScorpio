@@ -6,7 +6,6 @@
         /// Требуется переменная конструктора.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
-        private System.Windows.Forms.MainMenu mainMenu1;
 
         /// <summary>
         /// Освободить все используемые ресурсы.
@@ -30,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.mainMenu1 = new System.Windows.Forms.MainMenu();
             this.TrVwInvoice = new System.Windows.Forms.TreeView();
             this.TxtBoxDate = new System.Windows.Forms.TextBox();
             this.TxtBxName = new System.Windows.Forms.TextBox();
@@ -57,7 +55,7 @@
             this.TrVwInvoice.Location = new System.Drawing.Point(4, 158);
             this.TrVwInvoice.Name = "TrVwInvoice";
             this.TrVwInvoice.ShowRootLines = false;
-            this.TrVwInvoice.Size = new System.Drawing.Size(233, 90);
+            this.TrVwInvoice.Size = new System.Drawing.Size(294, 88);
             this.TrVwInvoice.TabIndex = 0;
             this.TrVwInvoice.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.TrVwInvoice_AfterSelect);
             this.TrVwInvoice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TrVwInvoice_KeyPress);
@@ -68,7 +66,7 @@
             this.TxtBoxDate.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
             this.TxtBoxDate.Location = new System.Drawing.Point(77, 47);
             this.TxtBoxDate.Name = "TxtBoxDate";
-            this.TxtBoxDate.Size = new System.Drawing.Size(152, 19);
+            this.TxtBoxDate.Size = new System.Drawing.Size(221, 19);
             this.TxtBoxDate.TabIndex = 9;
             // 
             // TxtBxName
@@ -77,7 +75,7 @@
             this.TxtBxName.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
             this.TxtBxName.Location = new System.Drawing.Point(77, 23);
             this.TxtBxName.Name = "TxtBxName";
-            this.TxtBxName.Size = new System.Drawing.Size(152, 19);
+            this.TxtBxName.Size = new System.Drawing.Size(221, 19);
             this.TxtBxName.TabIndex = 8;
             // 
             // LblDate
@@ -117,9 +115,9 @@
             // 
             // BtnSave
             // 
-            this.BtnSave.Location = new System.Drawing.Point(4, 271);
+            this.BtnSave.Location = new System.Drawing.Point(135, 249);
             this.BtnSave.Name = "BtnSave";
-            this.BtnSave.Size = new System.Drawing.Size(110, 20);
+            this.BtnSave.Size = new System.Drawing.Size(77, 20);
             this.BtnSave.TabIndex = 14;
             this.BtnSave.Text = "Сохранить";
             this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
@@ -136,9 +134,9 @@
             // 
             // BtnCancel
             // 
-            this.BtnCancel.Location = new System.Drawing.Point(126, 271);
+            this.BtnCancel.Location = new System.Drawing.Point(218, 249);
             this.BtnCancel.Name = "BtnCancel";
-            this.BtnCancel.Size = new System.Drawing.Size(110, 20);
+            this.BtnCancel.Size = new System.Drawing.Size(80, 20);
             this.BtnCancel.TabIndex = 18;
             this.BtnCancel.Text = "Отмена";
             this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
@@ -187,15 +185,15 @@
             // CmbBxStorage
             // 
             this.CmbBxStorage.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
-            this.CmbBxStorage.Location = new System.Drawing.Point(135, 136);
+            this.CmbBxStorage.Location = new System.Drawing.Point(137, 137);
             this.CmbBxStorage.Name = "CmbBxStorage";
-            this.CmbBxStorage.Size = new System.Drawing.Size(100, 20);
+            this.CmbBxStorage.Size = new System.Drawing.Size(161, 20);
             this.CmbBxStorage.TabIndex = 26;
             // 
             // LblInvSum
             // 
             this.LblInvSum.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.LblInvSum.Location = new System.Drawing.Point(4, 251);
+            this.LblInvSum.Location = new System.Drawing.Point(3, 249);
             this.LblInvSum.Name = "LblInvSum";
             this.LblInvSum.Size = new System.Drawing.Size(100, 17);
             this.LblInvSum.Text = "Сумма:";
@@ -203,9 +201,9 @@
             // LblInvSumValue
             // 
             this.LblInvSumValue.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            this.LblInvSumValue.Location = new System.Drawing.Point(60, 251);
+            this.LblInvSumValue.Location = new System.Drawing.Point(59, 249);
             this.LblInvSumValue.Name = "LblInvSumValue";
-            this.LblInvSumValue.Size = new System.Drawing.Size(100, 14);
+            this.LblInvSumValue.Size = new System.Drawing.Size(71, 17);
             this.LblInvSumValue.Text = "0.00";
             // 
             // Invoice
@@ -214,7 +212,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClientSize = new System.Drawing.Size(240, 294);
+            this.ClientSize = new System.Drawing.Size(315, 280);
             this.Controls.Add(this.LblInvSumValue);
             this.Controls.Add(this.LblInvSum);
             this.Controls.Add(this.CmbBxStorage);
@@ -236,7 +234,6 @@
             this.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
             this.KeyPreview = true;
             this.Location = new System.Drawing.Point(0, 0);
-            this.Menu = this.mainMenu1;
             this.MinimizeBox = false;
             this.Name = "Invoice";
             this.Text = "Документ";

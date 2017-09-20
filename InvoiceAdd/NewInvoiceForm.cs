@@ -153,7 +153,7 @@ namespace DatalogicScorpio
 
         private void TxtBxDocName_GotFocus(object sender, EventArgs e)
         {
-            InpPnNewInvForm.Enabled = true;
+           // InpPnNewInvForm.Enabled = true;
             Helper.KeyboardChange(InpPnNewInvForm);
         }
 
@@ -164,7 +164,7 @@ namespace DatalogicScorpio
 
         private void TxtBxGoodName_GotFocus(object sender, EventArgs e)
         {
-            InpPnNewInvForm.Enabled = true;
+           // InpPnNewInvForm.Enabled = true;
         }
 
         private void TxtBxGoodName_LostFocus(object sender, EventArgs e)
@@ -214,5 +214,6 @@ namespace DatalogicScorpio
             if (e.KeyChar == '\u0008')
                 e.Handled = false;
         }
+
     }
 }

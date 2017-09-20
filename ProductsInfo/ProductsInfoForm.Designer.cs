@@ -6,7 +6,6 @@
         /// Требуется переменная конструктора.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
-        private System.Windows.Forms.MainMenu mainMenu1;
 
         /// <summary>
         /// Освободить все используемые ресурсы.
@@ -29,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.mainMenu1 = new System.Windows.Forms.MainMenu();
             this.BtnClose = new System.Windows.Forms.Button();
             this.TxtBxBarCode = new System.Windows.Forms.TextBox();
             this.LblBarCode = new System.Windows.Forms.Label();
@@ -53,7 +51,7 @@
             // 
             // BtnClose
             // 
-            this.BtnClose.Location = new System.Drawing.Point(163, 259);
+            this.BtnClose.Location = new System.Drawing.Point(206, 247);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.Size = new System.Drawing.Size(72, 20);
             this.BtnClose.TabIndex = 0;
@@ -89,7 +87,7 @@
             this.TxtBxName.Enabled = false;
             this.TxtBxName.Location = new System.Drawing.Point(5, 92);
             this.TxtBxName.Name = "TxtBxName";
-            this.TxtBxName.Size = new System.Drawing.Size(232, 21);
+            this.TxtBxName.Size = new System.Drawing.Size(260, 21);
             this.TxtBxName.TabIndex = 4;
             // 
             // LblProdQuant
@@ -210,7 +208,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClientSize = new System.Drawing.Size(240, 294);
+            this.ClientSize = new System.Drawing.Size(315, 280);
             this.Controls.Add(this.LblWeightCode);
             this.Controls.Add(this.LblUnit);
             this.Controls.Add(this.LblGroupValue);
@@ -231,7 +229,6 @@
             this.Controls.Add(this.TxtBxBarCode);
             this.Controls.Add(this.BtnClose);
             this.Location = new System.Drawing.Point(0, 0);
-            this.Menu = this.mainMenu1;
             this.MinimizeBox = false;
             this.Name = "ProductsInfoForm";
             this.Text = "Информация";
