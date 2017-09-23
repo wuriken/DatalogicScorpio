@@ -36,36 +36,39 @@
             // 
             // TrVwCurrentInvoices
             // 
-            this.TrVwCurrentInvoices.Location = new System.Drawing.Point(4, 27);
+            this.TrVwCurrentInvoices.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold);
+            this.TrVwCurrentInvoices.Location = new System.Drawing.Point(4, 38);
             this.TrVwCurrentInvoices.Name = "TrVwCurrentInvoices";
-            this.TrVwCurrentInvoices.Size = new System.Drawing.Size(308, 204);
+            this.TrVwCurrentInvoices.Size = new System.Drawing.Size(308, 193);
             this.TrVwCurrentInvoices.TabIndex = 0;
             this.TrVwCurrentInvoices.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TrVwCurrentInvoices_KeyPress);
             // 
             // BtnInvoiceOpen
             // 
+            this.BtnInvoiceOpen.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold);
             this.BtnInvoiceOpen.Location = new System.Drawing.Point(4, 237);
             this.BtnInvoiceOpen.Name = "BtnInvoiceOpen";
-            this.BtnInvoiceOpen.Size = new System.Drawing.Size(115, 20);
+            this.BtnInvoiceOpen.Size = new System.Drawing.Size(155, 31);
             this.BtnInvoiceOpen.TabIndex = 1;
             this.BtnInvoiceOpen.Text = "Открыть";
             this.BtnInvoiceOpen.Click += new System.EventHandler(this.BtnInvoiceOpen_Click);
             // 
             // BtnClose
             // 
-            this.BtnClose.Location = new System.Drawing.Point(175, 237);
+            this.BtnClose.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold);
+            this.BtnClose.Location = new System.Drawing.Point(165, 237);
             this.BtnClose.Name = "BtnClose";
-            this.BtnClose.Size = new System.Drawing.Size(111, 20);
+            this.BtnClose.Size = new System.Drawing.Size(147, 31);
             this.BtnClose.TabIndex = 2;
             this.BtnClose.Text = "Отмена";
             this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
             // LblWindowName
             // 
-            this.LblWindowName.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            this.LblWindowName.Location = new System.Drawing.Point(55, 4);
+            this.LblWindowName.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold);
+            this.LblWindowName.Location = new System.Drawing.Point(30, 4);
             this.LblWindowName.Name = "LblWindowName";
-            this.LblWindowName.Size = new System.Drawing.Size(161, 20);
+            this.LblWindowName.Size = new System.Drawing.Size(231, 31);
             this.LblWindowName.Text = "Список документов";
             // 
             // CurrentInvoices

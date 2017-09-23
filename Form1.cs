@@ -106,7 +106,7 @@ namespace DatalogicScorpio
             }
             if (e.KeyChar == (int)Keys.D3)
             {
-                button1_Click(this, new EventArgs());
+              //  button1_Click(this, new EventArgs());
             }
             if (e.KeyChar == (int)Keys.D0)
             {
@@ -184,8 +184,8 @@ namespace DatalogicScorpio
 
         private void button1_Click(object sender, EventArgs e)
         {
-            newInvForm = new NewInvoiceForm(InvoiceType.Production);
-            newInvForm.ShowDialog();
+            //newInvForm = new NewInvoiceForm(InvoiceType.Production);
+            //newInvForm.ShowDialog();
         }
 
         private void BtnArchive_Click(object sender, EventArgs e)

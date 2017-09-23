@@ -119,13 +119,13 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="TxtBxQuant.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 9pt, style=Bold</value>
+    <value>Tahoma, 18pt, style=Bold</value>
   </data>
   <data name="TxtBxQuant.Location" type="System.Drawing.Point, System.Drawing">
-    <value>128, 217</value>
+    <value>173, 191</value>
   </data>
   <data name="TxtBxQuant.Size" type="System.Drawing.Size, System.Drawing">
-    <value>99, 21</value>
+    <value>121, 35</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="TxtBxQuant.TabIndex" type="System.Int32, mscorlib">
@@ -143,11 +143,14 @@
   <data name="&gt;&gt;TxtBxQuant.ZOrder" xml:space="preserve">
     <value>16</value>
   </data>
+  <data name="BtnOk.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 16pt, style=Bold</value>
+  </data>
   <data name="BtnOk.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 248</value>
+    <value>4, 232</value>
   </data>
   <data name="BtnOk.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 20</value>
+    <value>120, 45</value>
   </data>
   <data name="BtnOk.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -168,13 +171,13 @@
     <value>15</value>
   </data>
   <data name="LblGoodName.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 9pt, style=Bold</value>
+    <value>Tahoma, 11pt, style=Bold</value>
   </data>
   <data name="LblGoodName.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 32</value>
   </data>
   <data name="LblGoodName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>83, 20</value>
+    <value>101, 20</value>
   </data>
   <data name="LblGoodName.Text" xml:space="preserve">
     <value>Штрих-код:</value>
@@ -192,10 +195,10 @@
     <value>14</value>
   </data>
   <data name="LblBarCode.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 9pt, style=Bold</value>
+    <value>Tahoma, 12pt, style=Bold</value>
   </data>
   <data name="LblBarCode.Location" type="System.Drawing.Point, System.Drawing">
-    <value>85, 31</value>
+    <value>110, 32</value>
   </data>
   <data name="LblBarCode.Size" type="System.Drawing.Size, System.Drawing">
     <value>145, 20</value>
@@ -216,13 +219,16 @@
     <value>134, 17</value>
   </metadata>
   <data name="TxtBxGoodName.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 9pt, style=Bold</value>
+    <value>Tahoma, 11pt, style=Bold</value>
   </data>
   <data name="TxtBxGoodName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 79</value>
+    <value>2, 89</value>
+  </data>
+  <data name="TxtBxGoodName.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="TxtBxGoodName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>291, 21</value>
+    <value>292, 47</value>
   </data>
   <data name="TxtBxGoodName.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -239,11 +245,14 @@
   <data name="&gt;&gt;TxtBxGoodName.ZOrder" xml:space="preserve">
     <value>12</value>
   </data>
+  <data name="BtnCancel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 16pt, style=Bold</value>
+  </data>
   <data name="BtnCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>173, 248</value>
+    <value>173, 232</value>
   </data>
   <data name="BtnCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 20</value>
+    <value>121, 45</value>
   </data>
   <data name="BtnCancel.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -264,13 +273,13 @@
     <value>11</value>
   </data>
   <data name="LblWindowName.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 10pt, style=Bold</value>
+    <value>Tahoma, 12pt, style=Bold</value>
   </data>
   <data name="LblWindowName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>77, 9</value>
+    <value>4, 6</value>
   </data>
   <data name="LblWindowName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
+    <value>131, 20</value>
   </data>
   <data name="LblWindowName.Text" xml:space="preserve">
     <value>Количество</value>
@@ -288,13 +297,13 @@
     <value>10</value>
   </data>
   <data name="TxtBxPrice.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 9pt, style=Bold</value>
+    <value>Tahoma, 18pt, style=Bold</value>
   </data>
   <data name="TxtBxPrice.Location" type="System.Drawing.Point, System.Drawing">
-    <value>128, 190</value>
+    <value>4, 191</value>
   </data>
   <data name="TxtBxPrice.Size" type="System.Drawing.Size, System.Drawing">
-    <value>99, 21</value>
+    <value>120, 35</value>
   </data>
   <data name="TxtBxPrice.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -312,13 +321,13 @@
     <value>9</value>
   </data>
   <data name="LblPrice.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 9pt, style=Bold</value>
+    <value>Tahoma, 14pt, style=Bold</value>
   </data>
   <data name="LblPrice.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 191</value>
+    <value>3, 162</value>
   </data>
   <data name="LblPrice.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
+    <value>83, 24</value>
   </data>
   <data name="LblPrice.Text" xml:space="preserve">
     <value>Цена:</value>
@@ -336,13 +345,13 @@
     <value>8</value>
   </data>
   <data name="LblQuant.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 9pt, style=Bold</value>
+    <value>Tahoma, 14pt, style=Bold</value>
   </data>
   <data name="LblQuant.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 217</value>
+    <value>130, 162</value>
   </data>
   <data name="LblQuant.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
+    <value>83, 29</value>
   </data>
   <data name="LblQuant.Text" xml:space="preserve">
     <value>Кол-во:</value>
@@ -360,13 +369,16 @@
     <value>7</value>
   </data>
   <data name="CmbBxType.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 136</value>
+    <value>195, 29</value>
   </data>
   <data name="CmbBxType.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 22</value>
   </data>
   <data name="CmbBxType.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
+  </data>
+  <data name="CmbBxType.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;CmbBxType.Name" xml:space="preserve">
     <value>CmbBxType</value>
@@ -381,13 +393,16 @@
     <value>6</value>
   </data>
   <data name="CmbBxGroup.Location" type="System.Drawing.Point, System.Drawing">
-    <value>128, 136</value>
+    <value>195, 6</value>
   </data>
   <data name="CmbBxGroup.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 22</value>
   </data>
   <data name="CmbBxGroup.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
+  </data>
+  <data name="CmbBxGroup.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;CmbBxGroup.Name" xml:space="preserve">
     <value>CmbBxGroup</value>
@@ -405,7 +420,7 @@
     <value>Tahoma, 9pt, style=Bold</value>
   </data>
   <data name="ChkBxIsWeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 106</value>
+    <value>173, 29</value>
   </data>
   <data name="ChkBxIsWeight.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 20</value>
@@ -416,11 +431,17 @@
   <data name="ChkBxIsWeight.Text" xml:space="preserve">
     <value>Весовой</value>
   </data>
+  <data name="ChkBxIsWeight.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="CmbBxUnit.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 11pt, style=Bold</value>
+  </data>
   <data name="CmbBxUnit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>128, 108</value>
+    <value>219, 142</value>
   </data>
   <data name="CmbBxUnit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 22</value>
+    <value>59, 25</value>
   </data>
   <data name="CmbBxUnit.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -437,11 +458,14 @@
   <data name="&gt;&gt;CmbBxUnit.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <data name="TxtBxArticle.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 11pt, style=Bold</value>
+  </data>
   <data name="TxtBxArticle.Location" type="System.Drawing.Point, System.Drawing">
-    <value>128, 163</value>
+    <value>92, 142</value>
   </data>
   <data name="TxtBxArticle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 21</value>
+    <value>100, 24</value>
   </data>
   <data name="TxtBxArticle.TabIndex" type="System.Int32, mscorlib">
     <value>20</value>
@@ -459,13 +483,13 @@
     <value>2</value>
   </data>
   <data name="LblArticle.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 9pt, style=Bold</value>
+    <value>Tahoma, 11pt, style=Bold</value>
   </data>
   <data name="LblArticle.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 164</value>
+    <value>4, 142</value>
   </data>
   <data name="LblArticle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
+    <value>86, 20</value>
   </data>
   <data name="LblArticle.Text" xml:space="preserve">
     <value>Артикул:</value>
@@ -483,13 +507,13 @@
     <value>1</value>
   </data>
   <data name="LblProdName.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 9pt, style=Bold</value>
+    <value>Tahoma, 12pt, style=Bold</value>
   </data>
   <data name="LblProdName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 56</value>
+    <value>3, 66</value>
   </data>
   <data name="LblProdName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 20</value>
+    <value>209, 20</value>
   </data>
   <data name="LblProdName.Text" xml:space="preserve">
     <value>Наименование товара:</value>
