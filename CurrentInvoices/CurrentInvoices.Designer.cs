@@ -39,14 +39,14 @@
             this.TrVwCurrentInvoices.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold);
             this.TrVwCurrentInvoices.Location = new System.Drawing.Point(4, 38);
             this.TrVwCurrentInvoices.Name = "TrVwCurrentInvoices";
-            this.TrVwCurrentInvoices.Size = new System.Drawing.Size(308, 193);
+            this.TrVwCurrentInvoices.Size = new System.Drawing.Size(308, 182);
             this.TrVwCurrentInvoices.TabIndex = 0;
             this.TrVwCurrentInvoices.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TrVwCurrentInvoices_KeyPress);
             // 
             // BtnInvoiceOpen
             // 
             this.BtnInvoiceOpen.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold);
-            this.BtnInvoiceOpen.Location = new System.Drawing.Point(4, 237);
+            this.BtnInvoiceOpen.Location = new System.Drawing.Point(4, 226);
             this.BtnInvoiceOpen.Name = "BtnInvoiceOpen";
             this.BtnInvoiceOpen.Size = new System.Drawing.Size(155, 31);
             this.BtnInvoiceOpen.TabIndex = 1;
@@ -56,7 +56,7 @@
             // BtnClose
             // 
             this.BtnClose.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold);
-            this.BtnClose.Location = new System.Drawing.Point(165, 237);
+            this.BtnClose.Location = new System.Drawing.Point(165, 226);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.Size = new System.Drawing.Size(147, 31);
             this.BtnClose.TabIndex = 2;

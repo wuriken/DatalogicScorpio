@@ -56,7 +56,7 @@
             this.TxtBxBarCode.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular);
             this.TxtBxBarCode.Location = new System.Drawing.Point(128, 53);
             this.TxtBxBarCode.Name = "TxtBxBarCode";
-            this.TxtBxBarCode.Size = new System.Drawing.Size(184, 23);
+            this.TxtBxBarCode.Size = new System.Drawing.Size(174, 23);
             this.TxtBxBarCode.TabIndex = 0;
             this.TxtBxBarCode.GotFocus += new System.EventHandler(this.TxtBxBarCode_GotFocus);
             this.TxtBxBarCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtBxBarCode_KeyPress);
@@ -64,10 +64,10 @@
             // TrwViewInvoice
             // 
             this.TrwViewInvoice.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular);
-            this.TrwViewInvoice.Location = new System.Drawing.Point(3, 137);
+            this.TrwViewInvoice.Location = new System.Drawing.Point(-7, 137);
             this.TrwViewInvoice.Name = "TrwViewInvoice";
             this.TrwViewInvoice.ShowRootLines = false;
-            this.TrwViewInvoice.Size = new System.Drawing.Size(309, 94);
+            this.TrwViewInvoice.Size = new System.Drawing.Size(309, 73);
             this.TrwViewInvoice.TabIndex = 2;
             this.TrwViewInvoice.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.TrwViewInvoice_AfterSelect);
             // 
@@ -85,7 +85,7 @@
             // BtnInvoiceSave
             // 
             this.BtnInvoiceSave.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
-            this.BtnInvoiceSave.Location = new System.Drawing.Point(12, 257);
+            this.BtnInvoiceSave.Location = new System.Drawing.Point(5, 237);
             this.BtnInvoiceSave.Name = "BtnInvoiceSave";
             this.BtnInvoiceSave.Size = new System.Drawing.Size(101, 20);
             this.BtnInvoiceSave.TabIndex = 4;
@@ -97,7 +97,7 @@
             this.LblDocName.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
             this.LblDocName.Location = new System.Drawing.Point(3, 28);
             this.LblDocName.Name = "LblDocName";
-            this.LblDocName.Size = new System.Drawing.Size(112, 20);
+            this.LblDocName.Size = new System.Drawing.Size(126, 20);
             this.LblDocName.Text = "Имя документа:";
             // 
             // TxtBxDocName
@@ -105,7 +105,7 @@
             this.TxtBxDocName.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular);
             this.TxtBxDocName.Location = new System.Drawing.Point(128, 28);
             this.TxtBxDocName.Name = "TxtBxDocName";
-            this.TxtBxDocName.Size = new System.Drawing.Size(184, 23);
+            this.TxtBxDocName.Size = new System.Drawing.Size(174, 23);
             this.TxtBxDocName.TabIndex = 6;
             this.TxtBxDocName.GotFocus += new System.EventHandler(this.TxtBxDocName_GotFocus);
             this.TxtBxDocName.LostFocus += new System.EventHandler(this.TxtBxDocName_LostFocus);
@@ -124,7 +124,7 @@
             // BtnCancel
             // 
             this.BtnCancel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
-            this.BtnCancel.Location = new System.Drawing.Point(130, 257);
+            this.BtnCancel.Location = new System.Drawing.Point(133, 237);
             this.BtnCancel.Name = "BtnCancel";
             this.BtnCancel.Size = new System.Drawing.Size(93, 20);
             this.BtnCancel.TabIndex = 9;
@@ -197,7 +197,7 @@
             this.CmbBxStorage.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular);
             this.CmbBxStorage.Location = new System.Drawing.Point(128, 78);
             this.CmbBxStorage.Name = "CmbBxStorage";
-            this.CmbBxStorage.Size = new System.Drawing.Size(184, 25);
+            this.CmbBxStorage.Size = new System.Drawing.Size(174, 25);
             this.CmbBxStorage.TabIndex = 23;
             // 
             // CmbBxContractors
@@ -205,13 +205,13 @@
             this.CmbBxContractors.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular);
             this.CmbBxContractors.Location = new System.Drawing.Point(128, 106);
             this.CmbBxContractors.Name = "CmbBxContractors";
-            this.CmbBxContractors.Size = new System.Drawing.Size(184, 25);
+            this.CmbBxContractors.Size = new System.Drawing.Size(174, 25);
             this.CmbBxContractors.TabIndex = 24;
             // 
             // LblInvSumm
             // 
             this.LblInvSumm.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold);
-            this.LblInvSumm.Location = new System.Drawing.Point(12, 234);
+            this.LblInvSumm.Location = new System.Drawing.Point(5, 213);
             this.LblInvSumm.Name = "LblInvSumm";
             this.LblInvSumm.Size = new System.Drawing.Size(89, 22);
             this.LblInvSumm.Text = "Сумма:";
@@ -219,7 +219,7 @@
             // LblInvSumValue
             // 
             this.LblInvSumValue.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold);
-            this.LblInvSumValue.Location = new System.Drawing.Point(107, 234);
+            this.LblInvSumValue.Location = new System.Drawing.Point(100, 213);
             this.LblInvSumValue.Name = "LblInvSumValue";
             this.LblInvSumValue.Size = new System.Drawing.Size(57, 20);
             this.LblInvSumValue.Text = "0.00";
